@@ -3,6 +3,9 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } 
 import './App.css';
 
 function App() {
+  // API URL - change to http://localhost:3001 for local development
+  const API_URL = 'https://vidboost-backend-production.up.railway.app';
+  
   const { isSignedIn, user } = useUser();
   // Navigation state
   const [currentView, setCurrentView] = useState('upload'); // 'dashboard', 'upload', 'analyzing', 'results'
@@ -94,7 +97,7 @@ function App() {
       
       // Notify on new signup (first time user)
       if (!vidboostNotified && !userIsAdmin) {
-        fetch('http://localhost:3001/api/notify-signup', {
+        fetch(API_URL + '/api/notify-signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -155,7 +158,7 @@ function App() {
       setShowLimitReached(false);
       
       // Notify about new premium subscription
-      fetch('http://localhost:3001/api/notify-premium', {
+      fetch(API_URL + '/api/notify-premium', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -223,7 +226,7 @@ function App() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3001/api/create-checkout-session', {
+      const response = await fetch(API_URL + '/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ priceType, userId: user?.id, tier }),
@@ -247,7 +250,7 @@ function App() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3001/api/join-waitlist', {
+      const response = await fetch(API_URL + '/api/join-waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: waitlistEmail, userId: user?.id }),
@@ -300,7 +303,7 @@ function App() {
       const videoTitle = titleAndDescription ? titleAndDescription.split('\n')[0] : 'Video content';
       const transcriptSummary = transcription?.text ? transcription.text.substring(0, 500) : '';
 
-      const response = await fetch('http://localhost:3001/api/generate-thumbnail', {
+      const response = await fetch(API_URL + '/api/generate-thumbnail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -368,7 +371,7 @@ function App() {
     setGeneratedScript('');
     
     try {
-      const response = await fetch('http://localhost:3001/api/generate-script', {
+      const response = await fetch(API_URL + '/api/generate-script', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -428,7 +431,7 @@ function App() {
       
       // Competitor analysis mode
       if (analysisMode === 'competitor') {
-        response = await fetch('http://localhost:3001/api/analyze-competitor', {
+        response = await fetch(API_URL + '/api/analyze-competitor', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url: youtubeUrl }),
@@ -468,12 +471,12 @@ function App() {
       if (videoFile) {
         const formData = new FormData();
         formData.append('video', videoFile);
-        response = await fetch('http://localhost:3001/api/transcribe', {
+        response = await fetch(API_URL + '/api/transcribe', {
           method: 'POST',
           body: formData,
         });
       } else {
-        response = await fetch('http://localhost:3001/api/transcribe-youtube', {
+        response = await fetch(API_URL + '/api/transcribe-youtube', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url: youtubeUrl }),
