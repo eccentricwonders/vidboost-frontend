@@ -1049,133 +1049,6 @@ function App() {
   };
 
   // Script Writer Modal
-  const ScriptWriterModal = () => {
-    if (!showScriptModal) return null;
-    
-    const lengthOptions = [
-      { id: 'short', label: '⚡ Short', desc: '1-2 min' },
-      { id: 'medium', label: '📹 Medium', desc: '5-7 min' },
-      { id: 'long', label: '🎬 Long', desc: '10-15 min' }
-    ];
-    
-    const styleOptions = [
-      { id: 'educational', label: '📚 Educational', desc: 'Teach & inform' },
-      { id: 'entertaining', label: '🎉 Entertaining', desc: 'Fun & engaging' },
-      { id: 'storytelling', label: '📖 Storytelling', desc: 'Narrative-driven' },
-      { id: 'tutorial', label: '🛠️ Tutorial', desc: 'Step-by-step' },
-      { id: 'motivational', label: '🔥 Motivational', desc: 'Inspire action' }
-    ];
-    
-    return (
-      <div className="result-modal-overlay" onClick={() => setShowScriptModal(false)}>
-        <div className="result-modal script-modal" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={() => setShowScriptModal(false)}>✕</button>
-          
-          <div className="modal-header">
-            <span className="modal-icon">✍️</span>
-            <h2>AI Script Writer</h2>
-            <p className="modal-subtitle">Generate a complete video script in seconds!</p>
-          </div>
-          
-          {!generatedScript && !isGeneratingScript && (
-            <div className="script-form">
-              <div className="script-input-group">
-                <label>📝 Video Topic *</label>
-                <input 
-                  type="text" 
-                  placeholder="e.g., How to start a YouTube channel in 2025"
-                  value={scriptTopic}
-                  onChange={(e) => setScriptTopic(e.target.value)}
-                  className="script-topic-input"
-                />
-              </div>
-              
-              <div className="script-input-group">
-                <label>⏱️ Video Length</label>
-                <div className="script-options">
-                  {lengthOptions.map(opt => (
-                    <button 
-                      key={opt.id}
-                      className={`script-option ${scriptLength === opt.id ? 'selected' : ''}`}
-                      onClick={() => setScriptLength(opt.id)}
-                    >
-                      <span className="opt-label">{opt.label}</span>
-                      <span className="opt-desc">{opt.desc}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="script-input-group">
-                <label>🎨 Content Style</label>
-                <div className="script-options style-options-grid">
-                  {styleOptions.map(opt => (
-                    <button 
-                      key={opt.id}
-                      className={`script-option ${scriptStyle === opt.id ? 'selected' : ''}`}
-                      onClick={() => setScriptStyle(opt.id)}
-                    >
-                      <span className="opt-label">{opt.label}</span>
-                      <span className="opt-desc">{opt.desc}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="script-input-group">
-                <label>👥 Target Audience (optional)</label>
-                <input 
-                  type="text" 
-                  placeholder="e.g., Beginners, small business owners, teens"
-                  value={scriptAudience}
-                  onChange={(e) => setScriptAudience(e.target.value)}
-                  className="script-topic-input"
-                />
-              </div>
-              
-              <button 
-                className="primary-btn generate-script-btn"
-                onClick={handleGenerateScript}
-                disabled={!scriptTopic.trim()}
-              >
-                ✨ Generate Script
-              </button>
-            </div>
-          )}
-          
-          {isGeneratingScript && (
-            <div className="script-loading">
-              <div className="loader"></div>
-              <p>Writing your script...</p>
-              <p className="loading-hint">This takes about 15-30 seconds</p>
-            </div>
-          )}
-          
-          {generatedScript && !isGeneratingScript && (
-            <div className="script-result">
-              <div className="script-content">
-                {generatedScript.split('\n').map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
-              </div>
-              <div className="script-actions">
-                <button className="copy-btn" onClick={() => handleCopyText(generatedScript)}>
-                  📋 Copy Script
-                </button>
-                <button className="secondary-btn" onClick={() => {
-                  setGeneratedScript('');
-                  setScriptTopic('');
-                }}>
-                  ✍️ Write Another
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  };
-
   const GridCard = ({ icon, title, subtitle, onClick, highlight }) => (
     <div className={`grid-card ${highlight ? 'grid-card-highlight' : ''}`} onClick={onClick}>
       <span className="grid-card-icon">{icon}</span>
@@ -1664,7 +1537,124 @@ function App() {
         )}
         {showTerms && <TermsModal />}
         <ThumbnailModal />
-        <ScriptWriterModal />
+        {showScriptModal && (
+          <div className="result-modal-overlay" onClick={() => setShowScriptModal(false)}>
+            <div className="result-modal script-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close-btn" onClick={() => setShowScriptModal(false)}>✕</button>
+              
+              <div className="modal-header">
+                <span className="modal-icon">✍️</span>
+                <h2>AI Script Writer</h2>
+                <p className="modal-subtitle">Generate a complete video script in seconds!</p>
+              </div>
+              
+              {!generatedScript && !isGeneratingScript && (
+                <div className="script-form">
+                  <div className="script-input-group">
+                    <label>📝 Video Topic *</label>
+                    <input 
+                      type="text" 
+                      placeholder="e.g., How to start a YouTube channel in 2025"
+                      value={scriptTopic}
+                      onChange={(e) => setScriptTopic(e.target.value)}
+                      className="script-topic-input"
+                    />
+                  </div>
+                  
+                  <div className="script-input-group">
+                    <label>⏱️ Video Length</label>
+                    <div className="script-options">
+                      {[
+                        { id: 'short', label: '⚡ Short', desc: '1-2 min' },
+                        { id: 'medium', label: '📹 Medium', desc: '5-7 min' },
+                        { id: 'long', label: '🎬 Long', desc: '10-15 min' }
+                      ].map(opt => (
+                        <button 
+                          key={opt.id}
+                          className={`script-option ${scriptLength === opt.id ? 'selected' : ''}`}
+                          onClick={() => setScriptLength(opt.id)}
+                        >
+                          <span className="opt-label">{opt.label}</span>
+                          <span className="opt-desc">{opt.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="script-input-group">
+                    <label>🎨 Content Style</label>
+                    <div className="script-options style-options-grid">
+                      {[
+                        { id: 'educational', label: '📚 Educational', desc: 'Teach & inform' },
+                        { id: 'entertaining', label: '🎉 Entertaining', desc: 'Fun & engaging' },
+                        { id: 'storytelling', label: '📖 Storytelling', desc: 'Narrative-driven' },
+                        { id: 'tutorial', label: '🛠️ Tutorial', desc: 'Step-by-step' },
+                        { id: 'motivational', label: '🔥 Motivational', desc: 'Inspire action' }
+                      ].map(opt => (
+                        <button 
+                          key={opt.id}
+                          className={`script-option ${scriptStyle === opt.id ? 'selected' : ''}`}
+                          onClick={() => setScriptStyle(opt.id)}
+                        >
+                          <span className="opt-label">{opt.label}</span>
+                          <span className="opt-desc">{opt.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="script-input-group">
+                    <label>👥 Target Audience (optional)</label>
+                    <input 
+                      type="text" 
+                      placeholder="e.g., Beginners, small business owners, teens"
+                      value={scriptAudience}
+                      onChange={(e) => setScriptAudience(e.target.value)}
+                      className="script-topic-input"
+                    />
+                  </div>
+                  
+                  <button 
+                    className="primary-btn generate-script-btn"
+                    onClick={handleGenerateScript}
+                    disabled={!scriptTopic.trim()}
+                  >
+                    ✨ Generate Script
+                  </button>
+                </div>
+              )}
+              
+              {isGeneratingScript && (
+                <div className="script-loading">
+                  <div className="loader"></div>
+                  <p>Writing your script...</p>
+                  <p className="loading-hint">This takes about 15-30 seconds</p>
+                </div>
+              )}
+              
+              {generatedScript && !isGeneratingScript && (
+                <div className="script-result">
+                  <div className="script-content">
+                    {generatedScript.split('\n').map((line, i) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                  </div>
+                  <div className="script-actions">
+                    <button className="copy-btn" onClick={() => handleCopyText(generatedScript)}>
+                      📋 Copy Script
+                    </button>
+                    <button className="secondary-btn" onClick={() => {
+                      setGeneratedScript('');
+                      setScriptTopic('');
+                    }}>
+                      ✍️ Write Another
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </main>
       
       <footer className="footer">
