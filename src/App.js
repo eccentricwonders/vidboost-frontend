@@ -76,6 +76,7 @@ function App() {
   // Admin emails - these accounts bypass all limits
   const ADMIN_EMAILS = [
     'eccentricwonders@gmail.com',
+    'smarlowvr@gmail.com',
   ];
   
   const isAdmin = user?.primaryEmailAddress?.emailAddress && 
