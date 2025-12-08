@@ -69,6 +69,10 @@ function App() {
   const [generatedScript, setGeneratedScript] = useState('');
   const [isGeneratingScript, setIsGeneratingScript] = useState(false);
 
+  // Support modal state
+  const [showSupportModal, setShowSupportModal] = useState(false);
+  const [supportSubmitted, setSupportSubmitted] = useState(false);
+
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
   const MAX_HISTORY_ITEMS = 15;
@@ -1658,8 +1662,83 @@ function App() {
         )}
       </main>
       
+      {/* Support Modal */}
+      {showSupportModal && (
+        <div className="result-modal-overlay" onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}>
+          <div className="result-modal support-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}>✕</button>
+            
+            <div className="modal-header">
+              <span className="modal-icon">💬</span>
+              <h2>VidBoost Support</h2>
+              <p className="modal-subtitle">We're here to help!</p>
+            </div>
+            
+            {!supportSubmitted ? (
+              <form 
+                action="https://formspree.io/f/manrdeov"
+                method="POST"
+                onSubmit={() => setSupportSubmitted(true)}
+                className="support-form"
+              >
+                <div className="script-input-group">
+                  <label>📧 Your Email</label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="your@email.com"
+                    defaultValue={user?.primaryEmailAddress?.emailAddress || ''}
+                    required
+                    className="script-topic-input"
+                  />
+                </div>
+                
+                <div className="script-input-group">
+                  <label>📋 Issue Type</label>
+                  <select name="issue_type" className="script-topic-input" required>
+                    <option value="">Select an issue type...</option>
+                    <option value="bug">Bug / Something's not working</option>
+                    <option value="feature">Feature request</option>
+                    <option value="billing">Billing question</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div className="script-input-group">
+                  <label>📝 Describe Your Issue</label>
+                  <textarea 
+                    name="message"
+                    placeholder="Please describe what happened or what you need help with..."
+                    rows="5"
+                    required
+                    className="script-topic-input"
+                    style={{ resize: 'vertical', minHeight: '100px' }}
+                  />
+                </div>
+                
+                <button type="submit" className="primary-btn generate-script-btn">
+                  📤 Send Message
+                </button>
+              </form>
+            ) : (
+              <div className="support-success">
+                <div className="success-icon">✅</div>
+                <h3>Message Sent!</h3>
+                <p>Thanks for reaching out. We'll get back to you as soon as possible.</p>
+                <button 
+                  className="secondary-btn" 
+                  onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+      
       <footer className="footer">
-        <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span></p>
+        <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
       </footer>
     </div>
   );
