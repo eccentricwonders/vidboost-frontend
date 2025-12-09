@@ -8,7 +8,7 @@ function App() {
   
   const { isSignedIn, user } = useUser();
   // Navigation state
-  const [currentView, setCurrentView] = useState('upload'); // 'upload', 'analyzing', 'results'
+  const [currentView, setCurrentView] = useState('upload'); // 'dashboard', 'upload', 'analyzing', 'results'
   const [videoFile, setVideoFile] = useState(null);
   const [youtubeUrl, setYoutubeUrl] = useState('');
   // Analysis results
@@ -44,6 +44,9 @@ function App() {
   const [showLimitReached, setShowLimitReached] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  // History state
+  const [videoHistory, setVideoHistory] = useState([]);
+  const [selectedHistoryItem, setSelectedHistoryItem] = useState(null);
   // Pro tier state
   const [proEnabled, setProEnabled] = useState(false);
   const [waitlistEmail, setWaitlistEmail] = useState('');
@@ -72,6 +75,7 @@ function App() {
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
+  const MAX_HISTORY_ITEMS = 15;
   
   // Admin emails - these accounts bypass all limits
   const ADMIN_EMAILS = [
@@ -87,6 +91,7 @@ function App() {
     if (isSignedIn && user) {
       const vidboostUses = user.unsafeMetadata?.vidboost_uses || 0;
       const vidboostPremium = user.unsafeMetadata?.vidboost_premium || false;
+      const vidboostHistory = user.unsafeMetadata?.vidboost_history || [];
       const vidboostThumbnails = user.unsafeMetadata?.vidboost_thumbnails_used || 0;
       const vidboostThumbReset = user.unsafeMetadata?.vidboost_thumbnails_reset || null;
       const vidboostNotified = user.unsafeMetadata?.vidboost_notified || false;
@@ -118,6 +123,7 @@ function App() {
       // Admin gets unlimited, others get normal count
       setUsesLeft(userIsAdmin ? 999 : FREE_USES - vidboostUses);
       setIsPremium(vidboostPremium);
+      setVideoHistory(vidboostHistory);
       
       // Check if we need to reset monthly thumbnail count
       const now = new Date();
@@ -141,6 +147,11 @@ function App() {
       
       if (vidboostUses >= FREE_USES && !vidboostPremium) {
         setShowLimitReached(true);
+      }
+      
+      // Show dashboard if user has history, otherwise show upload
+      if (vidboostHistory.length > 0) {
+        setCurrentView('dashboard');
       }
     }
     
@@ -170,11 +181,49 @@ function App() {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
         setActiveModal(null);
+        setSelectedHistoryItem(null);
       }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
+
+  // Save video to history
+  const saveToHistory = async (analysisData) => {
+    if (!user) return;
+    
+    const historyItem = {
+      id: Date.now(),
+      title: analysisData.videoTitle || 'Untitled Video',
+      url: analysisData.videoUrl || null,
+      source: analysisData.videoSource || 'upload',
+      score: analysisData.overallScore || 0,
+      summary: analysisData.quickSummary || 'Video analysis',
+      date: new Date().toISOString(),
+      // Store key analysis data for quick view
+      analysisSnapshot: {
+        videoScore: analysisData.videoScore,
+        tips: analysisData.tips,
+        hookAnalysis: analysisData.hookAnalysis
+      }
+    };
+    
+    // Add to beginning of history, limit to MAX_HISTORY_ITEMS
+    const newHistory = [historyItem, ...videoHistory].slice(0, MAX_HISTORY_ITEMS);
+    setVideoHistory(newHistory);
+    
+    // Save to Clerk metadata
+    try {
+      await user.update({
+        unsafeMetadata: {
+          ...user.unsafeMetadata,
+          vidboost_history: newHistory
+        }
+      });
+    } catch (err) {
+      console.error('Error saving history:', err);
+    }
+  };
 
   const handleCheckout = async (priceType, tier = 'premium') => {
     if (!agreedToTerms) {
@@ -456,6 +505,9 @@ function App() {
         setPercentile(data.percentile);
         setTotalVideosAnalyzed(data.totalVideosAnalyzed || 0);
         
+        // Save to history
+        await saveToHistory(data);
+        
         setCurrentView('results');
         
         // Update uses count for free users
@@ -589,6 +641,24 @@ function App() {
     return match ? match[1] : '—';
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  };
+
+  const getAverageScore = () => {
+    if (videoHistory.length === 0) return 0;
+    const sum = videoHistory.reduce((acc, item) => acc + (item.score || 0), 0);
+    return Math.round(sum / videoHistory.length);
+  };
+
+  const getBestVideo = () => {
+    if (videoHistory.length === 0) return null;
+    return videoHistory.reduce((best, item) => 
+      (item.score || 0) > (best.score || 0) ? item : best
+    , videoHistory[0]);
+  };
+
   const getScoreColor = (score) => {
     if (score >= 80) return '#10b981';
     if (score >= 60) return '#f59e0b';
@@ -600,7 +670,7 @@ function App() {
   // ============================================
 
   const Logo = () => (
-    <div className="logo" style={{ cursor: 'default' }}>
+    <div className="logo" onClick={() => isSignedIn && videoHistory.length > 0 && setCurrentView('dashboard')} style={{ cursor: isSignedIn && videoHistory.length > 0 ? 'pointer' : 'default' }}>
       <svg className="logo-icon-svg" width="50" height="50" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -707,7 +777,7 @@ function App() {
             <li>✅ Competitor research</li>
             <li>✅ Title & description generator</li>
             <li>✅ 30+ hashtags per video</li>
-            <li>✅ 3 AI thumbnails per month</li>
+            <li>✅ Video history dashboard</li>
           </ul>
           {selectedTier === 'premium' && (
             <div className="tier-actions">
@@ -992,6 +1062,166 @@ function App() {
     </div>
   );
 
+  const HistoryModal = ({ item, onClose }) => {
+    if (!item) return null;
+    return (
+      <div className="result-modal-overlay" onClick={onClose}>
+        <div className="result-modal history-modal" onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close-btn" onClick={onClose}>✕</button>
+          <div className="modal-header">
+            <span className="modal-icon">📊</span>
+            <h2>{item.title}</h2>
+          </div>
+          <div className="history-modal-score">
+            <div className="big-score" style={{ color: getScoreColor(item.score) }}>
+              {item.score}
+            </div>
+            <span className="score-label">/ 100</span>
+          </div>
+          <div className="modal-content">
+            <p className="history-date">Analyzed on {new Date(item.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            {item.url && (
+              <p className="history-url">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">View on YouTube →</a>
+              </p>
+            )}
+            <div className="history-snapshot">
+              <h4>Quick Summary</h4>
+              <p>{item.summary}</p>
+              {item.analysisSnapshot?.videoScore && (
+                <>
+                  <h4>Score Breakdown</h4>
+                  {item.analysisSnapshot.videoScore.split('\n').slice(0, 10).map((line, i) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </>
+              )}
+            </div>
+          </div>
+          <div className="modal-actions">
+            <button className="secondary-btn" onClick={onClose}>Close</button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // ============================================
+  // DASHBOARD VIEW
+  // ============================================
+
+  const DashboardView = () => {
+    const avgScore = getAverageScore();
+    const bestVideo = getBestVideo();
+    
+    return (
+      <div className="dashboard-section">
+        <div className="dashboard-header">
+          <h2>📊 Your Dashboard</h2>
+          <button className="primary-btn" onClick={() => setCurrentView('upload')}>
+            + Analyze New Video
+          </button>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="stats-grid">
+          <div className="stat-card">
+            <span className="stat-icon">🎬</span>
+            <div className="stat-info">
+              <span className="stat-value">{videoHistory.length}</span>
+              <span className="stat-label">Videos Analyzed</span>
+            </div>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon">📈</span>
+            <div className="stat-info">
+              <span className="stat-value" style={{ color: getScoreColor(avgScore) }}>{avgScore}</span>
+              <span className="stat-label">Average Score</span>
+            </div>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon">🏆</span>
+            <div className="stat-info">
+              <span className="stat-value" style={{ color: getScoreColor(bestVideo?.score || 0) }}>{bestVideo?.score || 0}</span>
+              <span className="stat-label">Best Score</span>
+            </div>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon">{isPremium ? '✨' : '🎁'}</span>
+            <div className="stat-info">
+              <span className="stat-value">{isPremium ? '∞' : usesLeft}</span>
+              <span className="stat-label">{isPremium ? 'Unlimited' : 'Free Left'}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Score Trend Mini Chart */}
+        {videoHistory.length > 1 && (
+          <div className="score-trend-card">
+            <h3>📈 Score Trend</h3>
+            <div className="score-trend-chart">
+              {videoHistory.slice(0, 10).reverse().map((item, index) => (
+                <div key={item.id} className="trend-bar-container">
+                  <div 
+                    className="trend-bar" 
+                    style={{ 
+                      height: `${item.score}%`,
+                      backgroundColor: getScoreColor(item.score)
+                    }}
+                  >
+                    <span className="trend-score">{item.score}</span>
+                  </div>
+                  <span className="trend-date">{formatDate(item.date)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Video History List */}
+        <div className="history-section">
+          <h3>🕐 Recent Analyses</h3>
+          <div className="history-list">
+            {videoHistory.map((item) => (
+              <div 
+                key={item.id} 
+                className="history-item"
+                onClick={() => setSelectedHistoryItem(item)}
+              >
+                <div className="history-item-icon">
+                  {item.source === 'youtube' ? '📺' : '📁'}
+                </div>
+                <div className="history-item-info">
+                  <span className="history-item-title">{item.title}</span>
+                  <span className="history-item-date">{formatDate(item.date)}</span>
+                </div>
+                <div 
+                  className="history-item-score"
+                  style={{ backgroundColor: getScoreColor(item.score) }}
+                >
+                  {item.score}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Upgrade Prompt for Free Users */}
+        {!isPremium && (
+          <div className="upgrade-prompt">
+            <p>💡 {usesLeft > 0 ? `${usesLeft} free analyses left.` : 'No free analyses left.'} <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited access!</p>
+          </div>
+        )}
+
+        {/* History Detail Modal */}
+        <HistoryModal 
+          item={selectedHistoryItem} 
+          onClose={() => setSelectedHistoryItem(null)} 
+        />
+      </div>
+    );
+  };
+
   // ============================================
   // LIMIT REACHED VIEW
   // ============================================
@@ -1028,6 +1258,11 @@ function App() {
                 <button className="premium-btn" onClick={() => setShowPaywall(true)}>⭐ Upgrade to Premium - $5.99/month</button>
                 <p className="limit-note">One price. All features. No confusing tiers.</p>
               </div>
+              {videoHistory.length > 0 && (
+                <button className="secondary-btn" onClick={() => { setShowLimitReached(false); setCurrentView('dashboard'); }} style={{ marginTop: '15px' }}>
+                  View My Dashboard
+                </button>
+              )}
             </div>
           </div>
         </main>
@@ -1065,12 +1300,20 @@ function App() {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
+            {videoHistory.length > 0 && currentView !== 'dashboard' && currentView !== 'analyzing' && (
+              <button className="nav-btn" onClick={() => setCurrentView('dashboard')}>
+                📊 Dashboard
+              </button>
+            )}
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </div>
       </header>
       
       <main className="main-content">
+        {/* DASHBOARD VIEW */}
+        {currentView === 'dashboard' && <DashboardView />}
+
         {/* UPLOAD VIEW */}
         {currentView === 'upload' && (
           <div className="upload-section">
@@ -1152,6 +1395,12 @@ function App() {
                   ✍️ Script Writer
                 </button>
               </div>
+              
+              {videoHistory.length > 0 && (
+                <button className="secondary-btn" onClick={() => setCurrentView('dashboard')} style={{ marginTop: '10px' }}>
+                  ← Back to Dashboard
+                </button>
+              )}
             </SignedIn>
           </div>
         )}
@@ -1192,6 +1441,9 @@ function App() {
                 <div className="results-actions">
                   <button className="secondary-btn" onClick={handleStartOver}>
                     🔄 Analyze Another Video {!isPremium && `(${usesLeft} left)`}
+                  </button>
+                  <button className="secondary-btn" onClick={() => setCurrentView('dashboard')} style={{ marginLeft: '10px' }}>
+                    📊 View Dashboard
                   </button>
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
                     🏠 Back to Home
@@ -1244,6 +1496,9 @@ function App() {
                 <div className="results-actions">
                   <button className="secondary-btn" onClick={handleStartOver}>
                     🔄 Analyze Another Video {!isPremium && `(${usesLeft} left)`}
+                  </button>
+                  <button className="secondary-btn" onClick={() => setCurrentView('dashboard')} style={{ marginLeft: '10px' }}>
+                    📊 View Dashboard
                   </button>
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
                     🏠 Back to Home
