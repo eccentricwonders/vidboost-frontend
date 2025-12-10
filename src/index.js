@@ -4,7 +4,7 @@ import { ClerkProvider } from '@clerk/clerk-react';
 import './index.css';
 import App from './App';
 
-const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+const clerkPubKey = 'pk_live_Y2xlcmsudmlkYm9vc3QuYXBwJA';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
