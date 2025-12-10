@@ -653,10 +653,11 @@ function App() {
     <div className="logo" style={{ cursor: 'default' }}>
       <img 
         src="/logo.png" 
-        alt="JSMGAX Logo" 
+        alt="JSMGAX" 
         className="logo-image"
-        style={{ width: '200px', height: 'auto' }}
+        style={{ width: '80px', height: 'auto' }}
       />
+      <span className="logo-text">JSMGAX</span>
     </div>
   );
 
