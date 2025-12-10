@@ -4692,3 +4692,47 @@ body::before {
     flex-direction: column;
   }
 }
+
+/* ========================================
+   Privacy Modal Styles
+   ======================================== */
+
+.privacy-modal .terms-content ul,
+.privacy-modal .terms-content ol {
+  margin: 10px 0 15px 20px;
+  line-height: 1.8;
+}
+
+.privacy-modal .terms-content li {
+  margin-bottom: 5px;
+}
+
+.privacy-highlight {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin: 15px 0;
+}
+
+.privacy-highlight p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.terms-updated {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.terms-content ul,
+.terms-content ol {
+  margin: 10px 0 15px 20px;
+  line-height: 1.8;
+}
+
+.terms-content li {
+  margin-bottom: 5px;
+}

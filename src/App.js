@@ -43,6 +43,7 @@ function App() {
   const [usesLeft, setUsesLeft] = useState(3);
   const [showLimitReached, setShowLimitReached] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   // Pro tier state
   const [proEnabled, setProEnabled] = useState(false);
@@ -680,40 +681,225 @@ function App() {
       <div className="terms-modal">
         <h2>📜 Terms of Service</h2>
         <div className="terms-content">
-          <h3>AI-Powered Service</h3>
-          <p>VidBoost uses artificial intelligence to analyze videos, generate captions, provide tips, and suggest content ideas. AI technology, while advanced, is not perfect and may occasionally produce errors, inaccuracies, or unexpected results. By using VidBoost, you acknowledge and accept that all AI-generated content should be reviewed before use.</p>
+          <p className="terms-updated">Last Updated: December 9, 2025</p>
           
-          <h3>Age Requirement</h3>
-          <p>You must be at least 18 years old to use VidBoost or have permission from a parent or guardian. By using this service, you confirm that you meet this requirement.</p>
+          <h3>1. Acceptance of Terms</h3>
+          <p>By accessing or using VidBoost ("Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service. We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of any changes.</p>
           
-          <h3>Limitation of Liability</h3>
-          <p>VidBoost and its creators are not liable for any damages, losses, or issues arising from the use of this service, including but not limited to: inaccurate transcriptions, inappropriate suggestions, lost revenue, or any decisions made based on AI-generated content. Use this service at your own discretion and risk.</p>
+          <h3>2. Service Description</h3>
+          <p>VidBoost is an AI-powered video analysis tool designed for <strong>educational and analytical purposes</strong>. The Service helps content creators improve their videos through AI-generated feedback, suggestions, and insights.</p>
           
-          <h3>Subscription & Cancellation</h3>
-          <p>You may cancel your premium subscription at any time. Upon cancellation, you will retain access to premium features until the end of your current billing period. <strong>All payments are final and no refunds will be issued</strong> for partial months, unused time, or any other reason.</p>
+          <h3>3. Video Rights & Permitted Use</h3>
+          <p><strong>You represent and warrant that:</strong></p>
+          <ul>
+            <li>You own or have the necessary rights, licenses, and permissions to submit any video you upload or link to</li>
+            <li>When analyzing YouTube or other third-party videos, you are doing so for legitimate educational, research, or competitive analysis purposes</li>
+            <li>You will not use the Service to infringe on any third party's intellectual property rights</li>
+          </ul>
+          <p>VidBoost is intended for analyzing your own content or publicly available content for educational and analytical purposes only. <strong>Users are solely responsible for ensuring they have the right to analyze any video they submit.</strong></p>
           
-          <h3>Payment Security & Privacy</h3>
-          <p>All payments are processed securely through Stripe, a PCI-compliant payment processor. <strong>VidBoost does not store, access, or share your payment information.</strong> Your credit card details are handled entirely by Stripe and are never visible to us. We do not sell, share, or distribute any of your personal information to third parties.</p>
+          <h3>4. AI-Powered Service Disclaimer</h3>
+          <p>VidBoost uses artificial intelligence to analyze videos and generate content. AI technology, while advanced, is not perfect and may produce errors, inaccuracies, or unexpected results. <strong>All AI-generated content is provided for informational purposes only and should be reviewed before use.</strong> We make no guarantees about the accuracy, completeness, or usefulness of any AI-generated content.</p>
           
-          <h3>Prohibited Use</h3>
-          <p>You agree NOT to upload or use VidBoost for: illegal, harmful, or offensive content; copyrighted material you don't own or have rights to; content that violates others' privacy; spam, malware, or any malicious purposes; any content involving minors in inappropriate contexts. Violation of these terms may result in immediate account termination.</p>
+          <h3>5. Age Requirement</h3>
+          <p>You must be at least 18 years old to use VidBoost. By using this Service, you confirm that you meet this requirement. If you are under 18, you must have permission from a parent or legal guardian who agrees to be bound by these terms.</p>
           
-          <h3>Service Availability</h3>
-          <p>VidBoost is provided "as is" without guarantees of availability or uptime. We may experience downtime for maintenance, updates, or technical issues. We are not liable for any losses caused by service interruptions.</p>
+          <h3>6. Prohibited Use</h3>
+          <p>You agree NOT to use VidBoost for:</p>
+          <ul>
+            <li>Any illegal, harmful, fraudulent, or offensive purposes</li>
+            <li>Infringing on copyrights, trademarks, or other intellectual property rights</li>
+            <li>Content that violates any person's privacy or publicity rights</li>
+            <li>Spam, malware, phishing, or any malicious activities</li>
+            <li>Any content involving minors in inappropriate contexts</li>
+            <li>Circumventing any access controls or usage limits</li>
+            <li>Reselling, redistributing, or commercially exploiting the Service without permission</li>
+          </ul>
+          <p>Violation of these terms may result in immediate account termination without refund.</p>
           
-          <h3>Account Termination</h3>
-          <p>We reserve the right to suspend or terminate your account at any time if you violate these terms, without notice and without refund.</p>
+          <h3>7. Subscription, Payment & Refunds</h3>
+          <p>Premium subscriptions are billed monthly or yearly through Stripe. You may cancel at any time, and you will retain access until the end of your billing period. <strong>All payments are final. No refunds will be issued</strong> for partial months, unused time, dissatisfaction with AI results, or any other reason. By subscribing, you acknowledge and accept this no-refund policy.</p>
           
-          <h3>Changes to Service</h3>
-          <p>We reserve the right to modify, update, or discontinue any features of VidBoost at any time. Pricing may change with reasonable notice to subscribers.</p>
+          <h3>8. Payment Security</h3>
+          <p>All payments are processed securely through Stripe, a PCI-compliant payment processor. <strong>VidBoost does not store, access, or have visibility to your payment card information.</strong> Your payment details are handled entirely by Stripe.</p>
           
-          <h3>Content Responsibility</h3>
-          <p>You are solely responsible for the videos you upload and how you use the AI-generated content. VidBoost does not claim ownership of your content and does not store your videos after processing.</p>
+          <h3>9. Disclaimer of Warranties</h3>
+          <p><strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</strong> We disclaim all warranties including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, secure, or free of viruses or other harmful components.</p>
           
-          <h3>Acceptance of Terms</h3>
-          <p>By using VidBoost, you agree to these terms of service. We reserve the right to modify these terms at any time.</p>
+          <h3>10. Limitation of Liability</h3>
+          <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, VIDBOOST AND ITS OWNERS, OPERATORS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES</strong>, including but not limited to: loss of profits, revenue, data, or business opportunities; inaccurate AI-generated content; decisions made based on the Service; or any other damages arising from your use of or inability to use the Service. Our total liability shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+          
+          <h3>11. Indemnification</h3>
+          <p><strong>You agree to indemnify, defend, and hold harmless VidBoost and its owners, operators, employees, and affiliates</strong> from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising from: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third party's rights, including intellectual property rights; (d) any content you submit to the Service; or (e) your violation of any applicable laws or regulations.</p>
+          
+          <h3>12. Content Responsibility</h3>
+          <p>You are solely responsible for the videos you submit and how you use any AI-generated content. VidBoost does not claim ownership of your content. Videos are processed temporarily and <strong>immediately deleted after analysis</strong> — we do not store your video content.</p>
+          
+          <h3>13. Service Availability & Modifications</h3>
+          <p>We do not guarantee uptime or availability. The Service may experience downtime for maintenance, updates, or technical issues. We reserve the right to modify, suspend, or discontinue any features at any time without notice. We are not liable for any losses caused by service interruptions or changes.</p>
+          
+          <h3>14. Account Termination</h3>
+          <p>We reserve the right to suspend or terminate your account at any time, for any reason, including violation of these terms, without notice and without refund.</p>
+          
+          <h3>15. Dispute Resolution & Arbitration</h3>
+          <p>Any dispute arising from these Terms or your use of the Service shall be resolved through <strong>binding arbitration</strong> rather than in court, except for claims that qualify for small claims court. You agree to waive your right to a jury trial and to participate in a class action lawsuit. Arbitration shall be conducted in accordance with the rules of the American Arbitration Association.</p>
+          
+          <h3>16. Governing Law</h3>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Oklahoma, without regard to conflict of law principles.</p>
+          
+          <h3>17. Severability</h3>
+          <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
+          
+          <h3>18. Entire Agreement</h3>
+          <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and VidBoost regarding your use of the Service.</p>
+          
+          <h3>19. Contact</h3>
+          <p>Questions about these Terms? Contact us at: <strong>eccentricwonders@gmail.com</strong></p>
         </div>
-        <button className="primary-btn" onClick={() => setShowTerms(false)}>I Understand</button>
+        <button className="primary-btn" onClick={() => setShowTerms(false)}>I Understand & Agree</button>
+      </div>
+    </div>
+  );
+
+  const PrivacyModal = () => (
+    <div className="terms-overlay">
+      <div className="terms-modal privacy-modal">
+        <h2>🔒 Privacy Policy</h2>
+        <div className="terms-content">
+          <p className="terms-updated">Last Updated: December 9, 2025</p>
+          
+          <div className="privacy-highlight">
+            <p><strong>The Short Version:</strong> We collect minimal data, we don't store your videos, and we NEVER sell your information to anyone. Period.</p>
+          </div>
+          
+          <h3>1. Information We Collect</h3>
+          <p><strong>What we store:</strong></p>
+          <ul>
+            <li>✅ Email address — to identify your account</li>
+            <li>✅ Name — for your profile</li>
+            <li>✅ Profile picture — only if you sign in with Google</li>
+            <li>✅ Analysis count — to track free tier usage</li>
+            <li>✅ Premium status — to know if you're subscribed</li>
+            <li>✅ Thumbnail usage — to track monthly limits</li>
+          </ul>
+          
+          <p><strong>What we DO NOT store:</strong></p>
+          <ul>
+            <li>❌ Your videos — deleted immediately after analysis</li>
+            <li>❌ Transcriptions — generated, shown to you, then discarded</li>
+            <li>❌ Analysis results — displayed but never saved</li>
+            <li>❌ Credit card info — Stripe handles all payments, we never see it</li>
+            <li>❌ Browsing history — we don't track you</li>
+          </ul>
+          
+          <h3>2. We Do NOT Sell Your Information</h3>
+          <p><strong>Let's be crystal clear:</strong> We do NOT sell, rent, trade, or share your personal information with third parties for marketing or advertising purposes. Ever. Your data is yours. This applies to all users worldwide.</p>
+          
+          <h3>3. How We Use Your Information</h3>
+          <p>We use your information solely to:</p>
+          <ul>
+            <li>Provide and operate the VidBoost service</li>
+            <li>Process your payments through Stripe</li>
+            <li>Track your usage limits and subscription status</li>
+            <li>Respond to support requests</li>
+            <li>Send important service-related communications (not marketing)</li>
+          </ul>
+          
+          <h3>4. Third-Party Services</h3>
+          <p>We use trusted, industry-standard services:</p>
+          <ul>
+            <li><strong>Clerk</strong> — Authentication (handles login/signup securely)</li>
+            <li><strong>Stripe</strong> — Payment processing (PCI-compliant, we never see your card)</li>
+            <li><strong>OpenAI</strong> — AI analysis (video content is processed but not stored per their API policy)</li>
+            <li><strong>Railway/Vercel</strong> — Hosting infrastructure</li>
+          </ul>
+          <p>Each service has their own privacy policy. We only share the minimum data necessary for these services to function.</p>
+          
+          <h3>5. Video Content Processing</h3>
+          <p>When you upload a video or paste a YouTube link:</p>
+          <ol>
+            <li>We receive the video temporarily on our secure servers</li>
+            <li>We extract audio and process it through AI</li>
+            <li>We generate and display your analysis results</li>
+            <li><strong>We immediately and permanently delete the video file</strong></li>
+          </ol>
+          <p>Your video content is never stored, saved, shared, or used for any purpose other than providing you with analysis results.</p>
+          
+          <h3>6. Data Security</h3>
+          <p>We implement appropriate security measures including:</p>
+          <ul>
+            <li>HTTPS/SSL encryption for all data transmission</li>
+            <li>Secure authentication through Clerk</li>
+            <li>PCI-compliant payment processing through Stripe</li>
+            <li>Immediate deletion of video files after processing</li>
+          </ul>
+          
+          <h3>7. Data Retention</h3>
+          <ul>
+            <li><strong>Account data:</strong> Retained while your account is active</li>
+            <li><strong>Video content:</strong> Deleted immediately after analysis (not retained)</li>
+            <li><strong>Payment records:</strong> Maintained by Stripe per their policies</li>
+          </ul>
+          <p>You may request deletion of your account and all associated data at any time.</p>
+          
+          <h3>8. Your Rights</h3>
+          <p>You have the right to:</p>
+          <ul>
+            <li><strong>Access</strong> — Request a copy of your personal data</li>
+            <li><strong>Rectification</strong> — Correct inaccurate personal data</li>
+            <li><strong>Erasure</strong> — Request deletion of your data ("right to be forgotten")</li>
+            <li><strong>Data Portability</strong> — Receive your data in a portable format</li>
+            <li><strong>Object</strong> — Object to certain processing of your data</li>
+            <li><strong>Withdraw Consent</strong> — Withdraw consent at any time</li>
+          </ul>
+          <p>To exercise any of these rights, contact us at: eccentricwonders@gmail.com</p>
+          
+          <h3>9. For European Union (EU) Users — GDPR</h3>
+          <p>If you are located in the European Union, you have additional rights under the General Data Protection Regulation (GDPR):</p>
+          <ul>
+            <li>All rights listed in Section 8 above</li>
+            <li>Right to lodge a complaint with a supervisory authority</li>
+            <li>Right to restrict processing</li>
+          </ul>
+          <p>Our legal basis for processing your data is: (a) your consent; (b) performance of our contract with you; and (c) our legitimate business interests.</p>
+          
+          <h3>10. For California Residents — CCPA</h3>
+          <p>Under the California Consumer Privacy Act (CCPA), California residents have the right to:</p>
+          <ul>
+            <li>Know what personal information is collected</li>
+            <li>Know whether personal information is sold or disclosed and to whom</li>
+            <li>Say no to the sale of personal information (we don't sell your data)</li>
+            <li>Access your personal information</li>
+            <li>Request deletion of your personal information</li>
+            <li>Equal service and price, even if you exercise your privacy rights</li>
+          </ul>
+          
+          <h3>11. Children's Privacy</h3>
+          <p>VidBoost is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately and we will delete it.</p>
+          
+          <h3>12. Cookies</h3>
+          <p>We use only essential cookies necessary for:</p>
+          <ul>
+            <li>Keeping you logged in (session management)</li>
+            <li>Remembering your preferences</li>
+          </ul>
+          <p>We do NOT use advertising cookies, tracking cookies, or analytics cookies that follow you around the web.</p>
+          
+          <h3>13. International Data Transfers</h3>
+          <p>VidBoost is operated from the United States. If you are accessing from outside the US, your information may be transferred to, stored, and processed in the United States. By using VidBoost, you consent to this transfer. We ensure appropriate safeguards are in place for international data transfers.</p>
+          
+          <h3>14. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting a notice on our website or sending you an email. Your continued use after changes constitutes acceptance of the updated policy.</p>
+          
+          <h3>15. Contact Us</h3>
+          <p>For privacy-related questions or to exercise your rights:</p>
+          <p><strong>Email:</strong> eccentricwonders@gmail.com</p>
+          
+          <div className="privacy-highlight">
+            <p><strong>Summary:</strong> ✅ Minimal data collection ✅ Videos deleted immediately ✅ We NEVER sell your info ✅ Full GDPR & CCPA compliance ✅ Delete your account anytime</p>
+          </div>
+        </div>
+        <button className="primary-btn" onClick={() => setShowPrivacy(false)}>I Understand</button>
       </div>
     </div>
   );
@@ -1088,8 +1274,9 @@ function App() {
           </div>
         )}
         {showTerms && <TermsModal />}
+        {showPrivacy && <PrivacyModal />}
         <footer className="footer">
-          <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span></p>
+          <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
         </footer>
       </div>
     );
@@ -1416,6 +1603,7 @@ function App() {
           </div>
         )}
         {showTerms && <TermsModal />}
+        {showPrivacy && <PrivacyModal />}
         <ThumbnailModal />
         {showScriptModal && (
           <div className="result-modal-overlay" onClick={() => setShowScriptModal(false)}>
@@ -1650,7 +1838,7 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
+        <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
       </footer>
     </div>
   );
