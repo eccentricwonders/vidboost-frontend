@@ -650,29 +650,14 @@ function App() {
   // ============================================
 
   const Logo = () => (
-    <div className="logo" style={{ cursor: 'default' }}>
-      <svg className="logo-icon-svg" width="50" height="50" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#a855f7"/>
-            <stop offset="100%" stopColor="#ec4899"/>
-          </linearGradient>
-          <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#fef08a"/>
-            <stop offset="100%" stopColor="#f59e0b"/>
-          </linearGradient>
-          <filter id="glow2">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <polygon points="90,70 155,70 200,250 245,70 310,70 200,310" fill="url(#vGrad)"/>
-        <polygon points="215,50 175,150 200,150 160,260 230,140 200,140 240,50" fill="url(#boltGrad)" filter="url(#glow2)"/>
-      </svg>
-      <span className="logo-text">JSMGAX</span>
+    <div className="logo" style={{ cursor: 'default', flexDirection: 'column' }}>
+      <img 
+        src="/logo.png" 
+        alt="JSMGAX Logo" 
+        className="logo-icon-svg"
+        style={{ width: '180px', height: 'auto' }}
+      />
+      <span className="tagline glow-text">AI-POWERED VIDEO ENHANCEMENT</span>
     </div>
   );
 
