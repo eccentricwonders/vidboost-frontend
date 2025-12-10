@@ -72,6 +72,12 @@ function App() {
   
   // Founding member popup state
   const [showFoundingPopup, setShowFoundingPopup] = useState(false);
+  
+  // Trending videos state
+  const [trendingVideos, setTrendingVideos] = useState([]);
+  const [trendingCategory, setTrendingCategory] = useState('all');
+  const [isTrendingLoading, setIsTrendingLoading] = useState(false);
+  const [showTrendingSection, setShowTrendingSection] = useState(false);
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
@@ -193,6 +199,31 @@ function App() {
       }
     }
   }, [isSignedIn, isPremium, isAdmin]);
+
+  // Fetch trending videos
+  const fetchTrendingVideos = async (category = 'all') => {
+    setIsTrendingLoading(true);
+    try {
+      const url = category === 'all' 
+        ? `${API_URL}/api/trending`
+        : `${API_URL}/api/trending?category=${category}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.success) {
+        setTrendingVideos(data.videos);
+      }
+    } catch (error) {
+      console.error('Failed to fetch trending videos:', error);
+    }
+    setIsTrendingLoading(false);
+  };
+
+  // Load trending videos when section is opened
+  useEffect(() => {
+    if (showTrendingSection && trendingVideos.length === 0) {
+      fetchTrendingVideos();
+    }
+  }, [showTrendingSection]);
 
   const handleCheckout = async (priceType, tier = 'premium') => {
     if (!agreedToTerms) {
@@ -1109,27 +1140,106 @@ function App() {
               {/* Mode Toggle */}
               <div className="mode-toggle">
                 <button 
-                  className={`mode-btn ${analysisMode === 'myVideo' ? 'mode-btn-active' : ''}`}
-                  onClick={() => { setAnalysisMode('myVideo'); setVideoFile(null); setYoutubeUrl(''); }}
+                  className={`mode-btn ${analysisMode === 'myVideo' && !showTrendingSection ? 'mode-btn-active' : ''}`}
+                  onClick={() => { setAnalysisMode('myVideo'); setVideoFile(null); setYoutubeUrl(''); setShowTrendingSection(false); }}
                 >
                   🎬 Analyze My Video
                 </button>
                 <button 
-                  className={`mode-btn ${analysisMode === 'competitor' ? 'mode-btn-active' : ''}`}
-                  onClick={() => { setAnalysisMode('competitor'); setVideoFile(null); setYoutubeUrl(''); }}
+                  className={`mode-btn ${analysisMode === 'competitor' && !showTrendingSection ? 'mode-btn-active' : ''}`}
+                  onClick={() => { setAnalysisMode('competitor'); setVideoFile(null); setYoutubeUrl(''); setShowTrendingSection(false); }}
                 >
                   🔍 Competitor Research
                 </button>
+                <button 
+                  className={`mode-btn ${showTrendingSection ? 'mode-btn-active' : ''}`}
+                  onClick={() => setShowTrendingSection(!showTrendingSection)}
+                >
+                  🔥 Trending Now
+                </button>
               </div>
 
-              {analysisMode === 'competitor' && (
+              {analysisMode === 'competitor' && !showTrendingSection && (
                 <div className="competitor-info">
                   <p>🔍 <strong>Competitor Research Mode</strong></p>
                   <p>Paste any YouTube video URL to discover what makes it successful and learn winning tactics you can apply!</p>
                 </div>
               )}
 
-              <div className="uses-counter">
+              {/* Trending Videos Section */}
+              {showTrendingSection && (
+                <div className="trending-section">
+                  <div className="trending-header">
+                    <h3>🔥 Trending on YouTube</h3>
+                    <p>See what's hot right now and get inspired for your next video</p>
+                  </div>
+                  
+                  <div className="trending-categories">
+                    {[
+                      { id: 'all', label: '🌟 All' },
+                      { id: 'gaming', label: '🎮 Gaming' },
+                      { id: 'music', label: '🎵 Music' },
+                      { id: 'entertainment', label: '🎬 Entertainment' },
+                      { id: 'howto', label: '📚 How-To' },
+                      { id: 'tech', label: '💻 Tech' },
+                      { id: 'sports', label: '⚽ Sports' },
+                      { id: 'news', label: '📰 News' }
+                    ].map(cat => (
+                      <button
+                        key={cat.id}
+                        className={`trending-cat-btn ${trendingCategory === cat.id ? 'active' : ''}`}
+                        onClick={() => {
+                          setTrendingCategory(cat.id);
+                          fetchTrendingVideos(cat.id);
+                        }}
+                      >
+                        {cat.label}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {isTrendingLoading ? (
+                    <div className="trending-loading">
+                      <div className="loader"></div>
+                      <p>Loading trending videos...</p>
+                    </div>
+                  ) : (
+                    <div className="trending-grid">
+                      {trendingVideos.map(video => (
+                        <div key={video.id} className="trending-card">
+                          <div className="trending-thumbnail">
+                            <img src={video.thumbnail} alt={video.title} />
+                            <span className="trending-views">{video.views} views</span>
+                          </div>
+                          <div className="trending-info">
+                            <h4 className="trending-title">{video.title}</h4>
+                            <p className="trending-channel">{video.channel}</p>
+                          </div>
+                          <div className="trending-actions">
+                            <a href={video.url} target="_blank" rel="noopener noreferrer" className="trending-watch-btn">
+                              ▶️ Watch
+                            </a>
+                            <button 
+                              className="trending-analyze-btn"
+                              onClick={() => {
+                                setYoutubeUrl(video.url);
+                                setAnalysisMode('competitor');
+                                setShowTrendingSection(false);
+                              }}
+                            >
+                              🔍 Analyze
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {!showTrendingSection && (
+                <>
+                  <div className="uses-counter">
                 <span className="uses-icon">🎁</span>
                 <span className="uses-text">{isAdmin ? '🔧 Admin - Unlimited' : isPremium ? '✨ Premium - Unlimited' : `${usesLeft} free analyses left`}</span>
               </div>
@@ -1170,6 +1280,8 @@ function App() {
                   ✍️ Script Writer
                 </button>
               </div>
+                </>
+              )}
             </SignedIn>
           </div>
         )}
