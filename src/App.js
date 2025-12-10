@@ -95,18 +95,18 @@ function App() {
   // Load user data on sign in
   useEffect(() => {
     if (isSignedIn && user) {
-      const vidboostUses = user.unsafeMetadata?.vidboost_uses || 0;
-      const vidboostPremium = user.unsafeMetadata?.vidboost_premium || false;
-      const vidboostThumbnails = user.unsafeMetadata?.vidboost_thumbnails_used || 0;
-      const vidboostThumbReset = user.unsafeMetadata?.vidboost_thumbnails_reset || null;
-      const vidboostNotified = user.unsafeMetadata?.vidboost_notified || false;
+      const jsmgaxUses = user.unsafeMetadata?.jsmgax_uses || 0;
+      const jsmgaxPremium = user.unsafeMetadata?.jsmgax_premium || false;
+      const jsmgaxThumbnails = user.unsafeMetadata?.jsmgax_thumbnails_used || 0;
+      const jsmgaxThumbReset = user.unsafeMetadata?.jsmgax_thumbnails_reset || null;
+      const jsmgaxNotified = user.unsafeMetadata?.jsmgax_notified || false;
       
       // Check if admin
       const userEmail = user.primaryEmailAddress?.emailAddress?.toLowerCase();
       const userIsAdmin = ADMIN_EMAILS.includes(userEmail);
       
       // Notify on new signup (first time user)
-      if (!vidboostNotified && !userIsAdmin) {
+      if (!jsmgaxNotified && !userIsAdmin) {
         fetch(API_URL + '/api/notify-signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -120,18 +120,18 @@ function App() {
         user.update({
           unsafeMetadata: {
             ...user.unsafeMetadata,
-            vidboost_notified: true
+            jsmgax_notified: true
           }
         });
       }
       
       // Admin gets unlimited, others get normal count
-      setUsesLeft(userIsAdmin ? 999 : FREE_USES - vidboostUses);
-      setIsPremium(vidboostPremium);
+      setUsesLeft(userIsAdmin ? 999 : FREE_USES - jsmgaxUses);
+      setIsPremium(jsmgaxPremium);
       
       // Check if we need to reset monthly thumbnail count
       const now = new Date();
-      const resetDate = vidboostThumbReset ? new Date(vidboostThumbReset) : null;
+      const resetDate = jsmgaxThumbReset ? new Date(jsmgaxThumbReset) : null;
       if (resetDate && now > resetDate) {
         // Reset thumbnail count for new month
         setThumbnailsUsed(0);
@@ -140,16 +140,16 @@ function App() {
         user.update({ 
           unsafeMetadata: { 
             ...user.unsafeMetadata, 
-            vidboost_thumbnails_used: 0,
-            vidboost_thumbnails_reset: nextReset.toISOString()
+            jsmgax_thumbnails_used: 0,
+            jsmgax_thumbnails_reset: nextReset.toISOString()
           } 
         });
       } else {
-        setThumbnailsUsed(vidboostThumbnails);
-        setThumbnailsResetDate(vidboostThumbReset);
+        setThumbnailsUsed(jsmgaxThumbnails);
+        setThumbnailsResetDate(jsmgaxThumbReset);
       }
       
-      if (vidboostUses >= FREE_USES && !vidboostPremium) {
+      if (jsmgaxUses >= FREE_USES && !jsmgaxPremium) {
         setShowLimitReached(true);
       }
     }
@@ -157,7 +157,7 @@ function App() {
     // Handle Stripe success redirect
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true' && isSignedIn && user) {
-      user.update({ unsafeMetadata: { ...user.unsafeMetadata, vidboost_premium: true } });
+      user.update({ unsafeMetadata: { ...user.unsafeMetadata, jsmgax_premium: true } });
       setIsPremium(true);
       setShowLimitReached(false);
       
@@ -189,12 +189,12 @@ function App() {
   // Show founding member popup for logged-in free users (once per session)
   useEffect(() => {
     if (isSignedIn && !isPremium && !isAdmin) {
-      const hasSeenPopup = sessionStorage.getItem('vidboost_founding_popup_seen');
+      const hasSeenPopup = sessionStorage.getItem('jsmgax_founding_popup_seen');
       if (!hasSeenPopup) {
         // Delay popup by 2 seconds so user can see the page first
         const timer = setTimeout(() => {
           setShowFoundingPopup(true);
-          sessionStorage.setItem('vidboost_founding_popup_seen', 'true');
+          sessionStorage.setItem('jsmgax_founding_popup_seen', 'true');
         }, 2000);
         return () => clearTimeout(timer);
       }
@@ -344,8 +344,8 @@ function App() {
             await user.update({
               unsafeMetadata: {
                 ...user.unsafeMetadata,
-                vidboost_thumbnails_used: newCount,
-                vidboost_thumbnails_reset: resetDate
+                jsmgax_thumbnails_used: newCount,
+                jsmgax_thumbnails_reset: resetDate
               }
             });
           }
@@ -456,12 +456,12 @@ function App() {
           
           // Update uses count for free users (competitor analysis counts as a use)
           if (!isPremium && !isAdmin && user) {
-            const currentUses = user.unsafeMetadata?.vidboost_uses || 0;
+            const currentUses = user.unsafeMetadata?.jsmgax_uses || 0;
             const newUses = currentUses + 1;
             await user.update({ 
               unsafeMetadata: { 
                 ...user.unsafeMetadata, 
-                vidboost_uses: newUses 
+                jsmgax_uses: newUses 
               } 
             });
             setUsesLeft(FREE_USES - newUses);
@@ -510,12 +510,12 @@ function App() {
         
         // Update uses count for free users
         if (!isPremium && !isAdmin && user) {
-          const currentUses = user.unsafeMetadata?.vidboost_uses || 0;
+          const currentUses = user.unsafeMetadata?.jsmgax_uses || 0;
           const newUses = currentUses + 1;
           await user.update({ 
             unsafeMetadata: { 
               ...user.unsafeMetadata, 
-              vidboost_uses: newUses 
+              jsmgax_uses: newUses 
             } 
           });
           setUsesLeft(FREE_USES - newUses);
@@ -672,7 +672,7 @@ function App() {
         <polygon points="90,70 155,70 200,250 245,70 310,70 200,310" fill="url(#vGrad)"/>
         <polygon points="215,50 175,150 200,150 160,260 230,140 200,140 240,50" fill="url(#boltGrad)" filter="url(#glow2)"/>
       </svg>
-      <span className="logo-text">VidBoost</span>
+      <span className="logo-text">JSMGAX</span>
     </div>
   );
 
@@ -684,10 +684,10 @@ function App() {
           <p className="terms-updated">Last Updated: December 9, 2025</p>
           
           <h3>1. Acceptance of Terms</h3>
-          <p>By accessing or using VidBoost ("Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service. We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of any changes.</p>
+          <p>By accessing or using JSMGAX ("Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service. We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of any changes.</p>
           
           <h3>2. Service Description</h3>
-          <p>VidBoost is an AI-powered video analysis tool designed for <strong>educational and analytical purposes</strong>. The Service helps content creators improve their videos through AI-generated feedback, suggestions, and insights.</p>
+          <p>JSMGAX is an AI-powered video analysis tool designed for <strong>educational and analytical purposes</strong>. The Service helps content creators improve their videos through AI-generated feedback, suggestions, and insights.</p>
           
           <h3>3. Video Rights & Permitted Use</h3>
           <p><strong>You represent and warrant that:</strong></p>
@@ -696,16 +696,16 @@ function App() {
             <li>When analyzing YouTube or other third-party videos, you are doing so for legitimate educational, research, or competitive analysis purposes</li>
             <li>You will not use the Service to infringe on any third party's intellectual property rights</li>
           </ul>
-          <p>VidBoost is intended for analyzing your own content or publicly available content for educational and analytical purposes only. <strong>Users are solely responsible for ensuring they have the right to analyze any video they submit.</strong></p>
+          <p>JSMGAX is intended for analyzing your own content or publicly available content for educational and analytical purposes only. <strong>Users are solely responsible for ensuring they have the right to analyze any video they submit.</strong></p>
           
           <h3>4. AI-Powered Service Disclaimer</h3>
-          <p>VidBoost uses artificial intelligence to analyze videos and generate content. AI technology, while advanced, is not perfect and may produce errors, inaccuracies, or unexpected results. <strong>All AI-generated content is provided for informational purposes only and should be reviewed before use.</strong> We make no guarantees about the accuracy, completeness, or usefulness of any AI-generated content.</p>
+          <p>JSMGAX uses artificial intelligence to analyze videos and generate content. AI technology, while advanced, is not perfect and may produce errors, inaccuracies, or unexpected results. <strong>All AI-generated content is provided for informational purposes only and should be reviewed before use.</strong> We make no guarantees about the accuracy, completeness, or usefulness of any AI-generated content.</p>
           
           <h3>5. Age Requirement</h3>
-          <p>You must be at least 18 years old to use VidBoost. By using this Service, you confirm that you meet this requirement. If you are under 18, you must have permission from a parent or legal guardian who agrees to be bound by these terms.</p>
+          <p>You must be at least 18 years old to use JSMGAX. By using this Service, you confirm that you meet this requirement. If you are under 18, you must have permission from a parent or legal guardian who agrees to be bound by these terms.</p>
           
           <h3>6. Prohibited Use</h3>
-          <p>You agree NOT to use VidBoost for:</p>
+          <p>You agree NOT to use JSMGAX for:</p>
           <ul>
             <li>Any illegal, harmful, fraudulent, or offensive purposes</li>
             <li>Infringing on copyrights, trademarks, or other intellectual property rights</li>
@@ -721,19 +721,19 @@ function App() {
           <p>Premium subscriptions are billed monthly or yearly through Stripe. You may cancel at any time, and you will retain access until the end of your billing period. <strong>All payments are final. No refunds will be issued</strong> for partial months, unused time, dissatisfaction with AI results, or any other reason. By subscribing, you acknowledge and accept this no-refund policy.</p>
           
           <h3>8. Payment Security</h3>
-          <p>All payments are processed securely through Stripe, a PCI-compliant payment processor. <strong>VidBoost does not store, access, or have visibility to your payment card information.</strong> Your payment details are handled entirely by Stripe.</p>
+          <p>All payments are processed securely through Stripe, a PCI-compliant payment processor. <strong>JSMGAX does not store, access, or have visibility to your payment card information.</strong> Your payment details are handled entirely by Stripe.</p>
           
           <h3>9. Disclaimer of Warranties</h3>
           <p><strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</strong> We disclaim all warranties including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, secure, or free of viruses or other harmful components.</p>
           
           <h3>10. Limitation of Liability</h3>
-          <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, VIDBOOST AND ITS OWNERS, OPERATORS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES</strong>, including but not limited to: loss of profits, revenue, data, or business opportunities; inaccurate AI-generated content; decisions made based on the Service; or any other damages arising from your use of or inability to use the Service. Our total liability shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+          <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, JSMGAX AND ITS OWNERS, OPERATORS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES</strong>, including but not limited to: loss of profits, revenue, data, or business opportunities; inaccurate AI-generated content; decisions made based on the Service; or any other damages arising from your use of or inability to use the Service. Our total liability shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
           
           <h3>11. Indemnification</h3>
-          <p><strong>You agree to indemnify, defend, and hold harmless VidBoost and its owners, operators, employees, and affiliates</strong> from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising from: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third party's rights, including intellectual property rights; (d) any content you submit to the Service; or (e) your violation of any applicable laws or regulations.</p>
+          <p><strong>You agree to indemnify, defend, and hold harmless JSMGAX and its owners, operators, employees, and affiliates</strong> from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising from: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third party's rights, including intellectual property rights; (d) any content you submit to the Service; or (e) your violation of any applicable laws or regulations.</p>
           
           <h3>12. Content Responsibility</h3>
-          <p>You are solely responsible for the videos you submit and how you use any AI-generated content. VidBoost does not claim ownership of your content. Videos are processed temporarily and <strong>immediately deleted after analysis</strong> — we do not store your video content.</p>
+          <p>You are solely responsible for the videos you submit and how you use any AI-generated content. JSMGAX does not claim ownership of your content. Videos are processed temporarily and <strong>immediately deleted after analysis</strong> — we do not store your video content.</p>
           
           <h3>13. Service Availability & Modifications</h3>
           <p>We do not guarantee uptime or availability. The Service may experience downtime for maintenance, updates, or technical issues. We reserve the right to modify, suspend, or discontinue any features at any time without notice. We are not liable for any losses caused by service interruptions or changes.</p>
@@ -751,7 +751,7 @@ function App() {
           <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
           
           <h3>18. Entire Agreement</h3>
-          <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and VidBoost regarding your use of the Service.</p>
+          <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and JSMGAX regarding your use of the Service.</p>
           
           <h3>19. Contact</h3>
           <p>Questions about these Terms? Contact us at: <strong>eccentricwonders@gmail.com</strong></p>
@@ -798,7 +798,7 @@ function App() {
           <h3>3. How We Use Your Information</h3>
           <p>We use your information solely to:</p>
           <ul>
-            <li>Provide and operate the VidBoost service</li>
+            <li>Provide and operate the JSMGAX service</li>
             <li>Process your payments through Stripe</li>
             <li>Track your usage limits and subscription status</li>
             <li>Respond to support requests</li>
@@ -875,7 +875,7 @@ function App() {
           </ul>
           
           <h3>11. Children's Privacy</h3>
-          <p>VidBoost is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately and we will delete it.</p>
+          <p>JSMGAX is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately and we will delete it.</p>
           
           <h3>12. Cookies</h3>
           <p>We use only essential cookies necessary for:</p>
@@ -886,7 +886,7 @@ function App() {
           <p>We do NOT use advertising cookies, tracking cookies, or analytics cookies that follow you around the web.</p>
           
           <h3>13. International Data Transfers</h3>
-          <p>VidBoost is operated from the United States. If you are accessing from outside the US, your information may be transferred to, stored, and processed in the United States. By using VidBoost, you consent to this transfer. We ensure appropriate safeguards are in place for international data transfers.</p>
+          <p>JSMGAX is operated from the United States. If you are accessing from outside the US, your information may be transferred to, stored, and processed in the United States. By using JSMGAX, you consent to this transfer. We ensure appropriate safeguards are in place for international data transfers.</p>
           
           <h3>14. Changes to This Policy</h3>
           <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting a notice on our website or sending you an email. Your continued use after changes constitutes acceptance of the updated policy.</p>
@@ -1096,7 +1096,7 @@ function App() {
                 <div className="thumbnail-actions">
                   <a 
                     href={generatedThumbnail} 
-                    download="vidboost-thumbnail.png" 
+                    download="jsmgax-thumbnail.png" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="primary-btn"
@@ -1248,7 +1248,7 @@ function App() {
             <div className="limit-card">
               <span className="limit-icon">🎉</span>
               <h2>You've Used All 3 Free Analyses!</h2>
-              <p className="limit-subtitle">We hope you loved VidBoost! Upgrade to Premium for unlimited analyses.</p>
+              <p className="limit-subtitle">We hope you loved JSMGAX! Upgrade to Premium for unlimited analyses.</p>
               <div className="limit-stats">
                 <div className="stat-item">
                   <span className="stat-number">3</span>
@@ -1276,7 +1276,7 @@ function App() {
         {showTerms && <TermsModal />}
         {showPrivacy && <PrivacyModal />}
         <footer className="footer">
-          <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
+          <p>JSMGAX © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
         </footer>
       </div>
     );
@@ -1575,7 +1575,7 @@ function App() {
                 
                 {!isPremium && (
                   <div className="upgrade-prompt">
-                    <p>💡 Enjoying VidBoost? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
+                    <p>💡 Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
                   </div>
                 )}
 
@@ -1733,7 +1733,7 @@ function App() {
             
             <div className="modal-header">
               <span className="modal-icon">💬</span>
-              <h2>VidBoost Support</h2>
+              <h2>JSMGAX Support</h2>
               <p className="modal-subtitle">We're here to help!</p>
             </div>
             
@@ -1838,7 +1838,7 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>VidBoost © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
+        <p>JSMGAX © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
       </footer>
     </div>
   );
