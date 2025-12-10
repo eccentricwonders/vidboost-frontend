@@ -69,6 +69,9 @@ function App() {
   // Support modal state
   const [showSupportModal, setShowSupportModal] = useState(false);
   const [supportSubmitted, setSupportSubmitted] = useState(false);
+  
+  // Founding member popup state
+  const [showFoundingPopup, setShowFoundingPopup] = useState(false);
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
@@ -175,6 +178,21 @@ function App() {
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
+
+  // Show founding member popup for logged-in free users (once per session)
+  useEffect(() => {
+    if (isSignedIn && !isPremium && !isAdmin) {
+      const hasSeenPopup = sessionStorage.getItem('vidboost_founding_popup_seen');
+      if (!hasSeenPopup) {
+        // Delay popup by 2 seconds so user can see the page first
+        const timer = setTimeout(() => {
+          setShowFoundingPopup(true);
+          sessionStorage.setItem('vidboost_founding_popup_seen', 'true');
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [isSignedIn, isPremium, isAdmin]);
 
   const handleCheckout = async (priceType, tier = 'premium') => {
     if (!agreedToTerms) {
@@ -1478,6 +1496,43 @@ function App() {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      )}
+      
+      {/* Founding Member Popup */}
+      {showFoundingPopup && (
+        <div className="result-modal-overlay" onClick={() => setShowFoundingPopup(false)}>
+          <div className="result-modal founding-popup" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setShowFoundingPopup(false)}>✕</button>
+            
+            <div className="modal-header">
+              <span className="modal-icon">🚀</span>
+              <h2>Limited Time: Founding Member Pricing</h2>
+            </div>
+            
+            <div className="founding-content">
+              <div className="founding-price">
+                <span className="price-amount">$5.99</span>
+                <span className="price-period">/month</span>
+              </div>
+              
+              <p className="founding-message">
+                Your rate stays locked in. Price increase coming in 2026 for new members. Secure your discount now.
+              </p>
+              
+              <button 
+                className="primary-btn founding-cta"
+                onClick={() => {
+                  setShowFoundingPopup(false);
+                  setShowPaywall(true);
+                }}
+              >
+                🔒 Lock In My Price
+              </button>
+              
+              <p className="founding-thanks">Thank you for being an early supporter!</p>
+            </div>
           </div>
         </div>
       )}

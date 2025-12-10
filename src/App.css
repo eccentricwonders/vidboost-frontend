@@ -4361,3 +4361,131 @@ body::before {
     width: 100%;
   }
 }
+
+/* ========================================
+   Founding Member Popup Styles
+   ======================================== */
+
+.founding-popup {
+  max-width: 420px;
+  text-align: center;
+  padding: 40px 35px;
+  background: linear-gradient(145deg, rgba(30, 20, 50, 0.98), rgba(20, 15, 40, 0.98));
+  border: 2px solid rgba(168, 85, 247, 0.4);
+  animation: popupSlideIn 0.4s ease-out;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.founding-popup .modal-header {
+  margin-bottom: 25px;
+}
+
+.founding-popup .modal-header h2 {
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.founding-popup .modal-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.founding-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.founding-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px 30px;
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 15px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.price-period {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  font-weight: 500;
+}
+
+.founding-message {
+  font-size: 1.05rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+.founding-cta {
+  width: 100%;
+  padding: 16px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+}
+
+.founding-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.5);
+}
+
+.founding-thanks {
+  font-size: 0.95rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* Responsive Founding Popup */
+@media (max-width: 500px) {
+  .founding-popup {
+    padding: 30px 25px;
+    margin: 15px;
+  }
+  
+  .founding-popup .modal-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .price-amount {
+    font-size: 2.5rem;
+  }
+  
+  .founding-message {
+    font-size: 0.95rem;
+  }
+}
