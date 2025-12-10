@@ -650,14 +650,13 @@ function App() {
   // ============================================
 
   const Logo = () => (
-    <div className="logo" style={{ cursor: 'default', flexDirection: 'column' }}>
+    <div className="logo" style={{ cursor: 'default' }}>
       <img 
         src="/logo.png" 
         alt="JSMGAX Logo" 
-        className="logo-icon-svg"
-        style={{ width: '180px', height: 'auto' }}
+        className="logo-image"
+        style={{ width: '200px', height: 'auto' }}
       />
-      <span className="tagline glow-text">AI-POWERED VIDEO ENHANCEMENT</span>
     </div>
   );
 
