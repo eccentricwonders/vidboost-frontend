@@ -892,21 +892,6 @@ function App() {
       <h2>⭐ Choose Your Plan</h2>
       <p className="paywall-subtitle">Start with Premium or go Pro for auto-editing features</p>
       
-      <div className="tier-toggle">
-        <button 
-          className={`tier-toggle-btn ${selectedTier === 'premium' ? 'active' : ''}`}
-          onClick={() => setSelectedTier('premium')}
-        >
-          Premium
-        </button>
-        <button 
-          className={`tier-toggle-btn ${selectedTier === 'pro' ? 'active' : ''}`}
-          onClick={() => setSelectedTier('pro')}
-        >
-          Pro 🔥
-        </button>
-      </div>
-
       <div className="pricing-tiers">
         {/* Premium Tier */}
         <div className={`tier-card ${selectedTier === 'premium' ? 'selected' : ''}`}>
