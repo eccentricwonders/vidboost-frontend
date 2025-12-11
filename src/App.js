@@ -655,9 +655,7 @@ function App() {
         src="/logo.png" 
         alt="JSMGAX" 
         className="logo-image"
-        style={{ width: '80px', height: 'auto' }}
       />
-      <span className="logo-text">JSMGAX</span>
     </div>
   );
 
@@ -1261,7 +1259,7 @@ function App() {
         {showTerms && <TermsModal />}
         {showPrivacy && <PrivacyModal />}
         <footer className="footer">
-          <p>JSMGAX © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
+          <p>JSMGAX © 2025 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
         </footer>
       </div>
     );
@@ -1823,7 +1821,7 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>JSMGAX © 2024 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
+        <p>JSMGAX © 2025 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
       </footer>
     </div>
   );
