@@ -1207,3 +1207,66 @@ body {
   font-size: 16px;
   margin: 0;
 }
+
+
+/* ============================================
+   RESULT MODAL OVERLAY (for Script Writer, etc.)
+   ============================================ */
+
+.result-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.result-modal {
+  background: var(--color-bg-medium);
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--color-cyan);
+  z-index: 10001;
+}
+
+.script-modal {
+  max-width: 800px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--color-bg-light);
+  border: 2px solid var(--color-cyan);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--color-cyan);
+  z-index: 10002;
+}
+
+.modal-close-btn:hover {
+  background: var(--color-cyan);
+  color: var(--color-bg-dark);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+  transform: rotate(90deg);
+}
