@@ -1174,3 +1174,36 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   SCRIPT MODAL STYLING
+   ============================================ */
+
+.modal-header {
+  background: var(--color-bg-medium);
+  padding: 30px;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  border-bottom: 2px solid var(--color-cyan);
+  margin: -32px -32px 30px -32px;
+}
+
+.modal-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.modal-header h2 {
+  color: var(--color-cyan);
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-subtitle {
+  color: var(--color-text-gray);
+  font-size: 16px;
+  margin: 0;
+}
