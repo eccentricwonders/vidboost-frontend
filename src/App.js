@@ -1777,8 +1777,8 @@ function App() {
             <button className="modal-close-btn" onClick={() => setShowFoundingPopup(false)}>✕</button>
             
             <div className="modal-header">
-              <span className="modal-icon">🚀</span>
-              <h2>Limited Time: Founding Member Pricing</h2>
+              <span className="modal-icon">⭐</span>
+              <h2>Thank You for Being Early</h2>
             </div>
             
             <div className="founding-content">
@@ -1788,7 +1788,7 @@ function App() {
               </div>
               
               <p className="founding-message">
-                Your rate stays locked in. Price increase coming in 2026 for new members. Secure your discount now.
+                You're joining JSMGAX at the ground floor. Lock in $5.99/month now, and you'll never see a price increase—even when rates go up for new members in mid-2026. Your early belief in us deserves lifetime savings.
               </p>
               
               <button 
@@ -1798,7 +1798,7 @@ function App() {
                   setShowPaywall(true);
                 }}
               >
-                🔒 Lock In My Price
+                Secure My Founding Price
               </button>
               
               <p className="founding-thanks">Thank you for being an early supporter!</p>
