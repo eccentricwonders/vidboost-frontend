@@ -893,3 +893,26 @@ body {
     font-size: 24px;
   }
 }
+
+.tier-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tier-actions .secondary-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.tier-actions .secondary-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

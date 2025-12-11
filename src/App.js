@@ -930,7 +930,7 @@ function App() {
           {selectedTier === 'premium' && (
             <div className="tier-actions">
               <button 
-                className={`primary-btn ${!agreedToTerms ? 'btn-disabled' : ''}`} 
+                className={`secondary-btn ${!agreedToTerms ? 'btn-disabled' : ''}`} 
                 onClick={() => handleCheckout('monthly', 'premium')} 
                 disabled={!agreedToTerms}
               >
