@@ -652,10 +652,14 @@ function App() {
   const Logo = () => (
     <div className="logo" style={{ cursor: 'default' }}>
       <img 
-        src="/logo.png" 
+        src="/logo-symbol.png" 
         alt="JSMGAX" 
         className="logo-image"
       />
+      <div className="logo-text-container">
+        <span className="logo-text">JSMGAX</span>
+        <span className="logo-subtitle">AI Video Analysis</span>
+      </div>
     </div>
   );
 
@@ -1273,7 +1277,6 @@ function App() {
     <div className="app">
       <header className="header">
         <Logo />
-        <p className="tagline">AI-Powered Video Enhancement</p>
         <div className="auth-buttons">
           <SignedOut>
             <SignInButton mode="modal">
