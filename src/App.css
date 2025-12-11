@@ -1270,3 +1270,147 @@ body {
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
   transform: rotate(90deg);
 }
+
+
+/* ============================================
+   HARDSHIP REQUEST BUTTON & FORM
+   ============================================ */
+
+.hardship-btn {
+  width: 100%;
+  max-width: 600px;
+  padding: 14px 24px;
+  background: transparent;
+  border: 2px solid rgba(0, 217, 255, 0.5);
+  color: var(--color-cyan);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px auto;
+  display: block;
+}
+
+.hardship-btn:hover {
+  border-color: var(--color-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+.hardship-form {
+  padding: 20px 0;
+}
+
+.hardship-info {
+  background: rgba(0, 217, 255, 0.05);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.hardship-info p {
+  margin: 8px 0;
+  color: var(--color-text-white);
+  font-size: 15px;
+}
+
+.hardship-info strong {
+  color: var(--color-cyan);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-cyan);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.hardship-textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-bg-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-white);
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.hardship-textarea:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+.hardship-textarea::placeholder {
+  color: var(--color-text-dark);
+}
+
+.hardship-select {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-bg-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-white);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hardship-select:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+.hardship-note {
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid var(--color-cyan);
+  padding: 12px 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.hardship-note p {
+  margin: 0;
+  color: var(--color-text-gray);
+  font-size: 14px;
+}
+
+.hardship-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.hardship-success h3 {
+  color: var(--color-cyan);
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.hardship-success p {
+  color: var(--color-text-white);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.hardship-success strong {
+  color: var(--color-cyan);
+}

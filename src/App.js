@@ -86,6 +86,12 @@ function App() {
   const [customNiche, setCustomNiche] = useState('');
   const [nicheTrendData, setNicheTrendData] = useState(null);
   const [isNicheTrendsLoading, setIsNicheTrendsLoading] = useState(false);
+  
+  // Hardship request state
+  const [showHardshipModal, setShowHardshipModal] = useState(false);
+  const [hardshipReason, setHardshipReason] = useState('');
+  const [hardshipAnalysesRequested, setHardshipAnalysesRequested] = useState('1');
+  const [hardshipSubmitted, setHardshipSubmitted] = useState(false);
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
@@ -232,6 +238,44 @@ function App() {
       fetchTrendingVideos();
     }
   }, [showTrendingSection]);
+
+  // Handle hardship request submission
+  const handleHardshipRequest = async () => {
+    if (!hardshipReason.trim()) {
+      alert('Please explain your situation so we can help you.');
+      return;
+    }
+    
+    try {
+      const response = await fetch(`${API_URL}/api/hardship-request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userEmail: user?.primaryEmailAddress?.emailAddress || 'unknown',
+          userName: user?.fullName || 'Unknown User',
+          usesLeft: usesLeft,
+          reason: hardshipReason,
+          analysesRequested: hardshipAnalysesRequested
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        setHardshipSubmitted(true);
+        setTimeout(() => {
+          setShowHardshipModal(false);
+          setHardshipSubmitted(false);
+          setHardshipReason('');
+          setHardshipAnalysesRequested('1');
+        }, 3000);
+      } else {
+        alert('Failed to submit request. Please try again or email us directly.');
+      }
+    } catch (error) {
+      console.error('Hardship request error:', error);
+      alert('Failed to submit request. Please email us at eccentricwonders@gmail.com');
+    }
+  };
 
   const handleCheckout = async (priceType, tier = 'premium') => {
     if (!agreedToTerms) {
@@ -1546,6 +1590,9 @@ function App() {
               {!isPremium && (
                 <button className="go-premium-btn" onClick={handlePremiumClick}>⭐ View Plans - Starting at $5.99/month</button>
               )}
+              {!isPremium && !isAdmin && usesLeft <= 1 && (
+                <button className="hardship-btn" onClick={() => setShowHardshipModal(true)}>🤝 Need Help? Request More Analyses</button>
+              )}
               {error && <div className="error-box">⚠️ {error}</div>}
               
               <div className="input-group">
@@ -1949,6 +1996,76 @@ function App() {
               
               <p className="founding-thanks">Thank you for being an early supporter!</p>
             </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Hardship Request Modal */}
+      {showHardshipModal && (
+        <div className="result-modal-overlay" onClick={() => setShowHardshipModal(false)}>
+          <div className="result-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '600px' }}>
+            <button className="modal-close-btn" onClick={() => setShowHardshipModal(false)}>✕</button>
+            
+            {!hardshipSubmitted ? (
+              <>
+                <div className="modal-header">
+                  <span className="modal-icon">🤝</span>
+                  <h2>Request Additional Analyses</h2>
+                  <p className="modal-subtitle">We understand things happen. Let us know how we can help.</p>
+                </div>
+                
+                <div className="hardship-form">
+                  <div className="hardship-info">
+                    <p><strong>Your Email:</strong> {user?.primaryEmailAddress?.emailAddress}</p>
+                    <p><strong>Current Analyses Left:</strong> {usesLeft}</p>
+                  </div>
+                  
+                  <div className="form-group">
+                    <label>📝 Tell us what happened *</label>
+                    <textarea
+                      className="hardship-textarea"
+                      placeholder="Example: My browser crashed during analysis and it counted as a use but I never got the results..."
+                      value={hardshipReason}
+                      onChange={(e) => setHardshipReason(e.target.value)}
+                      rows="5"
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label>🔢 How many analyses do you need?</label>
+                    <select 
+                      className="hardship-select"
+                      value={hardshipAnalysesRequested}
+                      onChange={(e) => setHardshipAnalysesRequested(e.target.value)}
+                    >
+                      <option value="1">1 analysis</option>
+                      <option value="2">2 analyses</option>
+                      <option value="3">3 analyses</option>
+                      <option value="5">5 analyses</option>
+                    </select>
+                  </div>
+                  
+                  <div className="hardship-note">
+                    <p>🕒 We review all requests within 24-48 hours and will email you our decision.</p>
+                  </div>
+                  
+                  <button 
+                    className="primary-btn"
+                    onClick={handleHardshipRequest}
+                    disabled={!hardshipReason.trim()}
+                  >
+                    📨 Submit Request
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="hardship-success">
+                <span className="success-icon">✅</span>
+                <h3>Request Submitted!</h3>
+                <p>We've received your request and will review it within 24-48 hours.</p>
+                <p>You'll receive an email at <strong>{user?.primaryEmailAddress?.emailAddress}</strong> with our decision.</p>
+              </div>
+            )}
           </div>
         </div>
       )}
