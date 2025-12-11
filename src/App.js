@@ -944,8 +944,8 @@ function App() {
           <div className="coming-soon-badge">🚀 Coming Soon</div>
           <div className="tier-header">
             <h3>Pro</h3>
-            <div className="tier-price">$14.99<span>/month</span></div>
-            <p className="tier-yearly">or $119/year (save $60.88)</p>
+            <div className="tier-price">$16.99<span>/month</span></div>
+            <p className="tier-yearly">or $183/year (save $20.88)</p>
           </div>
           <ul className="tier-features">
             <li>✅ Everything in Premium</li>
