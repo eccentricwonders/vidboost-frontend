@@ -1401,6 +1401,12 @@ function App() {
                       ))}
                     </div>
                   )}
+                  
+                  <div className="results-actions" style={{ marginTop: '30px' }}>
+                    <button className="secondary-btn" onClick={() => { setShowTrendingSection(false); setCurrentView('upload'); }}>
+                      🏠 Return to Home Page
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -1522,6 +1528,12 @@ function App() {
                       </div>
                     </div>
                   )}
+                  
+                  <div className="results-actions" style={{ marginTop: '30px' }}>
+                    <button className="secondary-btn" onClick={() => { setShowNicheTrends(false); setNicheTrendData(null); setSelectedNiche(''); setCustomNiche(''); setCurrentView('upload'); }}>
+                      🏠 Return to Home Page
+                    </button>
+                  </div>
                 </div>
               )}
 
