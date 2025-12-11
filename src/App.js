@@ -652,14 +652,10 @@ function App() {
   const Logo = () => (
     <div className="logo" style={{ cursor: 'default' }}>
       <img 
-        src="/logo-symbol.png" 
+        src="/logo-header.png" 
         alt="JSMGAX" 
         className="logo-image"
       />
-      <div className="logo-text-container">
-        <span className="logo-text">JSMGAX</span>
-        <span className="logo-subtitle">AI Video Analysis</span>
-      </div>
     </div>
   );
 
