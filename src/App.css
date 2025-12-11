@@ -813,3 +813,83 @@ body {
     padding: 24px;
   }
 }
+
+/* ============================================
+   PAYWALL MODAL
+   ============================================ */
+
+.paywall-modal {
+  background: var(--color-bg-medium);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  border: 2px solid var(--color-cyan);
+}
+
+.paywall-modal .close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-gray);
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.paywall-modal .close-modal:hover {
+  color: var(--color-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.paywall-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.paywall-card h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: var(--color-cyan);
+  text-align: center;
+}
+
+.paywall-subtitle {
+  text-align: center;
+  color: var(--color-text-gray);
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .paywall-modal {
+    padding: 24px;
+    max-height: 95vh;
+  }
+  
+  .paywall-modal .close-modal {
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .paywall-card h2 {
+    font-size: 24px;
+  }
+}

@@ -1580,8 +1580,11 @@ function App() {
         )}
 
         {showPaywall && (
-          <div className="paywall-section">
-            <PaywallContent />
+          <div className="paywall-overlay" onClick={() => setShowPaywall(false)}>
+            <div className="paywall-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="close-modal" onClick={() => setShowPaywall(false)}>✕</button>
+              <PaywallContent />
+            </div>
           </div>
         )}
         {showTerms && <TermsModal />}
