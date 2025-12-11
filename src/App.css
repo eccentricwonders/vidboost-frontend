@@ -1414,3 +1414,11 @@ body {
 .hardship-success strong {
   color: var(--color-cyan);
 }
+
+
+.success-note {
+  color: var(--color-text-gray) !important;
+  font-size: 14px !important;
+  font-style: italic;
+  margin-top: 20px !important;
+}

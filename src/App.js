@@ -1591,7 +1591,7 @@ function App() {
                 <button className="go-premium-btn" onClick={handlePremiumClick}>⭐ View Plans - Starting at $5.99/month</button>
               )}
               {!isPremium && !isAdmin && usesLeft <= 1 && (
-                <button className="hardship-btn" onClick={() => setShowHardshipModal(true)}>🤝 Need Help? Request More Analyses</button>
+                <button className="hardship-btn" onClick={() => setShowHardshipModal(true)}>📝 Request Additional Free Analyses</button>
               )}
               {error && <div className="error-box">⚠️ {error}</div>}
               
@@ -2010,8 +2010,8 @@ function App() {
               <>
                 <div className="modal-header">
                   <span className="modal-icon">🤝</span>
-                  <h2>Request Additional Analyses</h2>
-                  <p className="modal-subtitle">We understand things happen. Let us know how we can help.</p>
+                  <h2>Request Additional Free Analyses</h2>
+                  <p className="modal-subtitle">We understand that technical issues and unexpected circumstances can disrupt your analysis experience. We genuinely care about you having the opportunity to fully test our product and see its value.</p>
                 </div>
                 
                 <div className="hardship-form">
@@ -2024,10 +2024,10 @@ function App() {
                     <label>📝 Tell us what happened *</label>
                     <textarea
                       className="hardship-textarea"
-                      placeholder="Example: My browser crashed during analysis and it counted as a use but I never got the results..."
+                      placeholder="Please describe what happened in detail. Example: My browser crashed during the analysis process and it counted as a use, but I never received the results. I would like to properly evaluate the platform before deciding on a subscription."
                       value={hardshipReason}
                       onChange={(e) => setHardshipReason(e.target.value)}
-                      rows="5"
+                      rows="6"
                     />
                   </div>
                   
@@ -2046,7 +2046,7 @@ function App() {
                   </div>
                   
                   <div className="hardship-note">
-                    <p>🕒 We review all requests within 24-48 hours and will email you our decision.</p>
+                    <p><strong>⚠️ Important:</strong> All requests are subject to administrative review and approval. We carefully evaluate each situation on a case-by-case basis and reserve the right to approve or deny requests at our discretion. You will receive an email response within 24-48 hours with our decision.</p>
                   </div>
                   
                   <button 
@@ -2061,9 +2061,10 @@ function App() {
             ) : (
               <div className="hardship-success">
                 <span className="success-icon">✅</span>
-                <h3>Request Submitted!</h3>
-                <p>We've received your request and will review it within 24-48 hours.</p>
-                <p>You'll receive an email at <strong>{user?.primaryEmailAddress?.emailAddress}</strong> with our decision.</p>
+                <h3>Request Submitted Successfully!</h3>
+                <p>Thank you for reaching out. Your request has been received and will be carefully reviewed by our administrative team within 24-48 hours.</p>
+                <p>You will receive an email at <strong>{user?.primaryEmailAddress?.emailAddress}</strong> with our decision regarding your request.</p>
+                <p className="success-note">We appreciate your interest in JSMGAX and look forward to helping you experience our platform.</p>
               </div>
             )}
           </div>
