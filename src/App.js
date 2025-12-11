@@ -79,6 +79,13 @@ function App() {
   const [trendingCategory, setTrendingCategory] = useState('all');
   const [isTrendingLoading, setIsTrendingLoading] = useState(false);
   const [showTrendingSection, setShowTrendingSection] = useState(false);
+  
+  // Niche Trend Detector state
+  const [showNicheTrends, setShowNicheTrends] = useState(false);
+  const [selectedNiche, setSelectedNiche] = useState('');
+  const [customNiche, setCustomNiche] = useState('');
+  const [nicheTrendData, setNicheTrendData] = useState(null);
+  const [isNicheTrendsLoading, setIsNicheTrendsLoading] = useState(false);
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
@@ -1307,9 +1314,15 @@ function App() {
                 </button>
                 <button 
                   className={`mode-btn ${showTrendingSection ? 'mode-btn-active' : ''}`}
-                  onClick={() => setShowTrendingSection(!showTrendingSection)}
+                  onClick={() => { setShowTrendingSection(!showTrendingSection); setShowNicheTrends(false); }}
                 >
                   🔥 Trending Now
+                </button>
+                <button 
+                  className={`mode-btn ${showNicheTrends ? 'mode-btn-active' : ''}`}
+                  onClick={() => { setShowNicheTrends(!showNicheTrends); setShowTrendingSection(false); }}
+                >
+                  🎯 Niche Trends
                 </button>
               </div>
 
@@ -1391,7 +1404,128 @@ function App() {
                 </div>
               )}
 
-              {!showTrendingSection && (
+              {/* Niche Trend Detector Section */}
+              {showNicheTrends && (
+                <div className="niche-trends-section">
+                  <div className="niche-trends-header">
+                    <h3>🎯 Your Personalized Niche Trend Detector</h3>
+                    <p>Get trending topics, video ideas, and keyword opportunities tailored to YOUR niche</p>
+                  </div>
+                  
+                  {!nicheTrendData ? (
+                    <div className="niche-selector">
+                      <h4>Select Your Niche:</h4>
+                      <div className="niche-grid">
+                        {[
+                          { id: 'fitness', label: '💪 Fitness & Health', icon: '💪' },
+                          { id: 'gaming', label: '🎮 Gaming', icon: '🎮' },
+                          { id: 'tech', label: '💻 Tech & Gadgets', icon: '💻' },
+                          { id: 'cooking', label: '🍳 Cooking & Food', icon: '🍳' },
+                          { id: 'beauty', label: '💄 Beauty & Fashion', icon: '💄' },
+                          { id: 'finance', label: '💰 Finance & Investing', icon: '💰' },
+                          { id: 'education', label: '📚 Education & Learning', icon: '📚' },
+                          { id: 'travel', label: '✈️ Travel & Lifestyle', icon: '✈️' },
+                          { id: 'music', label: '🎵 Music & Entertainment', icon: '🎵' },
+                          { id: 'business', label: '💼 Business & Marketing', icon: '💼' },
+                          { id: 'diy', label: '🔨 DIY & Crafts', icon: '🔨' },
+                          { id: 'sports', label: '⚽ Sports & Athletics', icon: '⚽' }
+                        ].map(niche => (
+                          <button
+                            key={niche.id}
+                            className={`niche-btn ${selectedNiche === niche.id ? 'selected' : ''}`}
+                            onClick={() => setSelectedNiche(niche.id)}
+                          >
+                            <span className="niche-icon">{niche.icon}</span>
+                            <span className="niche-label">{niche.label.replace(niche.icon + ' ', '')}</span>
+                          </button>
+                        ))}
+                      </div>
+                      
+                      <div className="custom-niche">
+                        <label>Or enter your custom niche:</label>
+                        <input 
+                          type="text" 
+                          placeholder="e.g., Vegan cooking for beginners"
+                          value={customNiche}
+                          onChange={(e) => {
+                            setCustomNiche(e.target.value);
+                            setSelectedNiche('');
+                          }}
+                          className="custom-niche-input"
+                        />
+                      </div>
+                      
+                      <button 
+                        className="primary-btn analyze-niche-btn"
+                        onClick={async () => {
+                          const niche = customNiche || selectedNiche;
+                          if (!niche) {
+                            alert('Please select or enter a niche!');
+                            return;
+                          }
+                          setIsNicheTrendsLoading(true);
+                          try {
+                            const response = await fetch(`${API_URL}/api/niche-trends`, {
+                              method: 'POST',
+                              headers: { 'Content-Type': 'application/json' },
+                              body: JSON.stringify({ niche })
+                            });
+                            const data = await response.json();
+                            if (data.success) {
+                              setNicheTrendData(data);
+                            }
+                          } catch (error) {
+                            console.error('Failed to fetch niche trends:', error);
+                            alert('Failed to analyze niche trends. Please try again.');
+                          }
+                          setIsNicheTrendsLoading(false);
+                        }}
+                        disabled={isNicheTrendsLoading || (!selectedNiche && !customNiche)}
+                      >
+                        {isNicheTrendsLoading ? '🔄 Analyzing...' : '🚀 Analyze My Niche'}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="niche-results">
+                      <button 
+                        className="secondary-btn"
+                        onClick={() => {
+                          setNicheTrendData(null);
+                          setSelectedNiche('');
+                          setCustomNiche('');
+                        }}
+                        style={{ marginBottom: '20px' }}
+                      >
+                        ← Choose Different Niche
+                      </button>
+                      
+                      <div className="niche-results-grid">
+                        <div className="niche-result-card">
+                          <h4>🔥 Trending Topics in {nicheTrendData.niche}</h4>
+                          <div className="niche-content">{nicheTrendData.trendingTopics}</div>
+                        </div>
+                        
+                        <div className="niche-result-card">
+                          <h4>💡 Video Ideas</h4>
+                          <div className="niche-content">{nicheTrendData.videoIdeas}</div>
+                        </div>
+                        
+                        <div className="niche-result-card">
+                          <h4>🔑 Keyword Opportunities</h4>
+                          <div className="niche-content">{nicheTrendData.keywords}</div>
+                        </div>
+                        
+                        <div className="niche-result-card">
+                          <h4>🎯 Competitor Insights</h4>
+                          <div className="niche-content">{nicheTrendData.competitorInsights}</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {!showTrendingSection && !showNicheTrends && (
                 <>
                   <div className="uses-counter">
                 <span className="uses-icon">🎁</span>

@@ -1004,3 +1004,173 @@ body {
   font-style: italic;
   margin-left: 4px;
 }
+
+/* Niche Trend Detector Styles */
+.niche-trends-section {
+  background: var(--color-bg-card);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 20px 0;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.niche-trends-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.niche-trends-header h3 {
+  font-size: 28px;
+  color: var(--color-text-white);
+  margin-bottom: 10px;
+}
+
+.niche-trends-header p {
+  color: var(--color-text-gray);
+  font-size: 16px;
+}
+
+.niche-selector h4 {
+  color: var(--color-text-white);
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.niche-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.niche-btn {
+  background: rgba(0, 217, 255, 0.05);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.niche-btn:hover {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: var(--color-cyan);
+  transform: translateY(-2px);
+}
+
+.niche-btn.selected {
+  background: rgba(0, 217, 255, 0.2);
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.niche-icon {
+  font-size: 32px;
+}
+
+.niche-label {
+  color: var(--color-text-white);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.custom-niche {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.custom-niche label {
+  display: block;
+  color: var(--color-text-white);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.custom-niche-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  background: var(--color-bg-dark);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 8px;
+  color: var(--color-text-white);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.custom-niche-input:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+.custom-niche-input::placeholder {
+  color: var(--color-text-gray);
+}
+
+.analyze-niche-btn {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.analyze-niche-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.niche-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.niche-result-card {
+  background: rgba(0, 217, 255, 0.05);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.niche-result-card:hover {
+  border-color: var(--color-cyan);
+  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.15);
+}
+
+.niche-result-card h4 {
+  color: var(--color-cyan);
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.niche-content {
+  color: var(--color-text-white);
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .niche-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .niche-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
