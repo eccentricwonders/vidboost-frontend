@@ -996,7 +996,7 @@ function App() {
         <label className="checkbox-container">
           <input type="checkbox" checked={agreedToTerms} onChange={(e) => setAgreedToTerms(e.target.checked)} />
           <span className="checkmark"></span>
-          <span className="checkbox-text">I have read and agree to the <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span></span>
+          <span className="checkbox-text">I have read and agree to the <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> <span className="checkbox-note">(must check box to select price plan)</span></span>
         </label>
       </div>
       <button className="secondary-btn" onClick={() => { setShowPaywall(false); setSelectedTier('premium'); setWaitlistJoined(false); setWaitlistEmail(''); }} style={{ marginTop: '10px' }}>← Maybe Later</button>

@@ -997,3 +997,10 @@ body {
 .terms-link:hover {
   color: var(--color-cyan-light);
 }
+
+.checkbox-note {
+  color: var(--color-text-gray);
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 4px;
+}
