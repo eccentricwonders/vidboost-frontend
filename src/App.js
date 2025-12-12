@@ -949,7 +949,7 @@ function App() {
           <div className="tier-header">
             <h3>Premium</h3>
             <div className="tier-price">$5.99<span>/month</span></div>
-            <p className="tier-yearly">or $49/year (save $22.88)</p>
+            <p className="tier-yearly">or $55/year (save $16.88)</p>
           </div>
           <ul className="tier-features">
             <li>✅ Unlimited video analyses</li>
