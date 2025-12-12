@@ -404,7 +404,7 @@ function App() {
       } else {
         // Show specific message for content policy
         if (data.code === 'content_policy') {
-          alert('This video\'s content triggered AI safety filters.\n\nTry:\n• A different thumbnail style\n• A different video');
+          alert('⚠️ This video\'s content triggered AI safety filters.\n\nTry:\n• A different thumbnail style\n• A different video');
         } else {
           alert(data.error || 'Failed to generate thumbnail');
         }
@@ -713,7 +713,7 @@ function App() {
   const TermsModal = () => (
     <div className="terms-overlay">
       <div className="terms-modal">
-        <h2>Terms of Service</h2>
+        <h2>📜 Terms of Service</h2>
         <div className="terms-content">
           <p className="terms-updated">Last Updated: December 9, 2025</p>
           
@@ -798,7 +798,7 @@ function App() {
   const PrivacyModal = () => (
     <div className="terms-overlay">
       <div className="terms-modal privacy-modal">
-        <h2>Privacy Policy</h2>
+        <h2>🔒 Privacy Policy</h2>
         <div className="terms-content">
           <p className="terms-updated">Last Updated: December 9, 2025</p>
           
@@ -809,21 +809,21 @@ function App() {
           <h3>1. Information We Collect</h3>
           <p><strong>What we store:</strong></p>
           <ul>
-            <li>Email address — to identify your account</li>
-            <li>Name — for your profile</li>
-            <li>Profile picture — only if you sign in with Google</li>
-            <li>Analysis count — to track free tier usage</li>
-            <li>Premium status — to know if you're subscribed</li>
-            <li>Thumbnail usage — to track monthly limits</li>
+            <li>✅ Email address — to identify your account</li>
+            <li>✅ Name — for your profile</li>
+            <li>✅ Profile picture — only if you sign in with Google</li>
+            <li>✅ Analysis count — to track free tier usage</li>
+            <li>✅ Premium status — to know if you're subscribed</li>
+            <li>✅ Thumbnail usage — to track monthly limits</li>
           </ul>
           
           <p><strong>What we DO NOT store:</strong></p>
           <ul>
-            <li>Your videos — deleted immediately after analysis</li>
-            <li>Transcriptions — generated, shown to you, then discarded</li>
-            <li>Analysis results — displayed but never saved</li>
-            <li>Credit card info — Stripe handles all payments, we never see it</li>
-            <li>Browsing history — we don't track you</li>
+            <li>❌ Your videos — deleted immediately after analysis</li>
+            <li>❌ Transcriptions — generated, shown to you, then discarded</li>
+            <li>❌ Analysis results — displayed but never saved</li>
+            <li>❌ Credit card info — Stripe handles all payments, we never see it</li>
+            <li>❌ Browsing history — we don't track you</li>
           </ul>
           
           <h3>2. We Do NOT Sell Your Information</h3>
@@ -930,7 +930,7 @@ function App() {
           <p><strong>Email:</strong> eccentricwonders@gmail.com</p>
           
           <div className="privacy-highlight">
-            <p><strong>Summary:</strong> Minimal data collection Videos deleted immediately We NEVER sell your info Full GDPR & CCPA compliance Delete your account anytime</p>
+            <p><strong>Summary:</strong> ✅ Minimal data collection ✅ Videos deleted immediately ✅ We NEVER sell your info ✅ Full GDPR & CCPA compliance ✅ Delete your account anytime</p>
           </div>
         </div>
         <button className="primary-btn" onClick={() => setShowPrivacy(false)}>I Understand</button>
@@ -940,7 +940,7 @@ function App() {
 
   const PaywallContent = () => (
     <div className="paywall-card paywall-two-tier">
-      <h2>Choose Your Plan</h2>
+      <h2>⭐ Choose Your Plan</h2>
       <p className="paywall-subtitle">Start with Premium or go Pro for auto-editing features</p>
       
       <div className="pricing-tiers">
@@ -952,16 +952,16 @@ function App() {
             <p className="tier-yearly">or $55/year (save $16.88)</p>
           </div>
           <ul className="tier-features">
-            <li>Unlimited video analyses</li>
-            <li>AI captions & SRT downloads</li>
-            <li>Video scoring & hook analysis</li>
-            <li>Thumbnail text suggestions</li>
-            <li>Pacing & CTA analysis</li>
-            <li>Platform-specific feedback</li>
-            <li>Competitor research</li>
-            <li>Title & description generator</li>
-            <li>30+ hashtags per video</li>
-            <li>3 AI thumbnails per month</li>
+            <li>✅ Unlimited video analyses</li>
+            <li>✅ AI captions & SRT downloads</li>
+            <li>✅ Video scoring & hook analysis</li>
+            <li>✅ Thumbnail text suggestions</li>
+            <li>✅ Pacing & CTA analysis</li>
+            <li>✅ Platform-specific feedback</li>
+            <li>✅ Competitor research</li>
+            <li>✅ Title & description generator</li>
+            <li>✅ 30+ hashtags per video</li>
+            <li>✅ 3 AI thumbnails per month</li>
           </ul>
           {selectedTier === 'premium' && (
             <div className="tier-actions">
@@ -985,21 +985,21 @@ function App() {
 
         {/* Pro Tier */}
         <div className={`tier-card pro-tier ${selectedTier === 'pro' ? 'selected' : ''}`}>
-          <div className="coming-soon-badge">Coming Soon</div>
+          <div className="coming-soon-badge">🚀 Coming Soon</div>
           <div className="tier-header">
             <h3>Pro</h3>
             <div className="tier-price">$16.99<span>/month</span></div>
             <p className="tier-yearly">or $183/year (save $20.88)</p>
           </div>
           <ul className="tier-features">
-            <li>Everything in Premium</li>
-            <li><strong>Auto-Edit Videos</strong></li>
-            <li><strong>Add AI Captions to Video</strong></li>
-            <li><strong>Add Hook Text Overlays</strong></li>
-            <li><strong>Add CTA End Screens</strong></li>
-            <li><strong>5 Auto-Edits per Month</strong></li>
-            <li>Priority Support</li>
-            <li>Early Access to New Features</li>
+            <li>✅ Everything in Premium</li>
+            <li>⭐ <strong>Auto-Edit Videos</strong></li>
+            <li>⭐ <strong>Add AI Captions to Video</strong></li>
+            <li>⭐ <strong>Add Hook Text Overlays</strong></li>
+            <li>⭐ <strong>Add CTA End Screens</strong></li>
+            <li>⭐ <strong>5 Auto-Edits per Month</strong></li>
+            <li>🎯 Priority Support</li>
+            <li>🎯 Early Access to New Features</li>
           </ul>
           {selectedTier === 'pro' && (
             <div className="tier-actions">
@@ -1014,12 +1014,12 @@ function App() {
                     className="waitlist-input"
                   />
                   <button className="primary-btn waitlist-btn" onClick={handleJoinWaitlist}>
-                    Join Waitlist 
+                    Join Waitlist 🔔
                   </button>
                 </div>
               ) : (
                 <div className="waitlist-success">
-                  <span></span>
+                  <span>🎉</span>
                   <p>You're on the list! We'll email you when Pro launches.</p>
                 </div>
               )}
@@ -1043,23 +1043,23 @@ function App() {
     if (!showThumbnailModal) return null;
     
     const thumbnailStyles = [
-      { id: 'youtube', name: 'YouTube Style', desc: 'Bold & eye-catching' },
-      { id: 'minimal', name: 'Minimal', desc: 'Clean & modern' },
-      { id: 'dramatic', name: 'Dramatic', desc: 'Cinematic & moody' },
-      { id: 'colorful', name: 'Colorful', desc: 'Bright & fun' },
-      { id: 'professional', name: 'Professional', desc: 'Corporate & trustworthy' }
+      { id: 'youtube', name: '🎬 YouTube Style', desc: 'Bold & eye-catching' },
+      { id: 'minimal', name: '✨ Minimal', desc: 'Clean & modern' },
+      { id: 'dramatic', name: '🎭 Dramatic', desc: 'Cinematic & moody' },
+      { id: 'colorful', name: '🌈 Colorful', desc: 'Bright & fun' },
+      { id: 'professional', name: '💼 Professional', desc: 'Corporate & trustworthy' }
     ];
     
     return (
       <div className="result-modal-overlay" onClick={() => setShowThumbnailModal(false)}>
         <div className="thumbnail-modal" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={() => setShowThumbnailModal(false)}></button>
+          <button className="modal-close-btn" onClick={() => setShowThumbnailModal(false)}>✕</button>
           
           <div className="thumbnail-modal-header">
-            <span className="modal-icon"></span>
+            <span className="modal-icon">🖼️</span>
             <h2>AI Thumbnail Generator</h2>
             <p className="thumbnails-remaining">
-              {isAdmin ? 'Unlimited (Admin)' : `${getThumbnailsRemaining()} ${isPremium ? 'this month' : 'remaining'}`}
+              {isAdmin ? '🔧 Unlimited (Admin)' : `${getThumbnailsRemaining()} ${isPremium ? 'this month' : 'remaining'}`}
             </p>
           </div>
           
@@ -1088,10 +1088,10 @@ function App() {
                   disabled={getThumbnailsRemaining() <= 0 && !isAdmin}
                 >
                   {isAdmin 
-                    ? 'Generate Thumbnail (Admin)'
+                    ? '🎨 Generate Thumbnail (Admin)'
                     : getThumbnailsRemaining() > 0 
-                      ? `Generate Thumbnail (${getThumbnailsRemaining()} left)`
-                      : 'No thumbnails remaining'
+                      ? `🎨 Generate Thumbnail (${getThumbnailsRemaining()} left)`
+                      : '🔒 No thumbnails remaining'
                   }
                 </button>
                 
@@ -1120,14 +1120,14 @@ function App() {
                     rel="noopener noreferrer"
                     className="primary-btn"
                   >
-                    Download Thumbnail
+                    ⬇️ Download Thumbnail
                   </a>
                   <button 
                     className="secondary-btn"
                     onClick={() => setGeneratedThumbnail(null)}
                     disabled={getThumbnailsRemaining() <= 0}
                   >
-                    Generate Another
+                    🔄 Generate Another
                   </button>
                 </div>
               </div>
@@ -1143,7 +1143,7 @@ function App() {
     return (
       <div className="result-modal-overlay" onClick={onClose}>
         <div className="result-modal" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={onClose}></button>
+          <button className="modal-close-btn" onClick={onClose}>✕</button>
           <div className="modal-header">
             <span className="modal-icon">{icon}</span>
             <h2>{title}</h2>
@@ -1156,12 +1156,12 @@ function App() {
           <div className="modal-actions">
             {showCopy && (
               <button className="copy-btn" onClick={() => handleCopyText(copyText || content)}>
-                Copy to Clipboard
+                📋 Copy to Clipboard
               </button>
             )}
             {showDownload && (
               <button className="primary-btn" onClick={handleDownloadCaptions}>
-                Download Captions (.SRT)
+                ⬇️ Download Captions (.SRT)
               </button>
             )}
             <button className="secondary-btn" onClick={onClose}>Close</button>
@@ -1194,15 +1194,15 @@ function App() {
     
     const copyTitle = (title) => {
       navigator.clipboard.writeText(title);
-      alert('Title copied!');
+      alert('✅ Title copied!');
     };
     
     return (
       <div className="result-modal-overlay" onClick={onClose}>
         <div className="result-modal title-modal" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={onClose}></button>
+          <button className="modal-close-btn" onClick={onClose}>✕</button>
           <div className="modal-header">
-            <span className="modal-icon"></span>
+            <span className="modal-icon">🎯</span>
             <h2>A/B Title Options</h2>
             <p className="modal-subtitle">Pick the title that resonates most with your audience!</p>
           </div>
@@ -1212,19 +1212,19 @@ function App() {
               <div key={index} className="title-option">
                 <span className="title-number">{index + 1}</span>
                 <span className="title-text">{title}</span>
-                <button className="title-copy-btn" onClick={() => copyTitle(title)}></button>
+                <button className="title-copy-btn" onClick={() => copyTitle(title)}>📋</button>
               </div>
             ))}
           </div>
           
           {description && (
             <div className="description-section">
-              <h3>Optimized Description</h3>
+              <h3>📝 Optimized Description</h3>
               <div className="description-content">
                 {description.split('\n').map((line, i) => line && <p key={i}>{line}</p>)}
               </div>
               <button className="copy-btn" onClick={() => handleCopyText(description)}>
-                Copy Description
+                📋 Copy Description
               </button>
             </div>
           )}
@@ -1265,7 +1265,7 @@ function App() {
         <main className="main-content">
           <div className="limit-reached-section">
             <div className="limit-card">
-              <span className="limit-icon"></span>
+              <span className="limit-icon">🎉</span>
               <h2>You've Used All 3 Free Analyses!</h2>
               <p className="limit-subtitle">We hope you loved JSMGAX! Upgrade to Premium for unlimited analyses.</p>
               <div className="limit-stats">
@@ -1279,7 +1279,7 @@ function App() {
                 </div>
               </div>
               <div className="limit-options">
-                <button className="premium-btn" onClick={() => setShowPaywall(true)}>Upgrade to Premium - $5.99/month</button>
+                <button className="premium-btn" onClick={() => setShowPaywall(true)}>⭐ Upgrade to Premium - $5.99/month</button>
                 <p className="limit-note">One price. All features. No confusing tiers.</p>
               </div>
             </div>
@@ -1333,9 +1333,9 @@ function App() {
             
             <SignedOut>
               <div className="sign-in-prompt">
-                <p>Sign in to start analyzing videos!</p>
+                <p>🔐 Sign in to start analyzing videos!</p>
                 <SignUpButton mode="modal">
-                  <button className="primary-btn">Create Free Account</button>
+                  <button className="primary-btn">✨ Create Free Account</button>
                 </SignUpButton>
                 <p className="sign-in-note">Already have an account? <SignInButton mode="modal"><span className="sign-in-link">Sign in</span></SignInButton></p>
               </div>
@@ -1348,31 +1348,31 @@ function App() {
                   className={`mode-btn ${analysisMode === 'myVideo' && !showTrendingSection ? 'mode-btn-active' : ''}`}
                   onClick={() => { setAnalysisMode('myVideo'); setVideoFile(null); setYoutubeUrl(''); setShowTrendingSection(false); }}
                 >
-                  Analyze My Video
+                  🎬 Analyze My Video
                 </button>
                 <button 
                   className={`mode-btn ${analysisMode === 'competitor' && !showTrendingSection ? 'mode-btn-active' : ''}`}
                   onClick={() => { setAnalysisMode('competitor'); setVideoFile(null); setYoutubeUrl(''); setShowTrendingSection(false); }}
                 >
-                  Competitor Research
+                  🔍 Competitor Research
                 </button>
                 <button 
                   className={`mode-btn ${showTrendingSection ? 'mode-btn-active' : ''}`}
                   onClick={() => { setShowTrendingSection(!showTrendingSection); setShowNicheTrends(false); }}
                 >
-                  Trending Now
+                  🔥 Trending Now
                 </button>
                 <button 
                   className={`mode-btn ${showNicheTrends ? 'mode-btn-active' : ''}`}
                   onClick={() => { setShowNicheTrends(!showNicheTrends); setShowTrendingSection(false); }}
                 >
-                  Niche Trends
+                  🎯 Niche Trends
                 </button>
               </div>
 
               {analysisMode === 'competitor' && !showTrendingSection && (
                 <div className="competitor-info">
-                  <p><strong>Competitor Research Mode</strong></p>
+                  <p>🔍 <strong>Competitor Research Mode</strong></p>
                   <p>Paste any YouTube video URL to discover what makes it successful and learn winning tactics you can apply!</p>
                 </div>
               )}
@@ -1381,20 +1381,20 @@ function App() {
               {showTrendingSection && (
                 <div className="trending-section">
                   <div className="trending-header">
-                    <h3>Trending on YouTube</h3>
+                    <h3>🔥 Trending on YouTube</h3>
                     <p>See what's hot right now and get inspired for your next video</p>
                   </div>
                   
                   <div className="trending-categories">
                     {[
-                      { id: 'all', label: 'All' },
-                      { id: 'gaming', label: ' Gaming' },
-                      { id: 'music', label: ' Music' },
-                      { id: 'entertainment', label: 'Entertainment' },
-                      { id: 'howto', label: 'How-To' },
-                      { id: 'tech', label: ' Tech' },
-                      { id: 'sports', label: 'Sports' },
-                      { id: 'news', label: 'News' }
+                      { id: 'all', label: '🌟 All' },
+                      { id: 'gaming', label: '🎮 Gaming' },
+                      { id: 'music', label: '🎵 Music' },
+                      { id: 'entertainment', label: '🎬 Entertainment' },
+                      { id: 'howto', label: '📚 How-To' },
+                      { id: 'tech', label: '💻 Tech' },
+                      { id: 'sports', label: '⚽ Sports' },
+                      { id: 'news', label: '📰 News' }
                     ].map(cat => (
                       <button
                         key={cat.id}
@@ -1428,7 +1428,7 @@ function App() {
                           </div>
                           <div className="trending-actions">
                             <a href={video.url} target="_blank" rel="noopener noreferrer" className="trending-watch-btn">
-                               Watch
+                              ▶️ Watch
                             </a>
                             <button 
                               className="trending-analyze-btn"
@@ -1438,7 +1438,7 @@ function App() {
                                 setShowTrendingSection(false);
                               }}
                             >
-                              Analyze
+                              🔍 Analyze
                             </button>
                           </div>
                         </div>
@@ -1448,7 +1448,7 @@ function App() {
                   
                   <div className="results-actions" style={{ marginTop: '30px' }}>
                     <button className="secondary-btn" onClick={() => { setShowTrendingSection(false); setCurrentView('upload'); }}>
-                      Return to Home Page
+                      🏠 Return to Home Page
                     </button>
                   </div>
                 </div>
@@ -1458,7 +1458,7 @@ function App() {
               {showNicheTrends && (
                 <div className="niche-trends-section">
                   <div className="niche-trends-header">
-                    <h3>Your Personalized Niche Trend Detector</h3>
+                    <h3>🎯 Your Personalized Niche Trend Detector</h3>
                     <p>Get trending topics, video ideas, and keyword opportunities tailored to YOUR niche</p>
                   </div>
                   
@@ -1467,18 +1467,18 @@ function App() {
                       <h4>Select Your Niche:</h4>
                       <div className="niche-grid">
                         {[
-                          { id: 'fitness', label: 'Fitness & Health', icon: '' },
-                          { id: 'gaming', label: ' Gaming', icon: '' },
-                          { id: 'tech', label: ' Tech & Gadgets', icon: '' },
-                          { id: 'cooking', label: 'Cooking & Food', icon: '' },
-                          { id: 'beauty', label: 'Beauty & Fashion', icon: '' },
-                          { id: 'finance', label: 'Finance & Investing', icon: '' },
-                          { id: 'education', label: 'Education & Learning', icon: '' },
-                          { id: 'travel', label: ' Travel & Lifestyle', icon: '' },
-                          { id: 'music', label: ' Music & Entertainment', icon: '' },
-                          { id: 'business', label: 'Business & Marketing', icon: '' },
-                          { id: 'diy', label: 'DIY & Crafts', icon: '' },
-                          { id: 'sports', label: 'Sports & Athletics', icon: '' }
+                          { id: 'fitness', label: '💪 Fitness & Health', icon: '💪' },
+                          { id: 'gaming', label: '🎮 Gaming', icon: '🎮' },
+                          { id: 'tech', label: '💻 Tech & Gadgets', icon: '💻' },
+                          { id: 'cooking', label: '🍳 Cooking & Food', icon: '🍳' },
+                          { id: 'beauty', label: '💄 Beauty & Fashion', icon: '💄' },
+                          { id: 'finance', label: '💰 Finance & Investing', icon: '💰' },
+                          { id: 'education', label: '📚 Education & Learning', icon: '📚' },
+                          { id: 'travel', label: '✈️ Travel & Lifestyle', icon: '✈️' },
+                          { id: 'music', label: '🎵 Music & Entertainment', icon: '🎵' },
+                          { id: 'business', label: '💼 Business & Marketing', icon: '💼' },
+                          { id: 'diy', label: '🔨 DIY & Crafts', icon: '🔨' },
+                          { id: 'sports', label: '⚽ Sports & Athletics', icon: '⚽' }
                         ].map(niche => (
                           <button
                             key={niche.id}
@@ -1532,7 +1532,7 @@ function App() {
                         }}
                         disabled={isNicheTrendsLoading || (!selectedNiche && !customNiche)}
                       >
-                        {isNicheTrendsLoading ? 'Analyzing...' : 'Analyze My Niche'}
+                        {isNicheTrendsLoading ? '🔄 Analyzing...' : '🚀 Analyze My Niche'}
                       </button>
                     </div>
                   ) : (
@@ -1551,22 +1551,22 @@ function App() {
                       
                       <div className="niche-results-grid">
                         <div className="niche-result-card">
-                          <h4>Trending Topics in {nicheTrendData.niche}</h4>
+                          <h4>🔥 Trending Topics in {nicheTrendData.niche}</h4>
                           <div className="niche-content">{nicheTrendData.trendingTopics}</div>
                         </div>
                         
                         <div className="niche-result-card">
-                          <h4>Video Ideas</h4>
+                          <h4>💡 Video Ideas</h4>
                           <div className="niche-content">{nicheTrendData.videoIdeas}</div>
                         </div>
                         
                         <div className="niche-result-card">
-                          <h4>Keyword Opportunities</h4>
+                          <h4>🔑 Keyword Opportunities</h4>
                           <div className="niche-content">{nicheTrendData.keywords}</div>
                         </div>
                         
                         <div className="niche-result-card">
-                          <h4>Competitor Insights</h4>
+                          <h4>🎯 Competitor Insights</h4>
                           <div className="niche-content">{nicheTrendData.competitorInsights}</div>
                         </div>
                       </div>
@@ -1575,7 +1575,7 @@ function App() {
                   
                   <div className="results-actions" style={{ marginTop: '30px' }}>
                     <button className="secondary-btn" onClick={() => { setShowNicheTrends(false); setNicheTrendData(null); setSelectedNiche(''); setCustomNiche(''); setCurrentView('upload'); }}>
-                      Return to Home Page
+                      🏠 Return to Home Page
                     </button>
                   </div>
                 </div>
@@ -1584,21 +1584,21 @@ function App() {
               {!showTrendingSection && !showNicheTrends && (
                 <>
                   <div className="uses-counter">
-                <span className="uses-icon"></span>
-                <span className="uses-text">{isAdmin ? 'Admin - Unlimited' : isPremium ? 'Premium - Unlimited' : `${usesLeft} free analyses left`}</span>
+                <span className="uses-icon">🎁</span>
+                <span className="uses-text">{isAdmin ? '🔧 Admin - Unlimited' : isPremium ? '✨ Premium - Unlimited' : `${usesLeft} free analyses left`}</span>
               </div>
               {!isPremium && (
-                <button className="go-premium-btn" onClick={handlePremiumClick}>View Plans - Starting at $5.99/month</button>
+                <button className="go-premium-btn" onClick={handlePremiumClick}>⭐ View Plans - Starting at $5.99/month</button>
               )}
               {!isPremium && !isAdmin && usesLeft <= 1 && (
-                <button className="hardship-btn" onClick={() => setShowHardshipModal(true)}>Request Additional Free Analyses</button>
+                <button className="hardship-btn" onClick={() => setShowHardshipModal(true)}>📝 Request Additional Free Analyses</button>
               )}
-              {error && <div className="error-box">{error}</div>}
+              {error && <div className="error-box">⚠️ {error}</div>}
               
               <div className="input-group">
-                <label>Paste YouTube Link {analysisMode === 'competitor' && '(Competitor Video)'}</label>
+                <label>🔗 Paste YouTube Link {analysisMode === 'competitor' && '(Competitor Video)'}</label>
                 <input type="text" placeholder={analysisMode === 'competitor' ? "https://www.youtube.com/watch?v=COMPETITOR_VIDEO" : "https://www.youtube.com/watch?v=..."} value={youtubeUrl} onChange={handleYoutubeChange} className={youtubeUrl ? 'input-success' : ''} />
-                {youtubeUrl && <span className="success-text">YouTube link ready!</span>}
+                {youtubeUrl && <span className="success-text">✅ YouTube link ready!</span>}
               </div>
               
               {analysisMode === 'myVideo' && (
@@ -1607,8 +1607,8 @@ function App() {
                   <div className={`upload-box ${videoFile ? 'upload-success' : ''}`}>
                     <input type="file" accept="video/*,audio/*" onChange={handleFileChange} id="video-upload" hidden />
                     <label htmlFor="video-upload" className="upload-label">
-                      <span className="upload-icon"></span>
-                      <span className="upload-text">{videoFile ? '' + videoFile.name : 'Click to upload any video'}</span>
+                      <span className="upload-icon">📁</span>
+                      <span className="upload-text">{videoFile ? '✅ ' + videoFile.name : 'Click to upload any video'}</span>
                       <span className="upload-hint">MP4, MOV, AVI, MP3, WAV (Max 25MB)</span>
                       <span className="platform-support">Works with: TikTok • Instagram Reels • Shorts • Any video!</span>
                     </label>
@@ -1617,14 +1617,14 @@ function App() {
               )}
               
               <button className="primary-btn" onClick={handleAnalyze} disabled={analysisMode === 'competitor' ? !youtubeUrl : (!videoFile && !youtubeUrl)}>
-                {analysisMode === 'competitor' ? 'Analyze Competitor' : 'Analyze with AI'} {!isPremium && `(${usesLeft} left)`}
+                {analysisMode === 'competitor' ? '🔍 Analyze Competitor' : '✨ Analyze with AI'} {!isPremium && `(${usesLeft} left)`}
               </button>
               
               {/* Quick Tools */}
               <div className="quick-tools">
                 <p className="quick-tools-label">Quick Tools:</p>
                 <button className="tool-btn" onClick={() => setShowScriptModal(true)}>
-                   Script Writer
+                  ✍️ Script Writer
                 </button>
               </div>
                 </>
@@ -1648,54 +1648,54 @@ function App() {
           <div className="results-section">
             {isCompetitorAnalysis ? (
               <>
-                <h2>Competitor Analysis Complete!</h2>
+                <h2>🔍 Competitor Analysis Complete!</h2>
                 <p className="results-subtitle">Here's what makes this video successful</p>
                 
                 {competitorSummary && (
                   <div className="competitor-summary-banner">
-                    <span className="summary-icon"></span>
+                    <span className="summary-icon">📺</span>
                     <span className="summary-text">{competitorSummary}</span>
                   </div>
                 )}
 
                 <div className="results-grid competitor-grid">
-                  <GridCard icon="" title="Success Factors" subtitle="Why it works" onClick={() => setActiveModal('success')} highlight={true} />
-                  <GridCard icon="" title="Video Structure" subtitle="Content flow" onClick={() => setActiveModal('structure')} />
-                  <GridCard icon="" title="Winning Tactics" subtitle="What to apply" onClick={() => setActiveModal('tactics')} highlight={true} />
-                  <GridCard icon="" title="SEO Analysis" subtitle="Keywords & tags" onClick={() => setActiveModal('competitorSeo')} />
-                  <GridCard icon="" title="Full Transcript" subtitle="What they said" onClick={() => setActiveModal('transcript')} />
+                  <GridCard icon="🏆" title="Success Factors" subtitle="Why it works" onClick={() => setActiveModal('success')} highlight={true} />
+                  <GridCard icon="📋" title="Video Structure" subtitle="Content flow" onClick={() => setActiveModal('structure')} />
+                  <GridCard icon="🎯" title="Winning Tactics" subtitle="What to apply" onClick={() => setActiveModal('tactics')} highlight={true} />
+                  <GridCard icon="🔎" title="SEO Analysis" subtitle="Keywords & tags" onClick={() => setActiveModal('competitorSeo')} />
+                  <GridCard icon="💬" title="Full Transcript" subtitle="What they said" onClick={() => setActiveModal('transcript')} />
                 </div>
 
                 <div className="results-actions">
                   <button className="secondary-btn" onClick={handleStartOver}>
-                    Analyze Another Video {!isPremium && `(${usesLeft} left)`}
+                    🔄 Analyze Another Video {!isPremium && `(${usesLeft} left)`}
                   </button>
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
-                    Back to Home
+                    🏠 Back to Home
                   </button>
                 </div>
                 
                 <div className="thumbnail-cta">
                   <button className="thumbnail-btn" onClick={() => setShowThumbnailModal(true)}>
-                    Generate AI Thumbnail ({getThumbnailsRemaining()} left)
+                    🖼️ Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
 
                 {/* Competitor Result Modals */}
-                <ResultModal isOpen={activeModal === 'success'} onClose={() => setActiveModal(null)} title="Success Factors" icon="" content={successAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'structure'} onClose={() => setActiveModal(null)} title="Video Structure Breakdown" icon="" content={structureAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'tactics'} onClose={() => setActiveModal(null)} title="Winning Tactics" icon="" content={tacticsAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'competitorSeo'} onClose={() => setActiveModal(null)} title="SEO & Discoverability Analysis" icon="" content={seoAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'transcript'} onClose={() => setActiveModal(null)} title="Full Transcript" icon="" content={transcription?.text || ''} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'success'} onClose={() => setActiveModal(null)} title="Success Factors" icon="🏆" content={successAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'structure'} onClose={() => setActiveModal(null)} title="Video Structure Breakdown" icon="📋" content={structureAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'tactics'} onClose={() => setActiveModal(null)} title="Winning Tactics" icon="🎯" content={tacticsAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'competitorSeo'} onClose={() => setActiveModal(null)} title="SEO & Discoverability Analysis" icon="🔎" content={seoAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'transcript'} onClose={() => setActiveModal(null)} title="Full Transcript" icon="💬" content={transcription?.text || ''} showCopy={true} />
               </>
             ) : (
               <>
-                <h2>Your AI Analysis is Ready!</h2>
+                <h2>🎉 Your AI Analysis is Ready!</h2>
                 <p className="results-subtitle">Click any card below to view details</p>
                 
                 {percentile !== null && (
                   <div className="benchmark-banner">
-                    <span className="benchmark-icon"></span>
+                    <span className="benchmark-icon">📈</span>
                     <span className="benchmark-text">
                       Your video scored better than <strong>{percentile}%</strong> of analyzed videos!
                     </span>
@@ -1704,60 +1704,60 @@ function App() {
                 )}
 
                 <div className="results-grid">
-                  <GridCard icon="" title="Video Score" subtitle={`${getScoreNumber()}/100`} onClick={() => setActiveModal('score')} highlight={true} />
-                  <GridCard icon="" title="Captions" subtitle="Download SRT" onClick={() => setActiveModal('captions')} />
-                  <GridCard icon="" title="AI Tips" subtitle="5 improvements" onClick={() => setActiveModal('tips')} />
-                  <GridCard icon="" title="Hook Analysis" subtitle="First 3 seconds" onClick={() => setActiveModal('hook')} />
-                  <GridCard icon="" title="Thumbnail Text" subtitle="Click-worthy words" onClick={() => setActiveModal('thumbnail')} />
-                  <GridCard icon="⏱" title="Pacing" subtitle="Flow & retention" onClick={() => setActiveModal('pacing')} />
-                  <GridCard icon="" title="CTA Scripts" subtitle="Call-to-actions" onClick={() => setActiveModal('cta')} />
-                  <GridCard icon="" title="Platform Tips" subtitle="Multi-platform" onClick={() => setActiveModal('platform')} />
-                  <GridCard icon="" title="Audio Notes" subtitle="Speech analysis" onClick={() => setActiveModal('audio')} />
-                  <GridCard icon="" title="A/B Titles" subtitle="5 title options" onClick={() => setActiveModal('titles')} />
-                  <GridCard icon="#⃣" title="Hashtags" subtitle="30+ tags" onClick={() => setActiveModal('hashtags')} />
-                  <GridCard icon="" title="Trending Ideas" subtitle="Video concepts" onClick={() => setActiveModal('trending')} />
+                  <GridCard icon="📊" title="Video Score" subtitle={`${getScoreNumber()}/100`} onClick={() => setActiveModal('score')} highlight={true} />
+                  <GridCard icon="💬" title="Captions" subtitle="Download SRT" onClick={() => setActiveModal('captions')} />
+                  <GridCard icon="💡" title="AI Tips" subtitle="5 improvements" onClick={() => setActiveModal('tips')} />
+                  <GridCard icon="🎣" title="Hook Analysis" subtitle="First 3 seconds" onClick={() => setActiveModal('hook')} />
+                  <GridCard icon="🖼️" title="Thumbnail Text" subtitle="Click-worthy words" onClick={() => setActiveModal('thumbnail')} />
+                  <GridCard icon="⏱️" title="Pacing" subtitle="Flow & retention" onClick={() => setActiveModal('pacing')} />
+                  <GridCard icon="📣" title="CTA Scripts" subtitle="Call-to-actions" onClick={() => setActiveModal('cta')} />
+                  <GridCard icon="📱" title="Platform Tips" subtitle="Multi-platform" onClick={() => setActiveModal('platform')} />
+                  <GridCard icon="🎙️" title="Audio Notes" subtitle="Speech analysis" onClick={() => setActiveModal('audio')} />
+                  <GridCard icon="🎯" title="A/B Titles" subtitle="5 title options" onClick={() => setActiveModal('titles')} />
+                  <GridCard icon="#️⃣" title="Hashtags" subtitle="30+ tags" onClick={() => setActiveModal('hashtags')} />
+                  <GridCard icon="🔥" title="Trending Ideas" subtitle="Video concepts" onClick={() => setActiveModal('trending')} />
                 </div>
 
                 <div className="results-actions">
                   <button className="secondary-btn" onClick={handleStartOver}>
-                    Analyze Another Video {!isPremium && `(${usesLeft} left)`}
+                    🔄 Analyze Another Video {!isPremium && `(${usesLeft} left)`}
                   </button>
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
-                    Back to Home
+                    🏠 Back to Home
                   </button>
                 </div>
                 
                 <div className="thumbnail-cta">
                   <button className="thumbnail-btn" onClick={() => setShowThumbnailModal(true)}>
-                    Generate AI Thumbnail ({getThumbnailsRemaining()} left)
+                    🖼️ Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
                 
                 {!isPremium && (
                   <div className="upgrade-prompt">
-                    <p>Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
+                    <p>💡 Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
                   </div>
                 )}
                 
                 {!isPremium && !isAdmin && usesLeft === 0 && (
                   <button className="hardship-btn" onClick={() => setShowHardshipModal(true)} style={{ marginTop: '15px' }}>
-                    Request Additional Free Analyses
+                    📝 Request Additional Free Analyses
                   </button>
                 )}
 
                 {/* Result Modals */}
-                <ResultModal isOpen={activeModal === 'score'} onClose={() => setActiveModal(null)} title="Video Score" icon="" content={videoScore} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'captions'} onClose={() => setActiveModal(null)} title="AI-Generated Captions" icon="" content={transcription?.text || ''} showCopy={true} showDownload={true} />
-                <ResultModal isOpen={activeModal === 'tips'} onClose={() => setActiveModal(null)} title="AI Tips to Improve Your Video" icon="" content={tips} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'hook'} onClose={() => setActiveModal(null)} title="Hook Analysis" icon="" content={hookAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'thumbnail'} onClose={() => setActiveModal(null)} title="Thumbnail Text Suggestions" icon="" content={thumbnailText} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'pacing'} onClose={() => setActiveModal(null)} title="Pacing Analysis" icon="⏱" content={pacingAnalysis} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'cta'} onClose={() => setActiveModal(null)} title="Call-to-Action Recommendations" icon="" content={ctaRecommendations} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'platform'} onClose={() => setActiveModal(null)} title="Platform-Specific Feedback" icon="" content={platformFeedback} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'audio'} onClose={() => setActiveModal(null)} title="Audio & Speech Notes" icon="" content={audioNotes} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'score'} onClose={() => setActiveModal(null)} title="Video Score" icon="📊" content={videoScore} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'captions'} onClose={() => setActiveModal(null)} title="AI-Generated Captions" icon="💬" content={transcription?.text || ''} showCopy={true} showDownload={true} />
+                <ResultModal isOpen={activeModal === 'tips'} onClose={() => setActiveModal(null)} title="AI Tips to Improve Your Video" icon="💡" content={tips} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'hook'} onClose={() => setActiveModal(null)} title="Hook Analysis" icon="🎣" content={hookAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'thumbnail'} onClose={() => setActiveModal(null)} title="Thumbnail Text Suggestions" icon="🖼️" content={thumbnailText} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'pacing'} onClose={() => setActiveModal(null)} title="Pacing Analysis" icon="⏱️" content={pacingAnalysis} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'cta'} onClose={() => setActiveModal(null)} title="Call-to-Action Recommendations" icon="📣" content={ctaRecommendations} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'platform'} onClose={() => setActiveModal(null)} title="Platform-Specific Feedback" icon="📱" content={platformFeedback} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'audio'} onClose={() => setActiveModal(null)} title="Audio & Speech Notes" icon="🎙️" content={audioNotes} showCopy={true} />
                 <TitleModal isOpen={activeModal === 'titles'} onClose={() => setActiveModal(null)} content={titleAndDescription} />
-                <ResultModal isOpen={activeModal === 'hashtags'} onClose={() => setActiveModal(null)} title="Hashtag Generator" icon="#⃣" content={hashtags} showCopy={true} />
-                <ResultModal isOpen={activeModal === 'trending'} onClose={() => setActiveModal(null)} title="Trending Topics & Video Ideas" icon="" content={trendingAndIdeas} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'hashtags'} onClose={() => setActiveModal(null)} title="Hashtag Generator" icon="#️⃣" content={hashtags} showCopy={true} />
+                <ResultModal isOpen={activeModal === 'trending'} onClose={() => setActiveModal(null)} title="Trending Topics & Video Ideas" icon="🔥" content={trendingAndIdeas} showCopy={true} />
               </>
             )}
           </div>
@@ -1766,7 +1766,7 @@ function App() {
         {showPaywall && (
           <div className="paywall-overlay" onClick={() => setShowPaywall(false)}>
             <div className="paywall-modal" onClick={(e) => e.stopPropagation()}>
-              <button className="close-modal" onClick={() => setShowPaywall(false)}></button>
+              <button className="close-modal" onClick={() => setShowPaywall(false)}>✕</button>
               <PaywallContent />
             </div>
           </div>
@@ -1777,10 +1777,10 @@ function App() {
         {showScriptModal && (
           <div className="result-modal-overlay" onClick={() => setShowScriptModal(false)}>
             <div className="result-modal script-modal" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close-btn" onClick={() => setShowScriptModal(false)}></button>
+              <button className="modal-close-btn" onClick={() => setShowScriptModal(false)}>✕</button>
               
               <div className="modal-header">
-                <span className="modal-icon"></span>
+                <span className="modal-icon">✍️</span>
                 <h2>AI Script Writer</h2>
                 <p className="modal-subtitle">Generate a complete video script in seconds!</p>
               </div>
@@ -1788,7 +1788,7 @@ function App() {
               {!generatedScript && !isGeneratingScript && (
                 <div className="script-form">
                   <div className="script-input-group">
-                    <label>Video Topic *</label>
+                    <label>📝 Video Topic *</label>
                     <input 
                       type="text" 
                       placeholder="e.g., How to start a YouTube channel in 2025"
@@ -1799,12 +1799,12 @@ function App() {
                   </div>
                   
                   <div className="script-input-group">
-                    <label>Video Length</label>
+                    <label>⏱️ Video Length</label>
                     <div className="script-options">
                       {[
-                        { id: 'short', label: 'Short', desc: '1-2 min' },
-                        { id: 'medium', label: ' Medium', desc: '5-7 min' },
-                        { id: 'long', label: 'Long', desc: '10-15 min' }
+                        { id: 'short', label: '⚡ Short', desc: '1-2 min' },
+                        { id: 'medium', label: '📹 Medium', desc: '5-7 min' },
+                        { id: 'long', label: '🎬 Long', desc: '10-15 min' }
                       ].map(opt => (
                         <button 
                           key={opt.id}
@@ -1819,14 +1819,14 @@ function App() {
                   </div>
                   
                   <div className="script-input-group">
-                    <label>Content Style</label>
+                    <label>🎨 Content Style</label>
                     <div className="script-options style-options-grid">
                       {[
-                        { id: 'educational', label: 'Educational', desc: 'Teach & inform' },
-                        { id: 'entertaining', label: 'Entertaining', desc: 'Fun & engaging' },
-                        { id: 'storytelling', label: 'Storytelling', desc: 'Narrative-driven' },
-                        { id: 'tutorial', label: ' Tutorial', desc: 'Step-by-step' },
-                        { id: 'motivational', label: 'Motivational', desc: 'Inspire action' }
+                        { id: 'educational', label: '📚 Educational', desc: 'Teach & inform' },
+                        { id: 'entertaining', label: '🎉 Entertaining', desc: 'Fun & engaging' },
+                        { id: 'storytelling', label: '📖 Storytelling', desc: 'Narrative-driven' },
+                        { id: 'tutorial', label: '🛠️ Tutorial', desc: 'Step-by-step' },
+                        { id: 'motivational', label: '🔥 Motivational', desc: 'Inspire action' }
                       ].map(opt => (
                         <button 
                           key={opt.id}
@@ -1841,7 +1841,7 @@ function App() {
                   </div>
                   
                   <div className="script-input-group">
-                    <label>Target Audience (optional)</label>
+                    <label>👥 Target Audience (optional)</label>
                     <input 
                       type="text" 
                       placeholder="e.g., Beginners, small business owners, teens"
@@ -1856,7 +1856,7 @@ function App() {
                     onClick={handleGenerateScript}
                     disabled={!scriptTopic.trim()}
                   >
-                    Generate Script
+                    ✨ Generate Script
                   </button>
                 </div>
               )}
@@ -1878,13 +1878,13 @@ function App() {
                   </div>
                   <div className="script-actions">
                     <button className="copy-btn" onClick={() => handleCopyText(generatedScript)}>
-                      Copy Script
+                      📋 Copy Script
                     </button>
                     <button className="secondary-btn" onClick={() => {
                       setGeneratedScript('');
                       setScriptTopic('');
                     }}>
-                       Write Another
+                      ✍️ Write Another
                     </button>
                   </div>
                 </div>
@@ -1898,10 +1898,10 @@ function App() {
       {showSupportModal && (
         <div className="result-modal-overlay" onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}>
           <div className="result-modal support-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}></button>
+            <button className="modal-close-btn" onClick={() => { setShowSupportModal(false); setSupportSubmitted(false); }}>✕</button>
             
             <div className="modal-header">
-              <span className="modal-icon"></span>
+              <span className="modal-icon">💬</span>
               <h2>JSMGAX Support</h2>
               <p className="modal-subtitle">We're here to help!</p>
             </div>
@@ -1914,7 +1914,7 @@ function App() {
                 className="support-form"
               >
                 <div className="script-input-group">
-                  <label>Your Email</label>
+                  <label>📧 Your Email</label>
                   <input 
                     type="email" 
                     name="email"
@@ -1926,7 +1926,7 @@ function App() {
                 </div>
                 
                 <div className="script-input-group">
-                  <label>Issue Type</label>
+                  <label>📋 Issue Type</label>
                   <select name="issue_type" className="script-topic-input" required>
                     <option value="">Select an issue type...</option>
                     <option value="bug">Bug / Something's not working</option>
@@ -1937,7 +1937,7 @@ function App() {
                 </div>
                 
                 <div className="script-input-group">
-                  <label>Describe Your Issue</label>
+                  <label>📝 Describe Your Issue</label>
                   <textarea 
                     name="message"
                     placeholder="Please describe what happened or what you need help with..."
@@ -1949,12 +1949,12 @@ function App() {
                 </div>
                 
                 <button type="submit" className="primary-btn generate-script-btn">
-                  Send Message
+                  📤 Send Message
                 </button>
               </form>
             ) : (
               <div className="support-success">
-                <div className="success-icon"></div>
+                <div className="success-icon">✅</div>
                 <h3>Message Sent!</h3>
                 <p>Thanks for reaching out. We'll get back to you as soon as possible.</p>
                 <button 
@@ -1973,10 +1973,10 @@ function App() {
       {showFoundingPopup && (
         <div className="result-modal-overlay" onClick={() => setShowFoundingPopup(false)}>
           <div className="result-modal founding-popup" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setShowFoundingPopup(false)}></button>
+            <button className="modal-close-btn" onClick={() => setShowFoundingPopup(false)}>✕</button>
             
             <div className="modal-header">
-              <span className="modal-icon"></span>
+              <span className="modal-icon">⭐</span>
               <h2>Thank You for Being Early</h2>
             </div>
             
@@ -2010,12 +2010,12 @@ function App() {
       {showHardshipModal && (
         <div className="result-modal-overlay" onClick={() => setShowHardshipModal(false)}>
           <div className="result-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '600px' }}>
-            <button className="modal-close-btn" onClick={() => setShowHardshipModal(false)}></button>
+            <button className="modal-close-btn" onClick={() => setShowHardshipModal(false)}>✕</button>
             
             {!hardshipSubmitted ? (
               <>
                 <div className="modal-header">
-                  <span className="modal-icon"></span>
+                  <span className="modal-icon">🤝</span>
                   <h2>Request Additional Free Analyses</h2>
                   <p className="modal-subtitle">We understand that technical issues and unexpected circumstances can disrupt your analysis experience. We genuinely care about you having the opportunity to fully test our product and see its value.</p>
                 </div>
@@ -2027,7 +2027,7 @@ function App() {
                   </div>
                   
                   <div className="form-group">
-                    <label>Tell us what happened *</label>
+                    <label>📝 Tell us what happened *</label>
                     <textarea
                       className="hardship-textarea"
                       placeholder="Please describe what happened in detail. Example: My browser crashed during the analysis process and it counted as a use, but I never received the results. I would like to properly evaluate the platform before deciding on a subscription."
@@ -2038,7 +2038,7 @@ function App() {
                   </div>
                   
                   <div className="form-group">
-                    <label>How many analyses do you need?</label>
+                    <label>🔢 How many analyses do you need?</label>
                     <select 
                       className="hardship-select"
                       value={hardshipAnalysesRequested}
@@ -2052,7 +2052,7 @@ function App() {
                   </div>
                   
                   <div className="hardship-note">
-                    <p><strong>Important:</strong> All requests are subject to administrative review and approval. We carefully evaluate each situation on a case-by-case basis and reserve the right to approve or deny requests at our discretion. You will receive an email response within 24-48 hours with our decision.</p>
+                    <p><strong>⚠️ Important:</strong> All requests are subject to administrative review and approval. We carefully evaluate each situation on a case-by-case basis and reserve the right to approve or deny requests at our discretion. You will receive an email response within 24-48 hours with our decision.</p>
                   </div>
                   
                   <button 
@@ -2060,13 +2060,13 @@ function App() {
                     onClick={handleHardshipRequest}
                     disabled={!hardshipReason.trim()}
                   >
-                    Submit Request
+                    📨 Submit Request
                   </button>
                 </div>
               </>
             ) : (
               <div className="hardship-success">
-                <span className="success-icon"></span>
+                <span className="success-icon">✅</span>
                 <h3>Request Submitted Successfully!</h3>
                 <p>Thank you for reaching out. Your request has been received and will be carefully reviewed by our administrative team within 24-48 hours.</p>
                 <p>You will receive an email at <strong>{user?.primaryEmailAddress?.emailAddress}</strong> with our decision regarding your request.</p>
