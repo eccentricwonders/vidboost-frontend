@@ -199,20 +199,8 @@ function App() {
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
 
-  // Show founding member popup for logged-in free users (once per session)
-  useEffect(() => {
-    if (isSignedIn && !isPremium && !isAdmin) {
-      const hasSeenPopup = sessionStorage.getItem('jsmgax_founding_popup_seen');
-      if (!hasSeenPopup) {
-        // Delay popup by 2 seconds so user can see the page first
-        const timer = setTimeout(() => {
-          setShowFoundingPopup(true);
-          sessionStorage.setItem('jsmgax_founding_popup_seen', 'true');
-        }, 2000);
-        return () => clearTimeout(timer);
-      }
-    }
-  }, [isSignedIn, isPremium, isAdmin]);
+  // Founding member popup is now triggered when user clicks pricing button
+  // (see handlePremiumClick function)
 
   // Fetch trending videos
   const fetchTrendingVideos = async (category = 'all') => {
@@ -681,8 +669,15 @@ function App() {
       alert('Please sign in first to upgrade to Premium!');
       return;
     }
-    setShowPaywall(true);
-    setAgreedToTerms(false);
+    // Show founding member popup first (once per session)
+    const hasSeenPopup = sessionStorage.getItem('jsmgax_founding_popup_seen');
+    if (!hasSeenPopup && !isPremium && !isAdmin) {
+      setShowFoundingPopup(true);
+      sessionStorage.setItem('jsmgax_founding_popup_seen', 'true');
+    } else {
+      setShowPaywall(true);
+      setAgreedToTerms(false);
+    }
   };
 
   const getScoreNumber = () => {
