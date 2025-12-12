@@ -1676,7 +1676,7 @@ function App() {
                 </div>
                 
                 <div className="thumbnail-cta">
-                  <button className="thumbnail-btn" onClick={() => setShowThumbnailModal(true)}>
+                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)}>
                     Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
@@ -1728,7 +1728,7 @@ function App() {
                 </div>
                 
                 <div className="thumbnail-cta">
-                  <button className="thumbnail-btn" onClick={() => setShowThumbnailModal(true)}>
+                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)}>
                     Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
