@@ -1738,6 +1738,12 @@ function App() {
                     <p>💡 Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
                   </div>
                 )}
+                
+                {!isPremium && !isAdmin && usesLeft === 0 && (
+                  <button className="hardship-btn" onClick={() => setShowHardshipModal(true)} style={{ marginTop: '15px' }}>
+                    📝 Request Additional Free Analyses
+                  </button>
+                )}
 
                 {/* Result Modals */}
                 <ResultModal isOpen={activeModal === 'score'} onClose={() => setActiveModal(null)} title="Video Score" icon="📊" content={videoScore} showCopy={true} />
