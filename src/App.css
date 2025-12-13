@@ -1745,10 +1745,10 @@ body {
 
 .hero-section {
   text-align: center;
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: linear-gradient(180deg, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
   border-radius: 12px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   border: 1px solid var(--color-border);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
@@ -1759,10 +1759,10 @@ body {
 }
 
 .hero-title {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, var(--color-text-white) 0%, var(--color-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1772,10 +1772,10 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.5;
   color: var(--color-text-gray);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -1786,7 +1786,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
@@ -1807,13 +1807,13 @@ body {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
 .hero-primary-btn {
-  padding: 16px 40px;
-  font-size: 18px;
+  padding: 14px 36px;
+  font-size: 17px;
   font-weight: 700;
   background: var(--color-cyan);
   color: var(--color-bg-dark);
@@ -1833,8 +1833,8 @@ body {
 }
 
 .hero-secondary-btn {
-  padding: 16px 40px;
-  font-size: 18px;
+  padding: 14px 36px;
+  font-size: 17px;
   font-weight: 700;
   background: transparent;
   color: var(--color-cyan);
@@ -1863,25 +1863,25 @@ body {
    ============================================ */
 
 .features-section {
-  padding: 60px 20px;
-  margin-bottom: 60px;
+  padding: 40px 20px;
+  margin-bottom: 40px;
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--color-text-white);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   color: var(--color-text-gray);
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -1889,8 +1889,8 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1899,7 +1899,7 @@ body {
   background: var(--color-bg-medium);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   text-align: center;
   transition: all 0.3s ease;
   cursor: default;
@@ -1912,8 +1912,8 @@ body {
 }
 
 .feature-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-size: 40px;
+  margin-bottom: 12px;
   filter: grayscale(100%);
   opacity: 0.8;
 }
@@ -1924,17 +1924,17 @@ body {
 }
 
 .feature-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-text-white);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .feature-description {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-text-gray);
 }
 
@@ -1943,26 +1943,26 @@ body {
    ============================================ */
 
 .pricing-section {
-  padding: 60px 20px;
+  padding: 40px 20px;
   background: var(--color-bg-medium);
   border-radius: 12px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   border: 1px solid var(--color-border);
 }
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   max-width: 1200px;
-  margin: 0 auto 32px;
+  margin: 0 auto 24px;
 }
 
 .pricing-card {
   background: var(--color-bg-dark);
   border: 2px solid var(--color-border);
   border-radius: 12px;
-  padding: 40px 32px;
+  padding: 32px 24px;
   position: relative;
   transition: all 0.3s ease;
   display: flex;
@@ -2013,14 +2013,14 @@ body {
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .pricing-tier {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--color-text-white);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -2034,7 +2034,7 @@ body {
 }
 
 .price-amount {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 800;
   color: var(--color-cyan);
 }
@@ -2052,16 +2052,16 @@ body {
 
 .pricing-features {
   flex: 1;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .pricing-feature {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
+  gap: 10px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--color-border);
-  font-size: 15px;
+  font-size: 14px;
   color: var(--color-text-white);
 }
 
@@ -2090,8 +2090,8 @@ body {
 
 .pricing-btn {
   width: 100%;
-  padding: 16px 32px;
-  font-size: 16px;
+  padding: 14px 28px;
+  font-size: 15px;
   font-weight: 700;
   border-radius: 8px;
   cursor: pointer;
@@ -2134,7 +2134,7 @@ body {
 
 .pricing-footer {
   text-align: center;
-  padding-top: 32px;
+  padding-top: 24px;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-gray);
   font-size: 14px;
@@ -2146,7 +2146,7 @@ body {
 
 .final-cta-section {
   text-align: center;
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
   border-radius: 12px;
   border: 1px solid var(--color-border);
@@ -2154,25 +2154,25 @@ body {
 }
 
 .final-cta-title {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--color-text-white);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .final-cta-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--color-text-gray);
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .final-cta-note {
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 14px;
   color: var(--color-text-dark);
   font-style: italic;
@@ -2183,8 +2183,12 @@ body {
    ============================================ */
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 20px;
+  }
+
   .hero-title {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .hero-subtitle {
@@ -2193,16 +2197,16 @@ body {
 
   .hero-primary-btn,
   .hero-secondary-btn {
-    padding: 14px 32px;
-    font-size: 16px;
+    padding: 12px 28px;
+    font-size: 15px;
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .section-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .features-grid {
@@ -2221,22 +2225,26 @@ body {
     transform: translateY(-4px);
   }
 
+  .final-cta-section {
+    padding: 40px 20px;
+  }
+
   .final-cta-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .final-cta-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 60px 20px;
+    padding: 40px 16px;
   }
 
   .hero-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .hero-cta {
@@ -2250,14 +2258,18 @@ body {
   }
 
   .feature-card {
-    padding: 24px;
+    padding: 20px;
   }
 
   .pricing-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .price-amount {
     font-size: 36px;
+  }
+
+  .final-cta-section {
+    padding: 40px 16px;
   }
 }
