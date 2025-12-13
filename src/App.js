@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import './App.css';
+import * as analytics from './analytics';
 
 function App() {
   // API URL - change to http://localhost:3001 for local development
@@ -483,6 +484,10 @@ function App() {
     }
     setCurrentView('analyzing');
     setError(null);
+    
+    // Track analysis start
+    analytics.trackAnalysisStart(analysisMode === 'competitor' ? 'competitor' : 'my_video');
+    
     try {
       let response;
       
@@ -504,6 +509,9 @@ function App() {
           setSeoAnalysis(data.seoAnalysis);
           setCompetitorSummary(data.competitorSummary);
           setCurrentView('results');
+          
+          // Track successful analysis
+          analytics.trackAnalysisComplete('competitor');
           
           // Update uses count for free users (competitor analysis counts as a use)
           if (!isPremium && !isAdmin && user) {
@@ -558,6 +566,9 @@ function App() {
         setTotalVideosAnalyzed(data.totalVideosAnalyzed || 0);
         
         setCurrentView('results');
+        
+        // Track successful analysis
+        analytics.trackAnalysisComplete('my_video');
         
         // Update uses count for free users
         if (!isPremium && !isAdmin && user) {
