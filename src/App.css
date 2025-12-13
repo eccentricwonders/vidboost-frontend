@@ -805,6 +805,18 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .mode-toggle {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mode-btn {
+    flex: 1 1 calc(50% - 4px);
+    min-width: calc(50% - 4px);
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+
   .modal {
     padding: 24px;
   }
