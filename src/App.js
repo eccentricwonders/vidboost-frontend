@@ -1332,12 +1332,265 @@ function App() {
             <p className="subtitle">Analyze any video — YouTube, TikTok, Reels, or your own content!</p>
             
             <SignedOut>
-              <div className="sign-in-prompt">
-                <p>Sign in to start analyzing videos!</p>
-                <SignUpButton mode="modal">
-                  <button className="primary-btn">Create Free Account</button>
-                </SignUpButton>
-                <p className="sign-in-note">Already have an account? <SignInButton mode="modal"><span className="sign-in-link">Sign in</span></SignInButton></p>
+              {/* LANDING PAGE */}
+              <div className="landing-page">
+                {/* HERO SECTION */}
+                <section className="hero-section">
+                  <div className="hero-content">
+                    <h1 className="hero-title">Turn Any Video Into a Viral Hit with AI</h1>
+                    <p className="hero-subtitle">
+                      Stop guessing what works. Get AI-powered insights that analyze your videos for hooks, 
+                      thumbnails, pacing, SEO, and viral potential — all in under 60 seconds.
+                    </p>
+                    <div className="hero-stats">
+                      <span className="hero-stat">3 Free Analyses</span>
+                      <span className="hero-divider">•</span>
+                      <span className="hero-stat">No Credit Card Required</span>
+                      <span className="hero-divider">•</span>
+                      <span className="hero-stat">Instant Results</span>
+                    </div>
+                    <div className="hero-cta">
+                      <SignUpButton mode="modal">
+                        <button className="hero-primary-btn">Start Free Analysis</button>
+                      </SignUpButton>
+                      <SignInButton mode="modal">
+                        <button className="hero-secondary-btn">Sign In</button>
+                      </SignInButton>
+                    </div>
+                    <p className="hero-platforms">
+                      Works with YouTube, TikTok, Instagram Reels, and direct uploads
+                    </p>
+                  </div>
+                </section>
+
+                {/* FEATURE SHOWCASE */}
+                <section className="features-section">
+                  <h2 className="section-title">Everything You Need to Go Viral</h2>
+                  <p className="section-subtitle">
+                    Powerful AI tools designed for content creators who want data-driven results
+                  </p>
+                  
+                  <div className="features-grid">
+                    <div className="feature-card">
+                      <div className="feature-icon">📊</div>
+                      <h3 className="feature-title">Hook Analysis</h3>
+                      <p className="feature-description">
+                        Evaluate your first 5 seconds — the most critical moment for viewer retention
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">🎯</div>
+                      <h3 className="feature-title">Viral Prediction</h3>
+                      <p className="feature-description">
+                        Get a 0-100 score predicting your video's viral potential with percentile ranking
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">🖼️</div>
+                      <h3 className="feature-title">Thumbnail Scoring</h3>
+                      <p className="feature-description">
+                        Rate your thumbnail effectiveness and get recommendations for improvement
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">✍️</div>
+                      <h3 className="feature-title">AI Title Generator</h3>
+                      <p className="feature-description">
+                        Generate optimized, click-worthy titles tailored to your content and platform
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">🔍</div>
+                      <h3 className="feature-title">Competitor Research</h3>
+                      <p className="feature-description">
+                        Analyze any public video to discover what makes successful content work
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">🔥</div>
+                      <h3 className="feature-title">Trending Detector</h3>
+                      <p className="feature-description">
+                        See real-time trending videos across 12 categories for instant inspiration
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">📝</div>
+                      <h3 className="feature-title">AI Script Writer</h3>
+                      <p className="feature-description">
+                        Generate complete video scripts with customizable length, style, and audience
+                      </p>
+                    </div>
+
+                    <div className="feature-card">
+                      <div className="feature-icon">🎨</div>
+                      <h3 className="feature-title">AI Thumbnail Generator</h3>
+                      <p className="feature-description">
+                        Create professional thumbnails with DALL-E 3 in 5 different styles
+                      </p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* PRICING SECTION */}
+                <section className="pricing-section">
+                  <h2 className="section-title">Simple, Transparent Pricing</h2>
+                  <p className="section-subtitle">
+                    Start free, upgrade when you're ready. No hidden fees, cancel anytime.
+                  </p>
+
+                  <div className="pricing-grid">
+                    {/* FREE TIER */}
+                    <div className="pricing-card">
+                      <div className="pricing-header">
+                        <h3 className="pricing-tier">Free</h3>
+                        <div className="pricing-price">
+                          <span className="price-amount">$0</span>
+                          <span className="price-period">/forever</span>
+                        </div>
+                      </div>
+                      <div className="pricing-features">
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>3 video analyses</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>3 AI thumbnails</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Unlimited script generation</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Trending videos access</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Niche trend detector</span>
+                        </div>
+                        <div className="pricing-feature disabled">
+                          <span className="feature-cross">✗</span>
+                          <span>Unlimited analyses</span>
+                        </div>
+                        <div className="pricing-feature disabled">
+                          <span className="feature-cross">✗</span>
+                          <span>Competitor research</span>
+                        </div>
+                      </div>
+                      <SignUpButton mode="modal">
+                        <button className="pricing-btn pricing-btn-free">Get Started Free</button>
+                      </SignUpButton>
+                    </div>
+
+                    {/* PREMIUM TIER */}
+                    <div className="pricing-card pricing-card-featured">
+                      <div className="pricing-badge">MOST POPULAR</div>
+                      <div className="pricing-header">
+                        <h3 className="pricing-tier">Premium</h3>
+                        <div className="pricing-price">
+                          <span className="price-amount">$5.99</span>
+                          <span className="price-period">/month</span>
+                        </div>
+                        <p className="pricing-yearly">or $55/year (save $16.88)</p>
+                      </div>
+                      <div className="pricing-features">
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Unlimited video analyses</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Unlimited competitor research</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>3 AI thumbnails per month</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Unlimited script generation</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>All features unlocked</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Priority support</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Founding member pricing</span>
+                        </div>
+                      </div>
+                      <SignUpButton mode="modal">
+                        <button className="pricing-btn pricing-btn-premium">Start Premium Trial</button>
+                      </SignUpButton>
+                    </div>
+
+                    {/* PRO TIER */}
+                    <div className="pricing-card pricing-card-disabled">
+                      <div className="pricing-header">
+                        <h3 className="pricing-tier">Pro</h3>
+                        <div className="pricing-price">
+                          <span className="price-amount">$16.99</span>
+                          <span className="price-period">/month</span>
+                        </div>
+                        <p className="pricing-yearly">Coming Soon</p>
+                      </div>
+                      <div className="pricing-features">
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Everything in Premium</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Advanced analytics</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Team collaboration</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>API access</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>White-label options</span>
+                        </div>
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Dedicated support</span>
+                        </div>
+                      </div>
+                      <button className="pricing-btn pricing-btn-disabled" disabled>Join Waitlist</button>
+                    </div>
+                  </div>
+
+                  <div className="pricing-footer">
+                    <p>All plans include secure payments via Stripe • Cancel anytime • No hidden fees</p>
+                  </div>
+                </section>
+
+                {/* FINAL CTA */}
+                <section className="final-cta-section">
+                  <h2 className="final-cta-title">Ready to Make Your Next Video Go Viral?</h2>
+                  <p className="final-cta-subtitle">
+                    Join thousands of creators using AI to optimize their content and grow their audience
+                  </p>
+                  <SignUpButton mode="modal">
+                    <button className="hero-primary-btn">Start Free Analysis</button>
+                  </SignUpButton>
+                  <p className="final-cta-note">3 free analyses • No credit card required</p>
+                </section>
               </div>
             </SignedOut>
 
