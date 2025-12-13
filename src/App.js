@@ -1673,10 +1673,7 @@ function App() {
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
                     Back to Home
                   </button>
-                </div>
-                
-                <div className="thumbnail-cta">
-                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)}>
+                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)} style={{ marginLeft: '10px' }}>
                     Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
@@ -1725,10 +1722,7 @@ function App() {
                   <button className="secondary-btn" onClick={() => { handleStartOver(); setCurrentView('upload'); }} style={{ marginLeft: '10px' }}>
                     Back to Home
                   </button>
-                </div>
-                
-                <div className="thumbnail-cta">
-                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)}>
+                  <button className="secondary-btn" onClick={() => setShowThumbnailModal(true)} style={{ marginLeft: '10px' }}>
                     Generate AI Thumbnail ({getThumbnailsRemaining()} left)
                   </button>
                 </div>
