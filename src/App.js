@@ -1591,6 +1591,119 @@ function App() {
                   </div>
                 </section>
 
+                {/* FAQ SECTION */}
+                <section className="faq-section">
+                  <h2 className="section-title">Frequently Asked Questions</h2>
+                  <p className="section-subtitle">Everything you need to know about JSMGAX</p>
+                  
+                  <div className="faq-container">
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>How does the AI video analysis work?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>JSMGAX uses advanced AI (powered by GPT-4) to analyze your video content across multiple dimensions. We examine your hook (first 5 seconds), thumbnail effectiveness, pacing, audio quality, SEO optimization, and overall viral potential. The AI compares your video against thousands of successful videos to provide actionable insights and recommendations tailored to your platform (YouTube, TikTok, or Instagram).</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>What platforms do you support?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>JSMGAX supports YouTube, TikTok, and Instagram Reels. You can either paste a YouTube URL for instant analysis or upload video files directly from any platform. Our AI provides platform-specific feedback and recommendations optimized for each platform's algorithm and audience behavior.</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>Is my video data secure and private?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>Absolutely. Your videos are processed securely and are never stored permanently on our servers. We only extract the necessary data for analysis (audio transcription, visual elements) and delete all temporary files immediately after processing. Your content remains completely private and is never shared with third parties or used for training purposes.</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>What's the maximum file size for uploads?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>The maximum file size is 25MB for direct uploads. For larger videos, we recommend using the YouTube URL option instead, which has no size limit. If you need to upload a larger file directly, consider compressing your video or trimming it to the most important sections (the first 60-90 seconds are usually most critical for analysis).</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>How accurate is the viral prediction score?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>Our viral prediction score (0-100) is based on analyzing thousands of successful videos and identifying patterns that correlate with high engagement. While no prediction can be 100% accurate (viral success depends on many factors including timing, audience, and trends), our AI provides a reliable indicator of your video's potential. We also show you your percentile ranking compared to all analyzed videos, giving you context for your score.</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>Can I cancel my Premium subscription anytime?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>Yes, you can cancel your Premium subscription at any time with no penalties or fees. Your subscription will remain active until the end of your current billing period (monthly or yearly), and you won't be charged again. You can manage your subscription directly through your account settings or contact us for assistance.</p>
+                      </div>
+                    </div>
+
+                    <div className="faq-item">
+                      <button className="faq-question" onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const icon = e.currentTarget.querySelector('.faq-icon');
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                        icon.textContent = answer.style.display === 'block' ? '−' : '+';
+                      }}>
+                        <span>What's included in the free plan?</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-answer">
+                        <p>The free plan includes 3 video analyses (lifetime), 3 AI-generated thumbnails, unlimited script generation, access to trending videos across 12 categories, and the niche trend detector. This gives you a comprehensive introduction to JSMGAX's capabilities. If you need more analyses, you can upgrade to Premium for unlimited access or submit a hardship request if cost is a barrier.</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
                 {/* FINAL CTA */}
                 <section className="final-cta-section">
                   <h2 className="final-cta-title">Ready to Make Your Next Video Go Viral?</h2>
