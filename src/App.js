@@ -1378,7 +1378,25 @@ function App() {
         {showTerms && <TermsModal />}
         {showPrivacy && <PrivacyModal />}
         <footer className="footer">
-          <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link></p>
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Product</h4>
+              <a href="#features" className="footer-link">Features</a>
+              <a href="#pricing" className="footer-link">Pricing</a>
+              <Link to="/contact" className="footer-link">Free Trial</Link>
+            </div>
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <a href="#faq" className="footer-link">FAQ</a>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+          </div>
         </footer>
       </div>
     );
@@ -1425,7 +1443,25 @@ function App() {
           </div>
         </main>
         <footer className="footer">
-          <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link></p>
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Product</h4>
+              <a href="#features" className="footer-link">Features</a>
+              <a href="#pricing" className="footer-link">Pricing</a>
+              <Link to="/contact" className="footer-link">Free Trial</Link>
+            </div>
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <a href="#faq" className="footer-link">FAQ</a>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+          </div>
         </footer>
       </div>
     );
@@ -1439,6 +1475,10 @@ function App() {
     <div className="app">
       <header className="header">
         <Logo />
+        <nav className="header-nav">
+          <a href="#pricing" className="nav-link">Pricing</a>
+          <a href="#faq" className="nav-link">FAQ</a>
+        </nav>
         <div className="auth-buttons">
           <SignedOut>
             <SignInButton mode="modal">
@@ -2704,7 +2744,25 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link> | <Link to="/contact" className="terms-link">Contact Us</Link></p>
+        <div className="footer-content">
+          <div className="footer-section">
+            <h4>Product</h4>
+            <a href="#features" className="footer-link">Features</a>
+            <a href="#pricing" className="footer-link">Pricing</a>
+            <Link to="/contact" className="footer-link">Free Trial</Link>
+          </div>
+          <div className="footer-section">
+            <h4>Support</h4>
+            <Link to="/contact" className="footer-link">Contact Us</Link>
+            <a href="#faq" className="footer-link">FAQ</a>
+            <Link to="/terms" className="footer-link">Terms of Service</Link>
+            <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>JSMGAX © 2025</p>
+          <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+        </div>
       </footer>
     </div>
   );
