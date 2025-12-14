@@ -274,7 +274,7 @@ function App() {
       }
     } catch (error) {
       console.error('Hardship request error:', error);
-      alert('Failed to submit request. Please email us at eccentricwonders@gmail.com');
+      alert('Failed to submit request. Please email us at contact.jsmgax@gmail.com');
     }
   };
 
@@ -799,7 +799,7 @@ function App() {
           <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and JSMGAX regarding your use of the Service.</p>
           
           <h3>19. Contact</h3>
-          <p>Questions about these Terms? Contact us at: <strong>eccentricwonders@gmail.com</strong></p>
+          <p>Questions about these Terms? Contact us at: <strong>contact.jsmgax@gmail.com</strong></p>
         </div>
         <button className="primary-btn" onClick={() => setShowTerms(false)}>I Understand & Agree</button>
       </div>
@@ -897,7 +897,7 @@ function App() {
             <li><strong>Object</strong> — Object to certain processing of your data</li>
             <li><strong>Withdraw Consent</strong> — Withdraw consent at any time</li>
           </ul>
-          <p>To exercise any of these rights, contact us at: eccentricwonders@gmail.com</p>
+          <p>To exercise any of these rights, contact us at: contact.jsmgax@gmail.com</p>
           
           <h3>9. For European Union (EU) Users — GDPR</h3>
           <p>If you are located in the European Union, you have additional rights under the General Data Protection Regulation (GDPR):</p>
@@ -938,7 +938,7 @@ function App() {
           
           <h3>15. Contact Us</h3>
           <p>For privacy-related questions or to exercise your rights:</p>
-          <p><strong>Email:</strong> eccentricwonders@gmail.com</p>
+          <p><strong>Email:</strong> contact.jsmgax@gmail.com</p>
           
           <div className="privacy-highlight">
             <p><strong>Summary:</strong> Minimal data collection Videos deleted immediately We NEVER sell your info Full GDPR & CCPA compliance Delete your account anytime</p>
