@@ -2395,3 +2395,234 @@ body {
     margin-bottom: 12px;
   }
 }
+
+
+/* ============================================
+   TRUST SECTION
+   ============================================ */
+
+.trust-section {
+  padding: 80px 40px;
+  background: var(--color-bg-medium);
+}
+
+.trust-subtitle {
+  text-align: center;
+  font-size: 28px;
+  color: var(--color-text-white);
+  margin-bottom: 40px;
+}
+
+/* Trust Badges */
+.trust-badges-section {
+  margin-bottom: 80px;
+}
+
+.trust-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trust-badge {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+  border-color: var(--color-cyan);
+  box-shadow: 0 4px 16px rgba(0, 217, 255, 0.15);
+}
+
+.badge-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.trust-badge strong {
+  display: block;
+  color: var(--color-text-white);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.trust-badge p {
+  color: var(--color-text-gray);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Guarantee Box */
+.guarantee-box {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 150, 255, 0.1));
+  border: 2px solid var(--color-cyan);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 0 auto 80px;
+  max-width: 1200px;
+}
+
+.guarantee-icon {
+  font-size: 72px;
+  flex-shrink: 0;
+}
+
+.guarantee-content h3 {
+  color: var(--color-text-white);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.guarantee-content p {
+  color: var(--color-text-gray);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Founder Story */
+.founder-story {
+  background: var(--color-bg-dark);
+  border-left: 4px solid var(--color-cyan);
+  border-radius: 8px;
+  padding: 40px;
+  margin: 0 auto 80px;
+  max-width: 1200px;
+}
+
+.founder-story h3 {
+  color: var(--color-cyan);
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.founder-story p {
+  color: var(--color-text-gray);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.founder-signature {
+  color: var(--color-text-white);
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.founder-date {
+  color: var(--color-text-dark);
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Comparison Table */
+.comparison-section {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.comparison-table-container {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.comparison-table th {
+  background: var(--color-bg-light);
+  color: var(--color-cyan);
+  padding: 20px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.comparison-table td {
+  padding: 20px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-gray);
+  font-size: 15px;
+}
+
+.comparison-table tr:hover {
+  background: rgba(0, 217, 255, 0.05);
+}
+
+.comparison-table .highlight {
+  color: var(--color-cyan);
+  font-weight: 700;
+}
+
+.comparison-table .check {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.comparison-table .cross {
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trust-section {
+    padding: 40px 20px;
+  }
+
+  .trust-subtitle {
+    font-size: 24px;
+  }
+
+  .trust-badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guarantee-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+
+  .guarantee-icon {
+    font-size: 56px;
+  }
+
+  .guarantee-content h3 {
+    font-size: 24px;
+  }
+
+  .founder-story {
+    padding: 24px;
+  }
+
+  .founder-story h3 {
+    font-size: 24px;
+  }
+
+  .comparison-table {
+    font-size: 14px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px;
+  }
+}

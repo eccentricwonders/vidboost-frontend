@@ -713,13 +713,13 @@ function App() {
   // ============================================
 
   const Logo = () => (
-    <div className="logo" style={{ cursor: 'default' }}>
+    <Link to="/" className="logo" style={{ cursor: 'pointer' }}>
       <img 
         src="/logo-header.png" 
         alt="JSMGAX" 
         className="logo-image"
       />
-    </div>
+    </Link>
   );
 
   const TermsModal = () => (
@@ -1445,6 +1445,138 @@ function App() {
                       <p className="feature-description">
                         Create professional thumbnails with DALL-E 3 in 5 different styles
                       </p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* TRUST SECTION */}
+                <section className="trust-section">
+                  <h2 className="section-title">Why Creators Trust JSMGAX</h2>
+                  
+                  {/* Trust Badges */}
+                  <div className="trust-badges-section">
+                    <h3 className="trust-subtitle">Powered by Industry Leaders</h3>
+                    <div className="trust-badges-grid">
+                      <div className="trust-badge">
+                        <span className="badge-icon">🤖</span>
+                        <div>
+                          <strong>Advanced AI Technology</strong>
+                          <p>Powered by OpenAI's cutting-edge models</p>
+                        </div>
+                      </div>
+                      <div className="trust-badge">
+                        <span className="badge-icon">🔒</span>
+                        <div>
+                          <strong>Stripe Payments</strong>
+                          <p>Bank-level security for all transactions</p>
+                        </div>
+                      </div>
+                      <div className="trust-badge">
+                        <span className="badge-icon">🛡️</span>
+                        <div>
+                          <strong>GDPR Compliant</strong>
+                          <p>Your data is protected and private</p>
+                        </div>
+                      </div>
+                      <div className="trust-badge">
+                        <span className="badge-icon">⚡</span>
+                        <div>
+                          <strong>Enterprise Infrastructure</strong>
+                          <p>99.9% uptime with Vercel & Railway</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Try Before You Buy */}
+                  <div className="guarantee-box">
+                    <div className="guarantee-icon">🎁</div>
+                    <div className="guarantee-content">
+                      <h3>Try the Full Product Free - No Credit Card Required</h3>
+                      <p>Get 3 complete video analyses absolutely free. Not a limited trial - you get access to ALL features including viral prediction, hook analysis, thumbnail scoring, and competitor research. See the value for yourself before spending a penny.</p>
+                    </div>
+                  </div>
+                  
+                  {/* Founder Story */}
+                  <div className="founder-story">
+                    <h3>Built by a Mom, for Creators Like Her Son</h3>
+                    <p>JSMGAX started when my son launched his YouTube channel with dreams of going viral. I watched him spend hours trying to figure out what worked - analyzing thumbnails, testing hooks, studying successful creators. I thought: "There has to be a better way."</p>
+                    <p>So I built it - with the help of AI tools. I combined powerful AI technology from OpenAI with everything I learned about what makes videos succeed. JSMGAX is the tool I wish existed when my son started - something that could give him clear, actionable insights instead of endless guesswork.</p>
+                    <p>I'm sharing it with creators everywhere at a price that makes sense for people just starting out. We're a new platform, which means you get founding member pricing (locked in forever), direct access to me, and your feedback shapes what we build next.</p>
+                    <p className="founder-signature">- Samantha M., Founder of JSMGAX</p>
+                    <p className="founder-date">Last updated: December 2025</p>
+                  </div>
+                  
+                  {/* Comparison Table */}
+                  <div className="comparison-section">
+                    <h3 className="trust-subtitle">How JSMGAX Compares</h3>
+                    <div className="comparison-table-container">
+                      <table className="comparison-table">
+                        <thead>
+                          <tr>
+                            <th>Feature</th>
+                            <th>JSMGAX</th>
+                            <th>VidIQ</th>
+                            <th>TubeBuddy</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>Monthly Price</strong></td>
+                            <td className="highlight">$5.99</td>
+                            <td>$16.58</td>
+                            <td>$14.99</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Platforms Supported</strong></td>
+                            <td className="highlight">YouTube, TikTok, Instagram</td>
+                            <td>YouTube only</td>
+                            <td>YouTube only</td>
+                          </tr>
+                          <tr>
+                            <td><strong>AI Model</strong></td>
+                            <td className="highlight">OpenAI</td>
+                            <td>Proprietary</td>
+                            <td>Proprietary</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Free Analyses</strong></td>
+                            <td className="highlight">3 full analyses</td>
+                            <td>Limited features</td>
+                            <td>Limited features</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Viral Prediction</strong></td>
+                            <td className="check">✓ 0-100 score</td>
+                            <td className="check">✓</td>
+                            <td className="check">✓</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Thumbnail Generation</strong></td>
+                            <td className="check">✓ DALL-E 3</td>
+                            <td className="cross">✗</td>
+                            <td className="cross">✗</td>
+                          </tr>
+                          <tr>
+                            <td><strong>AI Script Writer</strong></td>
+                            <td className="check">✓ Included</td>
+                            <td className="cross">✗</td>
+                            <td className="cross">✗</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Competitor Analysis</strong></td>
+                            <td className="check">✓ Unlimited</td>
+                            <td className="check">✓ Limited</td>
+                            <td className="check">✓ Limited</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Analysis Speed</strong></td>
+                            <td className="highlight">&lt;60 seconds</td>
+                            <td>2-3 minutes</td>
+                            <td>2-3 minutes</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </section>
