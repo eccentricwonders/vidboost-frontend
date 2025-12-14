@@ -2450,7 +2450,7 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
+        <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link> | <Link to="/contact" className="terms-link">Contact Us</Link></p>
       </footer>
     </div>
   );
