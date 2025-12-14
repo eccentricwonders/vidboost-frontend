@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import './App.css';
 import * as analytics from './analytics';
@@ -1565,6 +1566,17 @@ function App() {
 
                 {/* PRICING SECTION */}
                 <section id="pricing" className="pricing-section">
+                  <Helmet>
+                    <title>JSMGAX Pricing - 3X Cheaper Than VidIQ & TubeBuddy</title>
+                    <meta name="title" content="JSMGAX Pricing - 3X Cheaper Than VidIQ & TubeBuddy" />
+                    <meta name="description" content="Get more features for less. $5.99/month vs $15+ for competitors. Multi-platform support (YouTube, TikTok, Instagram), AI thumbnails, and script writer included. Try 3 analyses free." />
+                    <meta name="keywords" content="VidIQ alternative, TubeBuddy alternative, cheap video analysis, affordable YouTube tool, budget creator tools, video SEO pricing" />
+                    <meta property="og:title" content="Better Features, Lower Price - JSMGAX Pricing" />
+                    <meta property="og:description" content="$5.99/month for features that cost $15+ elsewhere. Multi-platform, AI thumbnails, script writer included." />
+                    <meta property="og:url" content="https://jsmgax.com/#pricing" />
+                    <meta property="twitter:title" content="Better Features, Lower Price - JSMGAX Pricing" />
+                    <meta property="twitter:description" content="3X cheaper than VidIQ. Try 3 analyses free, no credit card required." />
+                  </Helmet>
                   <h2 className="section-title">Simple, Transparent Pricing</h2>
                   <p className="section-subtitle">
                     Start free, upgrade when you're ready. No hidden fees, cancel anytime.
