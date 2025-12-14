@@ -2722,3 +2722,95 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Value Props Section */
+.value-props-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.value-props-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.value-prop {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.value-prop:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.value-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.value-prop h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.value-prop p {
+  font-size: 15px;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.learn-more-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.text-link {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.text-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .value-props-section {
+    padding: 40px 15px;
+  }
+  
+  .value-prop {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .value-icon {
+    font-size: 32px;
+  }
+  
+  .value-prop h3 {
+    font-size: 18px;
+  }
+  
+  .value-prop p {
+    font-size: 14px;
+  }
+}
