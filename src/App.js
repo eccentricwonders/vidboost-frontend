@@ -1034,7 +1034,7 @@ function App() {
             <p className="tier-yearly">or $55/year (save $16.88)</p>
           </div>
           <ul className="tier-features">
-            <li>50 video analyses per month</li>
+            <li>50 analyses per month (your videos + competitors)</li>
             <li>AI captions & SRT downloads</li>
             <li>Video scoring & hook analysis</li>
             <li>Thumbnail text suggestions</li>
@@ -1719,7 +1719,7 @@ function App() {
                       <div className="pricing-features">
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>3 video analyses</span>
+                          <span>3 analyses (your videos + competitors)</span>
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
@@ -1765,11 +1765,11 @@ function App() {
                       <div className="pricing-features">
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>50 video analyses per month</span>
+                          <span>50 analyses per month (your videos + competitors)</span>
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>Unlimited competitor research</span>
+                          <span>Analyze your content and competitors</span>
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
@@ -1953,7 +1953,7 @@ function App() {
                         <span className="faq-icon">+</span>
                       </button>
                       <div className="faq-answer">
-                        <p>The free plan includes 3 video analyses (lifetime), 3 AI-generated thumbnails, unlimited script generation, access to trending videos across 12 categories, and the niche trend detector. This gives you a comprehensive introduction to JSMGAX's capabilities. If you need more analyses, you can upgrade to Premium for unlimited access or submit a hardship request if cost is a barrier.</p>
+                        <p>The free plan includes 3 analyses (your videos + competitors), 1 AI-generated thumbnail, unlimited script generation, access to trending videos across 12 categories, and the niche trend detector. This gives you a comprehensive introduction to JSMGAX's capabilities. If you need more analyses, you can upgrade to Premium for 50 analyses per month or submit a hardship request if cost is a barrier.</p>
                       </div>
                     </div>
                   </div>
