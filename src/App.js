@@ -1383,7 +1383,7 @@ function App() {
               <h4>Product</h4>
               <a href="#features" className="footer-link">Features</a>
               <a href="#pricing" className="footer-link">Pricing</a>
-              <Link to="/contact" className="footer-link">Free Trial</Link>
+              <Link to="/" className="footer-link">Free Trial</Link>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -1448,7 +1448,7 @@ function App() {
               <h4>Product</h4>
               <a href="#features" className="footer-link">Features</a>
               <a href="#pricing" className="footer-link">Pricing</a>
-              <Link to="/contact" className="footer-link">Free Trial</Link>
+              <Link to="/" className="footer-link">Free Trial</Link>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -2575,7 +2575,7 @@ function App() {
             <h4>Product</h4>
             <a href="#features" className="footer-link">Features</a>
             <a href="#pricing" className="footer-link">Pricing</a>
-            <Link to="/contact" className="footer-link">Free Trial</Link>
+             <Link to="/" className="footer-link">Free Trial</Link>
           </div>
           <div className="footer-section">
             <h4>Support</h4>

@@ -17,13 +17,6 @@ function ContactPage() {
           <h2>Get in Touch</h2>
           <p>Have questions, feedback, or need support? We'd love to hear from you! Our team typically responds within 24-48 hours.</p>
 
-          <h2>Business Email</h2>
-          <p>For general inquiries, support requests, or business matters:</p>
-          <div className="contact-email-box">
-            <span className="email-icon">✉️</span>
-            <a href="mailto:contact.jsmgax@gmail.com" className="contact-email">contact.jsmgax@gmail.com</a>
-          </div>
-
           <h2>What We Can Help With</h2>
           <ul>
             <li><strong>Technical Support</strong> — Issues with video analysis, features not working, or bugs</li>
