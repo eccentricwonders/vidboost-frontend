@@ -106,9 +106,6 @@ function ContactPage() {
             </div>
           )}
 
-          <h2>Response Time</h2>
-          <p>We aim to respond to all inquiries within <strong>24-48 hours</strong> during business days (Monday-Friday). For urgent technical issues affecting your subscription, we prioritize those requests.</p>
-
           <h2>Before You Contact Us</h2>
           <p>For faster assistance, you might find answers in these resources:</p>
           <ul>
