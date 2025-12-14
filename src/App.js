@@ -1476,6 +1476,8 @@ function App() {
       <header className="header">
         <Logo />
         <nav className="header-nav">
+          <Link to="/features" className="nav-link">Features</Link>
+          <Link to="/about" className="nav-link">About</Link>
           <a href="#pricing" className="nav-link">Pricing</a>
           <a href="#faq" className="nav-link">FAQ</a>
         </nav>
