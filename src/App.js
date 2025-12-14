@@ -1668,6 +1668,7 @@ function App() {
                   {/* Comparison Table */}
                   <div className="comparison-section">
                     <h3 className="trust-subtitle">How JSMGAX Compares</h3>
+                    <p style={{textAlign: 'center', color: '#888', fontSize: '14px', fontStyle: 'italic', marginBottom: '20px'}}>Competitor pricing and features verified as of December 2025</p>
                     <div className="comparison-table-container">
                       <table className="comparison-table">
                         <thead>
@@ -1740,7 +1741,7 @@ function App() {
                 </section>
 
                 {/* PRICING SECTION */}
-                <section className="pricing-section">
+                <section id="pricing" className="pricing-section">
                   <h2 className="section-title">Simple, Transparent Pricing</h2>
                   <p className="section-subtitle">
                     Start free, upgrade when you're ready. No hidden fees, cancel anytime.
@@ -1887,7 +1888,7 @@ function App() {
                 </section>
 
                 {/* FAQ SECTION */}
-                <section className="faq-section">
+                <section id="faq" className="faq-section">
                   <h2 className="section-title">Frequently Asked Questions</h2>
                   <p className="section-subtitle">Everything you need to know about JSMGAX</p>
                   
