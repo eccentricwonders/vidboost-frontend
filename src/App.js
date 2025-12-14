@@ -97,6 +97,12 @@ function App() {
 
   const MAX_FILE_SIZE = 25 * 1024 * 1024;
   const FREE_USES = 3;
+  const PREMIUM_MONTHLY_LIMIT = 50;
+  
+  // Premium monthly tracking state
+  const [premiumMonthlyUses, setPremiumMonthlyUses] = useState(0);
+  const [premiumResetDate, setPremiumResetDate] = useState(null);
+  const [showPremiumLimitReached, setShowPremiumLimitReached] = useState(false);
   
   // Admin emails - these accounts bypass all limits
   const ADMIN_EMAILS = [
@@ -115,6 +121,8 @@ function App() {
       const jsmgaxThumbnails = user.unsafeMetadata?.jsmgax_thumbnails_used || 0;
       const jsmgaxThumbReset = user.unsafeMetadata?.jsmgax_thumbnails_reset || null;
       const jsmgaxNotified = user.unsafeMetadata?.jsmgax_notified || false;
+      const jsmgaxPremiumUses = user.unsafeMetadata?.jsmgax_premium_monthly_uses || 0;
+      const jsmgaxPremiumReset = user.unsafeMetadata?.jsmgax_premium_reset_date || null;
       
       // Check if admin
       const userEmail = user.primaryEmailAddress?.emailAddress?.toLowerCase();
@@ -162,6 +170,36 @@ function App() {
       } else {
         setThumbnailsUsed(jsmgaxThumbnails);
         setThumbnailsResetDate(jsmgaxThumbReset);
+      }
+      
+      // Check if we need to reset premium monthly analysis count
+      const premiumResetDateObj = jsmgaxPremiumReset ? new Date(jsmgaxPremiumReset) : null;
+      if (jsmgaxPremium && premiumResetDateObj && now > premiumResetDateObj) {
+        // Reset premium analysis count for new month
+        setPremiumMonthlyUses(0);
+        const nextPremiumReset = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+        setPremiumResetDate(nextPremiumReset.toISOString());
+        user.update({ 
+          unsafeMetadata: { 
+            ...user.unsafeMetadata, 
+            jsmgax_premium_monthly_uses: 0,
+            jsmgax_premium_reset_date: nextPremiumReset.toISOString()
+          } 
+        });
+      } else if (jsmgaxPremium) {
+        setPremiumMonthlyUses(jsmgaxPremiumUses);
+        setPremiumResetDate(jsmgaxPremiumReset);
+        // Set reset date if not set (first premium user)
+        if (!jsmgaxPremiumReset) {
+          const nextPremiumReset = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+          setPremiumResetDate(nextPremiumReset.toISOString());
+          user.update({ 
+            unsafeMetadata: { 
+              ...user.unsafeMetadata, 
+              jsmgax_premium_reset_date: nextPremiumReset.toISOString()
+            } 
+          });
+        }
       }
       
       if (jsmgaxUses >= FREE_USES && !jsmgaxPremium) {
@@ -466,6 +504,12 @@ function App() {
       return;
     }
     
+    // Check premium monthly limit
+    if (isPremium && !isAdmin && premiumMonthlyUses >= PREMIUM_MONTHLY_LIMIT) {
+      setShowPremiumLimitReached(true);
+      return;
+    }
+    
     // For competitor analysis, only YouTube URLs are supported
     if (analysisMode === 'competitor') {
       if (!youtubeUrl) {
@@ -526,6 +570,19 @@ function App() {
             });
             setUsesLeft(FREE_USES - newUses);
           }
+          
+          // Update monthly uses for premium users
+          if (isPremium && !isAdmin && user) {
+            const currentMonthlyUses = user.unsafeMetadata?.jsmgax_premium_monthly_uses || 0;
+            const newMonthlyUses = currentMonthlyUses + 1;
+            await user.update({ 
+              unsafeMetadata: { 
+                ...user.unsafeMetadata, 
+                jsmgax_premium_monthly_uses: newMonthlyUses 
+              } 
+            });
+            setPremiumMonthlyUses(newMonthlyUses);
+          }
         } else {
           setError(data.error || 'Something went wrong');
           setCurrentView('upload');
@@ -582,6 +639,19 @@ function App() {
             } 
           });
           setUsesLeft(FREE_USES - newUses);
+        }
+        
+        // Update monthly uses for premium users
+        if (isPremium && !isAdmin && user) {
+          const currentMonthlyUses = user.unsafeMetadata?.jsmgax_premium_monthly_uses || 0;
+          const newMonthlyUses = currentMonthlyUses + 1;
+          await user.update({ 
+            unsafeMetadata: { 
+              ...user.unsafeMetadata, 
+              jsmgax_premium_monthly_uses: newMonthlyUses 
+            } 
+          });
+          setPremiumMonthlyUses(newMonthlyUses);
         }
       } else {
         setError(data.error || 'Something went wrong');
@@ -964,7 +1034,7 @@ function App() {
             <p className="tier-yearly">or $55/year (save $16.88)</p>
           </div>
           <ul className="tier-features">
-            <li>Unlimited video analyses</li>
+            <li>50 video analyses per month</li>
             <li>AI captions & SRT downloads</li>
             <li>Video scoring & hook analysis</li>
             <li>Thumbnail text suggestions</li>
@@ -1004,6 +1074,7 @@ function App() {
             <p className="tier-yearly">or $183/year (save $20.88)</p>
           </div>
           <ul className="tier-features">
+            <li><strong>Unlimited video analyses</strong></li>
             <li>Everything in Premium</li>
             <li><strong>Auto-Edit Videos</strong></li>
             <li><strong>Add AI Captions to Video</strong></li>
@@ -1279,7 +1350,7 @@ function App() {
             <div className="limit-card">
               <span className="limit-icon"></span>
               <h2>You've Used All 3 Free Analyses!</h2>
-              <p className="limit-subtitle">We hope you loved JSMGAX! Upgrade to Premium for unlimited analyses.</p>
+              <p className="limit-subtitle">We hope you loved JSMGAX! Upgrade to Premium for 50 analyses per month.</p>
               <div className="limit-stats">
                 <div className="stat-item">
                   <span className="stat-number">3</span>
@@ -1306,6 +1377,53 @@ function App() {
         )}
         {showTerms && <TermsModal />}
         {showPrivacy && <PrivacyModal />}
+        <footer className="footer">
+          <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link></p>
+        </footer>
+      </div>
+    );
+  }
+
+  // ============================================
+  // PREMIUM LIMIT REACHED VIEW
+  // ============================================
+
+  if (showPremiumLimitReached && isPremium) {
+    return (
+      <div className="app">
+        <header className="header">
+          <Logo />
+          <p className="tagline">AI-Powered Video Enhancement</p>
+          <div className="auth-buttons">
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
+        </header>
+        <main className="main-content">
+          <div className="limit-reached-section">
+            <div className="limit-card">
+              <span className="limit-icon">🚀</span>
+              <h2>You're a Power User!</h2>
+              <p className="limit-subtitle">You've used all 50 analyses this month. Your limit resets on the 1st.</p>
+              <div className="limit-stats">
+                <div className="stat-item">
+                  <span className="stat-number">50</span>
+                  <span className="stat-label">Analyses This Month</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">∞</span>
+                  <span className="stat-label">With Pro Tier</span>
+                </div>
+              </div>
+              <div className="limit-options">
+                <button className="premium-btn" onClick={() => window.location.href = 'mailto:contact.jsmgax@gmail.com?subject=Pro%20Tier%20Interest'}>Contact Us About Pro Tier</button>
+                <p className="limit-note">Pro Tier: Unlimited analyses + advanced features at $16.99/month (Coming Soon)</p>
+                <button className="secondary-btn" onClick={() => setShowPremiumLimitReached(false)} style={{marginTop: '20px'}}>Back to Dashboard</button>
+              </div>
+            </div>
+          </div>
+        </main>
         <footer className="footer">
           <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link></p>
         </footer>
@@ -1647,7 +1765,7 @@ function App() {
                       <div className="pricing-features">
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>Unlimited video analyses</span>
+                          <span>50 video analyses per month</span>
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
@@ -1690,6 +1808,10 @@ function App() {
                         <p className="pricing-yearly">Coming Soon</p>
                       </div>
                       <div className="pricing-features">
+                        <div className="pricing-feature">
+                          <span className="feature-check">✓</span>
+                          <span>Unlimited video analyses</span>
+                        </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
                           <span>Everything in Premium</span>
@@ -2095,7 +2217,7 @@ function App() {
                 <>
                   <div className="uses-counter">
                 <span className="uses-icon"></span>
-                <span className="uses-text">{isAdmin ? 'Admin - Unlimited' : isPremium ? 'Premium - Unlimited' : `${usesLeft} free analyses left`}</span>
+                <span className="uses-text">{isAdmin ? 'Admin - Unlimited' : isPremium ? `Premium - ${PREMIUM_MONTHLY_LIMIT - premiumMonthlyUses} of ${PREMIUM_MONTHLY_LIMIT} analyses left this month` : `${usesLeft} free analyses left`}</span>
               </div>
               {!isPremium && (
                 <button className="go-premium-btn" onClick={handlePremiumClick}>View Plans - Starting at $5.99/month</button>
@@ -2239,7 +2361,7 @@ function App() {
                 
                 {!isPremium && (
                   <div className="upgrade-prompt">
-                    <p>Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for unlimited analyses!</p>
+                    <p>Enjoying JSMGAX? <span className="upgrade-link" onClick={handlePremiumClick}>Upgrade to Premium</span> for 50 analyses per month!</p>
                   </div>
                 )}
                 
