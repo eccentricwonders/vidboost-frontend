@@ -1,0 +1,157 @@
+.legal-page {
+  min-height: 100vh;
+  background: var(--color-bg-dark);
+  color: var(--color-text-white);
+  padding: 40px 20px;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 48px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  color: var(--color-cyan);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+  color: var(--color-text-white);
+  transform: translateX(-4px);
+}
+
+.legal-page h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-text-white);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.last-updated {
+  text-align: center;
+  color: var(--color-text-gray);
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.legal-content {
+  line-height: 1.8;
+}
+
+.legal-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-cyan);
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.legal-content h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text-white);
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.legal-content p {
+  color: var(--color-text-gray);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.legal-content ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.legal-content li {
+  color: var(--color-text-gray);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.legal-content strong {
+  color: var(--color-text-white);
+  font-weight: 600;
+}
+
+.privacy-highlight {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 150, 255, 0.1));
+  border: 1px solid var(--color-cyan);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.privacy-highlight p {
+  color: var(--color-text-white);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 32px 24px;
+  }
+
+  .legal-page h1 {
+    font-size: 32px;
+  }
+
+  .legal-content h2 {
+    font-size: 24px;
+  }
+
+  .legal-content h3 {
+    font-size: 20px;
+  }
+
+  .legal-content p,
+  .legal-content li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-page {
+    padding: 20px 16px;
+  }
+
+  .legal-container {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .legal-page h1 {
+    font-size: 28px;
+  }
+
+  .legal-content h2 {
+    font-size: 22px;
+    margin-top: 32px;
+  }
+
+  .legal-content h3 {
+    font-size: 18px;
+  }
+
+  .privacy-highlight p {
+    font-size: 16px;
+  }
+}

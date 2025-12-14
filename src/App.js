@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import './App.css';
 import * as analytics from './analytics';
@@ -1043,7 +1044,7 @@ function App() {
         <label className="checkbox-container">
           <input type="checkbox" checked={agreedToTerms} onChange={(e) => setAgreedToTerms(e.target.checked)} />
           <span className="checkmark"></span>
-          <span className="checkbox-text">I have read and agree to the <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> <span className="checkbox-note">(must check box to select price plan)</span></span>
+          <span className="checkbox-text">I have read and agree to the <Link to="/terms" className="terms-link" target="_blank">Terms of Service</Link> <span className="checkbox-note">(must check box to select price plan)</span></span>
         </label>
       </div>
       <button className="secondary-btn" onClick={() => { setShowPaywall(false); setSelectedTier('premium'); setWaitlistJoined(false); setWaitlistEmail(''); }} style={{ marginTop: '10px' }}>← Maybe Later</button>
@@ -1306,7 +1307,7 @@ function App() {
         {showTerms && <TermsModal />}
         {showPrivacy && <PrivacyModal />}
         <footer className="footer">
-          <p>JSMGAX © 2025 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span></p>
+          <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link></p>
         </footer>
       </div>
     );
@@ -2449,7 +2450,7 @@ function App() {
       )}
       
       <footer className="footer">
-        <p>JSMGAX © 2025 | <span className="terms-link" onClick={() => setShowTerms(true)}>Terms of Service</span> | <span className="terms-link" onClick={() => setShowPrivacy(true)}>Privacy Policy</span> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
+        <p>JSMGAX © 2025 | <Link to="/terms" className="terms-link">Terms of Service</Link> | <Link to="/privacy" className="terms-link">Privacy Policy</Link> | <span className="terms-link" onClick={() => setShowSupportModal(true)}>Contact Us</span></p>
       </footer>
     </div>
   );
