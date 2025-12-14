@@ -11,13 +11,25 @@ function AboutPage() {
         <div className="terms-section">
           <h2>Built by a Mom, for Creators Like Her Son</h2>
           <p>
-            JSMGAX started when my son launched his YouTube channel with dreams of going viral. I watched him spend hours trying to figure out what worked - analyzing thumbnails, testing hooks, studying successful creators. I thought: "There has to be a better way."
+            JSMGAX was created with my son in mind.
           </p>
           <p>
-            So I built it - with the help of AI tools. I combined powerful AI technology from OpenAI with everything I learned about what makes videos succeed. JSMGAX is the tool I wish existed when my son started - something that could give him clear, actionable insights instead of endless guesswork.
+            He recently started a YouTube channel and, like so many young creators, he has big dreams of going viral. I watch him every day record video after video, trying to decide which one to post. When the views stayed low, I could see how discouraging that process became.
           </p>
           <p>
-            I'm sharing it with creators everywhere at a price that makes sense for people just starting out. We're a new platform, which means you get founding member pricing (locked in forever), direct access to me, and your feedback shapes what we build next.
+            As a parent, I wanted to do more than just say "keep going." I wanted to actually help.
+          </p>
+          <p>
+            That's when JSMGAX was born.
+          </p>
+          <p>
+            Using AI, I built a tool designed to take the guesswork out of content creation. JSMGAX analyzes videos before you post and gives real, actionable feedback. It looks at things like hooks, pacing, titles, thumbnails, captions, audio quality, calls-to-action, and even predicts viral potential. It also studies successful videos in your niche, tracks trends, suggests video ideas, generates scripts, captions, thumbnails, and helps creators optimize for platforms like YouTube, TikTok, and Instagram Reels.
+          </p>
+          <p>
+            The goal is simple: help creators feel more confident, make smarter decisions, and stay motivated instead of getting discouraged.
+          </p>
+          <p>
+            JSMGAX isn't just an app. It's something built from experience, empathy, and a genuine desire to help creators grow without burning out.
           </p>
           <p style={{fontStyle: 'italic', marginTop: '30px', color: '#00ffff'}}>
             - Samantha M., Founder of JSMGAX
