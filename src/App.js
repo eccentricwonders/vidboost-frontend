@@ -1382,8 +1382,8 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <a href="#features" className="footer-link">Features</a>
-              <a href="#pricing" className="footer-link">Pricing</a>
+              <Link to="/#features" className="footer-link">Features</Link>
+              <Link to="/#pricing" className="footer-link">Pricing</Link>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -1446,8 +1446,8 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <a href="#features" className="footer-link">Features</a>
-              <a href="#pricing" className="footer-link">Pricing</a>
+              <Link to="/#features" className="footer-link">Features</Link>
+              <Link to="/#pricing" className="footer-link">Pricing</Link>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -2583,8 +2583,8 @@ function App() {
         <div className="footer-content">
           <div className="footer-section">
             <h4>Product</h4>
-            <a href="#features" className="footer-link">Features</a>
-            <a href="#pricing" className="footer-link">Pricing</a>
+            <Link to="/#features" className="footer-link">Features</Link>
+            <Link to="/#pricing" className="footer-link">Pricing</Link>
           </div>
           <div className="footer-section">
             <h4>Support</h4>
