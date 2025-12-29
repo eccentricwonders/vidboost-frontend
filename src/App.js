@@ -1563,6 +1563,83 @@ function App() {
                   </div>
                 </section>
 
+                {/* COMPARISON SECTION */}
+                <section className="comparison-section">
+                  <h2 className="section-title">How JSMGAX Compares</h2>
+                  <p className="section-subtitle">
+                    Competitor pricing and features verified as of December 2025
+                  </p>
+                  
+                  <div className="comparison-table-container">
+                    <table className="comparison-table">
+                      <thead>
+                        <tr>
+                          <th>Feature</th>
+                          <th className="highlight-col">JSMGAX</th>
+                          <th>VidIQ</th>
+                          <th>TubeBuddy</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Monthly Price</td>
+                          <td className="highlight-col winner">$5.99</td>
+                          <td>$16.58</td>
+                          <td>$14.99</td>
+                        </tr>
+                        <tr>
+                          <td>Platforms Supported</td>
+                          <td className="highlight-col winner">YouTube, TikTok, Instagram</td>
+                          <td>YouTube only</td>
+                          <td>YouTube only</td>
+                        </tr>
+                        <tr>
+                          <td>AI Model</td>
+                          <td className="highlight-col winner">OpenAI GPT-4</td>
+                          <td>Proprietary</td>
+                          <td>Proprietary</td>
+                        </tr>
+                        <tr>
+                          <td>Free Analyses</td>
+                          <td className="highlight-col winner">3 full analyses</td>
+                          <td>Limited features</td>
+                          <td>Limited features</td>
+                        </tr>
+                        <tr>
+                          <td>Viral Prediction</td>
+                          <td className="highlight-col winner">✓ 0-100 score</td>
+                          <td>✓</td>
+                          <td>✓</td>
+                        </tr>
+                        <tr>
+                          <td>Thumbnail Generation</td>
+                          <td className="highlight-col winner">✓ DALL-E 3</td>
+                          <td className="feature-no">✗</td>
+                          <td className="feature-no">✗</td>
+                        </tr>
+                        <tr>
+                          <td>AI Script Writer</td>
+                          <td className="highlight-col winner">✓ Included</td>
+                          <td className="feature-no">✗</td>
+                          <td className="feature-no">✗</td>
+                        </tr>
+                        <tr>
+                          <td>Competitor Analysis</td>
+                          <td className="highlight-col winner">✓ 50/month</td>
+                          <td className="feature-limited">✓ Limited</td>
+                          <td className="feature-limited">✓ Limited</td>
+                        </tr>
+                        <tr>
+                          <td>Analysis Speed</td>
+                          <td className="highlight-col winner">&lt;60 seconds</td>
+                          <td>2-3 minutes</td>
+                          <td>2-3 minutes</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+
                 {/* PRICING SECTION */}
                 <section id="pricing" className="pricing-section">
                   <Helmet>
