@@ -1498,7 +1498,7 @@ function App() {
                 <Helmet>
                   <title>JSMGAX - Boost Your Content with AI Video Insights</title>
                   <meta name="title" content="JSMGAX - Boost Your Content with AI Video Insights" />
-                  <meta name="description" content="Family-built AI for content creators. Get instant analysis on hooks, thumbnails, pacing, SEO, and viral potential. Works with YouTube, TikTok, and Instagram." />
+                  <meta name="description" content="Family-built AI for content creators. Get instant analysis on hooks, thumbnails, pacing, and SEO. Works with YouTube, TikTok, and Instagram." />
                   <meta property="og:title" content="JSMGAX - Boost Your Content with AI Video Insights" />
                   <meta property="og:description" content="Family-built AI for content creators. Analyze your videos in under 60 seconds." />
                   <meta property="twitter:title" content="JSMGAX - Boost Your Content with AI Video Insights" />
@@ -1508,10 +1508,10 @@ function App() {
                 {/* HERO SECTION */}
                 <section className="hero-section">
                   <div className="hero-content">
-                    <h1 className="hero-title">Turn Any Video Into a Viral Hit with AI</h1>
+                    <h1 className="hero-title">Level Up Your Content with AI Analysis</h1>
                     <p className="hero-subtitle">
                       Stop guessing what works. Get AI-powered insights that analyze your videos for hooks, 
-                      thumbnails, pacing, SEO, and viral potential — all in under 60 seconds.
+                      thumbnails, pacing, and SEO — all in under 60 seconds.
                     </p>
                     <p className="hero-tagline">Family-Built AI for Content Creators</p>
                     <div className="hero-stats">
@@ -1907,7 +1907,7 @@ function App() {
 
                 {/* FINAL CTA */}
                 <section className="final-cta-section">
-                  <h2 className="final-cta-title">Ready to Make Your Next Video Go Viral?</h2>
+                  <h2 className="final-cta-title">Ready to See What JSMGAX Can Do for You?</h2>
                   <p className="final-cta-subtitle">
                     Join thousands of creators using AI to optimize their content and grow their audience
                   </p>
