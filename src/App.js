@@ -1381,13 +1381,13 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <a href="#features" className="footer-link">Features</a>
-              <a href="#pricing" className="footer-link">Pricing</a>
+              <a href="/#features" className="footer-link">Features</a>
+              <a href="/#pricing" className="footer-link">Pricing</a>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
               <Link to="/contact" className="footer-link">Contact Us</Link>
-              <a href="#faq" className="footer-link">FAQ</a>
+              <a href="/#faq" className="footer-link">FAQ</a>
               <Link to="/terms" className="footer-link">Terms of Service</Link>
               <Link to="/privacy" className="footer-link">Privacy Policy</Link>
             </div>
@@ -1445,13 +1445,13 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <a href="#features" className="footer-link">Features</a>
-              <a href="#pricing" className="footer-link">Pricing</a>
+              <a href="/#features" className="footer-link">Features</a>
+              <a href="/#pricing" className="footer-link">Pricing</a>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
               <Link to="/contact" className="footer-link">Contact Us</Link>
-              <a href="#faq" className="footer-link">FAQ</a>
+              <a href="/#faq" className="footer-link">FAQ</a>
               <Link to="/terms" className="footer-link">Terms of Service</Link>
               <Link to="/privacy" className="footer-link">Privacy Policy</Link>
             </div>
@@ -2663,13 +2663,13 @@ function App() {
         <div className="footer-content">
           <div className="footer-section">
             <h4>Product</h4>
-            <a href="#features" className="footer-link">Features</a>
-            <a href="#pricing" className="footer-link">Pricing</a>
+            <a href="/#features" className="footer-link">Features</a>
+            <a href="/#pricing" className="footer-link">Pricing</a>
           </div>
           <div className="footer-section">
             <h4>Support</h4>
             <Link to="/contact" className="footer-link">Contact Us</Link>
-            <a href="#faq" className="footer-link">FAQ</a>
+            <a href="/#faq" className="footer-link">FAQ</a>
             <Link to="/terms" className="footer-link">Terms of Service</Link>
             <Link to="/privacy" className="footer-link">Privacy Policy</Link>
           </div>
