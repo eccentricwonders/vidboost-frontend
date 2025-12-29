@@ -1380,11 +1380,6 @@ function App() {
         <footer className="footer">
           <div className="footer-content">
             <div className="footer-section">
-              <h4>Product</h4>
-              <a href="/#features" className="footer-link">Features</a>
-              <a href="/#pricing" className="footer-link">Pricing</a>
-            </div>
-            <div className="footer-section">
               <h4>Support</h4>
               <Link to="/contact" className="footer-link">Contact Us</Link>
               <a href="/#faq" className="footer-link">FAQ</a>
@@ -1443,11 +1438,6 @@ function App() {
         </main>
         <footer className="footer">
           <div className="footer-content">
-            <div className="footer-section">
-              <h4>Product</h4>
-              <a href="/#features" className="footer-link">Features</a>
-              <a href="/#pricing" className="footer-link">Pricing</a>
-            </div>
             <div className="footer-section">
               <h4>Support</h4>
               <Link to="/contact" className="footer-link">Contact Us</Link>
@@ -2661,11 +2651,6 @@ function App() {
       
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-section">
-            <h4>Product</h4>
-            <a href="/#features" className="footer-link">Features</a>
-            <a href="/#pricing" className="footer-link">Pricing</a>
-          </div>
           <div className="footer-section">
             <h4>Support</h4>
             <Link to="/contact" className="footer-link">Contact Us</Link>
