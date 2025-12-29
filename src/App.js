@@ -367,7 +367,7 @@ function App() {
   // Thumbnail limits per tier
   const getThumbnailLimit = () => {
     if (isAdmin) return 999; // Admin: unlimited
-    if (!isPremium) return 3; // Free: 3 total (lifetime)
+    if (!isPremium) return 1; // Free: 1 total (lifetime)
     // For now, Premium = 3/month, Pro = 20/month (Pro not implemented yet)
     return 3; // Premium: 3/month
   };
@@ -1599,7 +1599,7 @@ function App() {
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>3 AI thumbnails</span>
+                          <span>1 AI thumbnail</span>
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
