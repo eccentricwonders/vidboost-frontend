@@ -1381,8 +1381,8 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <Link to="/#features" className="footer-link">Features</Link>
-              <Link to="/#pricing" className="footer-link">Pricing</Link>
+              <a href="#features" className="footer-link">Features</a>
+              <a href="#pricing" className="footer-link">Pricing</a>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -1394,7 +1394,7 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>JSMGAX © 2025</p>
-            <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
           </div>
         </footer>
       </div>
@@ -1445,8 +1445,8 @@ function App() {
           <div className="footer-content">
             <div className="footer-section">
               <h4>Product</h4>
-              <Link to="/#features" className="footer-link">Features</Link>
-              <Link to="/#pricing" className="footer-link">Pricing</Link>
+              <a href="#features" className="footer-link">Features</a>
+              <a href="#pricing" className="footer-link">Pricing</a>
             </div>
             <div className="footer-section">
               <h4>Support</h4>
@@ -1458,7 +1458,7 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>JSMGAX © 2025</p>
-            <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
           </div>
         </footer>
       </div>
@@ -1504,6 +1504,17 @@ function App() {
             <SignedOut>
               {/* LANDING PAGE */}
               <div className="landing-page">
+                {/* MAIN PAGE SEO */}
+                <Helmet>
+                  <title>JSMGAX - Boost Your Content with AI Video Insights</title>
+                  <meta name="title" content="JSMGAX - Boost Your Content with AI Video Insights" />
+                  <meta name="description" content="Family-built AI for content creators. Get instant analysis on hooks, thumbnails, pacing, SEO, and viral potential. Works with YouTube, TikTok, and Instagram." />
+                  <meta property="og:title" content="JSMGAX - Boost Your Content with AI Video Insights" />
+                  <meta property="og:description" content="Family-built AI for content creators. Analyze your videos in under 60 seconds." />
+                  <meta property="twitter:title" content="JSMGAX - Boost Your Content with AI Video Insights" />
+                  <meta property="twitter:description" content="Family-built AI for content creators. Analyze your videos in under 60 seconds." />
+                </Helmet>
+
                 {/* HERO SECTION */}
                 <section className="hero-section">
                   <div className="hero-content">
@@ -1512,6 +1523,7 @@ function App() {
                       Stop guessing what works. Get AI-powered insights that analyze your videos for hooks, 
                       thumbnails, pacing, SEO, and viral potential — all in under 60 seconds.
                     </p>
+                    <p className="hero-tagline">Family-Built AI for Content Creators</p>
                     <div className="hero-stats">
                       <span className="hero-stat">3 Free Analyses</span>
                       <span className="hero-divider">•</span>
@@ -2651,8 +2663,8 @@ function App() {
         <div className="footer-content">
           <div className="footer-section">
             <h4>Product</h4>
-            <Link to="/#features" className="footer-link">Features</Link>
-            <Link to="/#pricing" className="footer-link">Pricing</Link>
+            <a href="#features" className="footer-link">Features</a>
+            <a href="#pricing" className="footer-link">Pricing</a>
           </div>
           <div className="footer-section">
             <h4>Support</h4>
@@ -2664,7 +2676,7 @@ function App() {
         </div>
         <div className="footer-bottom">
           <p>JSMGAX © 2025</p>
-          <p className="footer-tagline">Built with ❤️ by a mom for creators everywhere</p>
+          <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
         </div>
       </footer>
     </div>
