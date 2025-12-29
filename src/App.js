@@ -367,9 +367,9 @@ function App() {
   // Thumbnail limits per tier
   const getThumbnailLimit = () => {
     if (isAdmin) return 999; // Admin: unlimited
-    if (!isPremium) return 1; // Free: 1 total
+    if (!isPremium) return 3; // Free: 3 total (lifetime)
     // For now, Premium = 3/month, Pro = 20/month (Pro not implemented yet)
-    return 3; // Premium
+    return 3; // Premium: 3/month
   };
 
   const getThumbnailsRemaining = () => {
