@@ -1589,7 +1589,7 @@ function App() {
                         <h3 className="pricing-tier">Free</h3>
                         <div className="pricing-price">
                           <span className="price-amount">$0</span>
-                          <span className="price-period">/forever</span>
+                          <span className="price-period">/trial</span>
                         </div>
                       </div>
                       <div className="pricing-features">
