@@ -1041,7 +1041,6 @@ function App() {
             <li>Thumbnail text suggestions</li>
             <li>Pacing & CTA analysis</li>
             <li>Platform-specific feedback</li>
-            <li>Competitor research</li>
             <li>Title & description generator</li>
             <li>30+ hashtags per video</li>
             <li>3 AI thumbnails per month</li>
@@ -1617,10 +1616,6 @@ function App() {
                           <span className="feature-cross">✗</span>
                           <span>Unlimited analyses</span>
                         </div>
-                        <div className="pricing-feature disabled">
-                          <span className="feature-cross">✗</span>
-                          <span>Competitor research</span>
-                        </div>
                       </div>
                       <SignUpButton mode="modal">
                         <button className="pricing-btn pricing-btn-free">Get Started Free</button>
@@ -1645,10 +1640,6 @@ function App() {
                         </div>
                         <div className="pricing-feature">
                           <span className="feature-check">✓</span>
-                          <span>Analyze your content and competitors</span>
-                        </div>
-                        <div className="pricing-feature">
-                          <span className="feature-check">✓</span>
                           <span>3 AI thumbnails per month</span>
                         </div>
                         <div className="pricing-feature">
@@ -1669,7 +1660,7 @@ function App() {
                         </div>
                       </div>
                       <SignUpButton mode="modal">
-                        <button className="pricing-btn pricing-btn-premium">Start Premium Trial</button>
+                        <button className="pricing-btn pricing-btn-premium">Upgrade to Premium</button>
                       </SignUpButton>
                     </div>
 
