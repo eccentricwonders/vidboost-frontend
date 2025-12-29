@@ -1858,6 +1858,15 @@ body {
   font-style: italic;
 }
 
+.hero-tagline {
+  font-size: 16px;
+  color: var(--color-cyan);
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 /* ============================================
    FEATURES SECTION
    ============================================ */
