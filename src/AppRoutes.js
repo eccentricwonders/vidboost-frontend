@@ -8,6 +8,8 @@ import FeaturesPage from './FeaturesPage';
 import AboutPage from './AboutPage';
 import PricingPage from './PricingPage';
 import FAQPage from './FAQPage';
+import VidIQAlternativePage from './VidIQAlternativePage';
+import TubeBuddyAlternativePage from './TubeBuddyAlternativePage';
 
 function AppRoutes() {
   const location = useLocation();
@@ -27,6 +29,8 @@ function AppRoutes() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/pricing" element={<PricingPage />} />
       <Route path="/faq" element={<FAQPage />} />
+      <Route path="/vidiq-alternative" element={<VidIQAlternativePage />} />
+      <Route path="/tubebuddy-alternative" element={<TubeBuddyAlternativePage />} />
     </Routes>
   );
 }
