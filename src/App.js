@@ -1697,10 +1697,17 @@ function App() {
   );
 
   // ============================================
-  // LIMIT REACHED VIEW
+  // ROUTE TO STANDALONE PAGES FIRST
+  // ============================================
+  
+  const standalonePaths = ['/features', '/about', '/pricing', '/faq', '/contact', '/terms', '/privacy'];
+  const isStandalonePage = standalonePaths.includes(location.pathname);
+
+  // ============================================
+  // LIMIT REACHED VIEW (only on main app, not standalone pages)
   // ============================================
 
-  if (showLimitReached && !isPremium) {
+  if (showLimitReached && !isPremium && !isStandalonePage) {
     return (
       <div className="app">
         <header className="header">
@@ -1764,10 +1771,10 @@ function App() {
   }
 
   // ============================================
-  // PREMIUM LIMIT REACHED VIEW
+  // PREMIUM LIMIT REACHED VIEW (only on main app, not standalone pages)
   // ============================================
 
-  if (showPremiumLimitReached && isPremium) {
+  if (showPremiumLimitReached && isPremium && !isStandalonePage) {
     return (
       <div className="app">
         <header className="header">
