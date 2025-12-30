@@ -1223,14 +1223,13 @@ function App() {
               <li>✓ Platform feedback</li>
               <li>✓ 1 AI thumbnail</li>
             </ul>
-            <SignedOut>
+            {isSignedIn ? (
+              <Link to="/" className="secondary-btn" style={{display: 'block', textAlign: 'center', textDecoration: 'none'}}>Go to Dashboard</Link>
+            ) : (
               <SignUpButton mode="modal">
                 <button className="secondary-btn">Start Free</button>
               </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <Link to="/" className="secondary-btn">Go to Dashboard</Link>
-            </SignedIn>
+            )}
           </div>
           
           <div className="pricing-card featured">
@@ -1250,19 +1249,21 @@ function App() {
               <li>✓ 3 AI thumbnails per month</li>
               <li>✓ Priority support</li>
             </ul>
-            <SignedIn>
+            {isSignedIn ? (
               <button className="primary-btn" onClick={handlePremiumClick}>Upgrade to Premium</button>
-            </SignedIn>
-            <SignedOut>
+            ) : (
               <SignUpButton mode="modal">
                 <button className="primary-btn">Get Started</button>
               </SignUpButton>
-            </SignedOut>
+            )}
           </div>
         </div>
         
         <div className="comparison-section">
-          <h2>How We Compare</h2>
+          <h2 className="section-title" style={{textAlign: 'center', marginBottom: '8px'}}>How JSMGAX Compares</h2>
+          <p style={{textAlign: 'center', color: 'var(--color-text-dark)', marginBottom: '30px', fontSize: '14px'}}>
+            Competitor pricing and features verified as of December 2025
+          </p>
           <div className="comparison-table-container">
             <table className="comparison-table">
               <thead>
@@ -1281,34 +1282,52 @@ function App() {
                   <td>$14.99</td>
                 </tr>
                 <tr>
-                  <td>Platforms</td>
+                  <td>Platforms Supported</td>
                   <td className="winner">YouTube, TikTok, Instagram</td>
                   <td>YouTube only</td>
                   <td>YouTube only</td>
                 </tr>
                 <tr>
                   <td>AI Model</td>
-                  <td className="winner">OpenAI GPT-4</td>
+                  <td className="winner">OpenAI</td>
                   <td>Proprietary</td>
                   <td>Proprietary</td>
                 </tr>
                 <tr>
-                  <td>AI Thumbnails</td>
-                  <td className="winner">DALL-E 3</td>
+                  <td>Free Analyses</td>
+                  <td className="winner">3 full analyses</td>
+                  <td>Limited features</td>
+                  <td>Limited features</td>
+                </tr>
+                <tr>
+                  <td>Viral Prediction</td>
+                  <td className="winner">✓ 0-100 score</td>
+                  <td>✓</td>
+                  <td>✓</td>
+                </tr>
+                <tr>
+                  <td>Thumbnail Generation</td>
+                  <td className="winner">✓ DALL-E 3</td>
                   <td className="feature-no">✗</td>
-                  <td className="feature-limited">A/B Testing only</td>
+                  <td className="feature-no">✗</td>
                 </tr>
                 <tr>
                   <td>AI Script Writer</td>
-                  <td className="winner">✓</td>
+                  <td className="winner">✓ Included</td>
                   <td className="feature-no">✗</td>
                   <td className="feature-no">✗</td>
+                </tr>
+                <tr>
+                  <td>Competitor Analysis</td>
+                  <td className="winner">✓ 50/month</td>
+                  <td className="feature-limited">✓ Limited</td>
+                  <td className="feature-limited">✓ Limited</td>
                 </tr>
                 <tr>
                   <td>Analysis Speed</td>
                   <td className="winner">&lt;60 seconds</td>
-                  <td>Varies</td>
-                  <td>Varies</td>
+                  <td>2-3 minutes</td>
+                  <td>2-3 minutes</td>
                 </tr>
               </tbody>
             </table>
