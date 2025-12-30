@@ -6,6 +6,8 @@ import PrivacyPage from './PrivacyPage';
 import ContactPage from './ContactPage';
 import FeaturesPage from './FeaturesPage';
 import AboutPage from './AboutPage';
+import PricingPage from './PricingPage';
+import FAQPage from './FAQPage';
 
 function AppRoutes() {
   const location = useLocation();
@@ -23,6 +25,8 @@ function AppRoutes() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/features" element={<FeaturesPage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/pricing" element={<PricingPage />} />
+      <Route path="/faq" element={<FAQPage />} />
     </Routes>
   );
 }
