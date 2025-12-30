@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import './App.css';
@@ -10,6 +10,8 @@ function App() {
   const API_URL = 'https://vidboost-backend-production.up.railway.app';
   
   const { isSignedIn, user } = useUser();
+  const location = useLocation();
+  
   // Navigation state
   const [currentView, setCurrentView] = useState('upload'); // 'upload', 'analyzing', 'results'
   const [videoFile, setVideoFile] = useState(null);
@@ -1021,6 +1023,371 @@ function App() {
     </div>
   );
 
+  // ============================================
+  // STANDALONE PAGE COMPONENTS
+  // ============================================
+
+  const FeaturesPage = () => (
+    <div className="standalone-page">
+      <Helmet>
+        <title>Features - JSMGAX AI Video Analysis</title>
+        <meta name="description" content="Explore all JSMGAX features: AI video scoring, hook analysis, thumbnail generation, SEO optimization, and more." />
+      </Helmet>
+      <div className="page-content">
+        <h1 className="page-title">Features</h1>
+        <p className="page-subtitle">Everything you need to level up your content</p>
+        
+        <div className="features-grid">
+          <div className="feature-card">
+            <span className="feature-icon">🎯</span>
+            <h3>Video Scoring</h3>
+            <p>Get an overall score (0-100) based on hook strength, content value, engagement potential, clarity, and call-to-action effectiveness.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">🎣</span>
+            <h3>Hook Analysis</h3>
+            <p>Detailed breakdown of your first 5 seconds. See what works, what's missing, and get rewritten hooks you can use.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">🖼️</span>
+            <h3>AI Thumbnail Generator</h3>
+            <p>Generate eye-catching thumbnails with DALL-E 3. Choose from multiple styles: YouTube, minimal, dramatic, colorful, or professional.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">📝</span>
+            <h3>Title & Description Generator</h3>
+            <p>Get 5 SEO-optimized title options and a complete description with keywords and calls-to-action.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">#️⃣</span>
+            <h3>Hashtag Generator</h3>
+            <p>30+ hashtags per video: YouTube hashtags, TikTok/Instagram hashtags, and currently trending tags.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">⏱️</span>
+            <h3>Pacing Analysis</h3>
+            <p>Identify where viewers might drop off. Get specific suggestions to improve pacing and maintain energy throughout.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">📣</span>
+            <h3>CTA Recommendations</h3>
+            <p>Get the exact script for your calls-to-action, including where to place them and what tone works best.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">📱</span>
+            <h3>Platform Feedback</h3>
+            <p>See how your video performs on YouTube, TikTok, Instagram Reels, and LinkedIn with platform-specific optimization tips.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">🎙️</span>
+            <h3>Audio Analysis</h3>
+            <p>Speaking pace, filler words, energy levels, and vocal variety analysis to improve your delivery.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">🔍</span>
+            <h3>Competitor Research</h3>
+            <p>Analyze any public video to understand why it works. Reverse-engineer successful content in your niche.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">📊</span>
+            <h3>Niche Trend Detector</h3>
+            <p>Enter your niche and get trending topics, video ideas, keyword opportunities, and competitor insights.</p>
+          </div>
+          
+          <div className="feature-card">
+            <span className="feature-icon">✍️</span>
+            <h3>AI Script Writer</h3>
+            <p>Generate complete video scripts with hooks, sections, CTAs, and filming tips. Choose length and style.</p>
+          </div>
+        </div>
+        
+        <div className="page-cta">
+          <SignedOut>
+            <SignUpButton mode="modal">
+              <button className="primary-btn">Try Free - 3 Analyses</button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <Link to="/" className="primary-btn">Go to Dashboard</Link>
+          </SignedIn>
+        </div>
+      </div>
+    </div>
+  );
+
+  const AboutPage = () => (
+    <div className="standalone-page">
+      <Helmet>
+        <title>About Us - JSMGAX</title>
+        <meta name="description" content="JSMGAX is a family-built AI video analysis tool. Learn about our mission to help content creators succeed." />
+      </Helmet>
+      <div className="page-content">
+        <h1 className="page-title">About JSMGAX</h1>
+        <p className="page-subtitle">Family-Built AI for Content Creators</p>
+        
+        <div className="about-story">
+          <h2>Our Story</h2>
+          <p>JSMGAX started with a simple goal: help a family member's YouTube channel grow. What began as a personal project quickly evolved into something bigger when we realized how powerful AI-driven video analysis could be for all content creators.</p>
+          
+          <p>We're not a big tech company. We're a family working together to build tools that actually help creators improve their content. The name JSMGAX? It's our family initials plus "X" for the technology that powers it all.</p>
+          
+          <h2>Our Mission</h2>
+          <p>We believe every creator deserves access to the same insights that big channels use to grow. Our mission is to democratize video analysis — making professional-grade AI feedback accessible and affordable for creators at every level.</p>
+          
+          <h2>What Makes Us Different</h2>
+          <div className="about-values">
+            <div className="value-item">
+              <span className="value-icon">💰</span>
+              <div>
+                <h3>Affordable</h3>
+                <p>At $5.99/month, we're 3x cheaper than competitors like VidIQ and TubeBuddy. Quality insights shouldn't break the bank.</p>
+              </div>
+            </div>
+            
+            <div className="value-item">
+              <span className="value-icon">🤖</span>
+              <div>
+                <h3>Powered by GPT-4</h3>
+                <p>We use the most advanced AI available to analyze your content. No shortcuts, no outdated algorithms.</p>
+              </div>
+            </div>
+            
+            <div className="value-item">
+              <span className="value-icon">🔒</span>
+              <div>
+                <h3>Privacy First</h3>
+                <p>Your videos are analyzed and immediately deleted. We never store your content or sell your data.</p>
+              </div>
+            </div>
+            
+            <div className="value-item">
+              <span className="value-icon">❤️</span>
+              <div>
+                <h3>Built with Care</h3>
+                <p>As a family business, we actually use what we build. Every feature exists because we needed it ourselves.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h2>Contact Us</h2>
+          <p>Have questions, feedback, or just want to say hi? We'd love to hear from you.</p>
+          <p><strong>Email:</strong> contact.jsmgax@gmail.com</p>
+        </div>
+        
+        <div className="page-cta">
+          <SignedOut>
+            <SignUpButton mode="modal">
+              <button className="primary-btn">Get Started Free</button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <Link to="/" className="primary-btn">Go to Dashboard</Link>
+          </SignedIn>
+        </div>
+      </div>
+    </div>
+  );
+
+  const PricingPage = () => (
+    <div className="standalone-page">
+      <Helmet>
+        <title>Pricing - JSMGAX</title>
+        <meta name="description" content="JSMGAX pricing: Free tier with 3 analyses, Premium at $5.99/month. 3x cheaper than VidIQ and TubeBuddy." />
+      </Helmet>
+      <div className="page-content">
+        <h1 className="page-title">Simple, Transparent Pricing</h1>
+        <p className="page-subtitle">No hidden fees. Cancel anytime.</p>
+        
+        <div className="pricing-cards">
+          <div className="pricing-card">
+            <div className="pricing-header">
+              <h3>Free</h3>
+              <div className="pricing-price">$0</div>
+              <p className="pricing-period">/trial</p>
+            </div>
+            <ul className="pricing-features">
+              <li>✓ 3 video analyses (lifetime)</li>
+              <li>✓ Full AI-powered insights</li>
+              <li>✓ Video scoring & hook analysis</li>
+              <li>✓ Title & hashtag generator</li>
+              <li>✓ Platform feedback</li>
+              <li>✓ 1 AI thumbnail</li>
+            </ul>
+            <SignedOut>
+              <SignUpButton mode="modal">
+                <button className="secondary-btn">Start Free</button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <Link to="/" className="secondary-btn">Go to Dashboard</Link>
+            </SignedIn>
+          </div>
+          
+          <div className="pricing-card featured">
+            <div className="pricing-badge">Most Popular</div>
+            <div className="pricing-header">
+              <h3>Premium</h3>
+              <div className="pricing-price">$5.99</div>
+              <p className="pricing-period">/month</p>
+              <p className="pricing-yearly">or $55/year (save $16.88)</p>
+            </div>
+            <ul className="pricing-features">
+              <li>✓ 50 analyses per month</li>
+              <li>✓ Competitor video research</li>
+              <li>✓ AI captions & SRT downloads</li>
+              <li>✓ Niche trend detector</li>
+              <li>✓ AI script writer</li>
+              <li>✓ 3 AI thumbnails per month</li>
+              <li>✓ Priority support</li>
+            </ul>
+            <SignedIn>
+              <button className="primary-btn" onClick={handlePremiumClick}>Upgrade to Premium</button>
+            </SignedIn>
+            <SignedOut>
+              <SignUpButton mode="modal">
+                <button className="primary-btn">Get Started</button>
+              </SignUpButton>
+            </SignedOut>
+          </div>
+        </div>
+        
+        <div className="comparison-section">
+          <h2>How We Compare</h2>
+          <div className="comparison-table-container">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="highlight-col">JSMGAX</th>
+                  <th>VidIQ</th>
+                  <th>TubeBuddy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly Price</td>
+                  <td className="winner">$5.99</td>
+                  <td>$16.58</td>
+                  <td>$14.99</td>
+                </tr>
+                <tr>
+                  <td>Platforms</td>
+                  <td className="winner">YouTube, TikTok, Instagram</td>
+                  <td>YouTube only</td>
+                  <td>YouTube only</td>
+                </tr>
+                <tr>
+                  <td>AI Model</td>
+                  <td className="winner">OpenAI GPT-4</td>
+                  <td>Proprietary</td>
+                  <td>Proprietary</td>
+                </tr>
+                <tr>
+                  <td>AI Thumbnails</td>
+                  <td className="winner">DALL-E 3</td>
+                  <td className="feature-no">✗</td>
+                  <td className="feature-limited">A/B Testing only</td>
+                </tr>
+                <tr>
+                  <td>AI Script Writer</td>
+                  <td className="winner">✓</td>
+                  <td className="feature-no">✗</td>
+                  <td className="feature-no">✗</td>
+                </tr>
+                <tr>
+                  <td>Analysis Speed</td>
+                  <td className="winner">&lt;60 seconds</td>
+                  <td>Varies</td>
+                  <td>Varies</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const FAQPage = () => (
+    <div className="standalone-page">
+      <Helmet>
+        <title>FAQ - JSMGAX</title>
+        <meta name="description" content="Frequently asked questions about JSMGAX AI video analysis tool." />
+      </Helmet>
+      <div className="page-content">
+        <h1 className="page-title">Frequently Asked Questions</h1>
+        <p className="page-subtitle">Got questions? We've got answers.</p>
+        
+        <div className="faq-list">
+          <div className="faq-item">
+            <h3>What is JSMGAX?</h3>
+            <p>JSMGAX is an AI-powered video analysis tool that helps content creators improve their videos. We analyze your content for hooks, pacing, SEO, thumbnails, and more — giving you actionable feedback in under 60 seconds.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>How does it work?</h3>
+            <p>Upload a video file or paste a YouTube/TikTok URL. Our AI (powered by GPT-4) transcribes and analyzes your content across 10+ dimensions, then provides detailed feedback and suggestions.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What platforms do you support?</h3>
+            <p>We analyze content for YouTube, TikTok, and Instagram Reels. You can upload video files directly or paste URLs from YouTube.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>Is my video data safe?</h3>
+            <p>Absolutely. Your videos are processed and immediately deleted — we never store your content. We also don't sell your data. See our Privacy Policy for full details.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>How accurate is the analysis?</h3>
+            <p>Our analysis is powered by OpenAI's GPT-4, one of the most advanced AI models available. While no AI is perfect, our insights are based on patterns from thousands of successful videos. We recommend using our feedback as guidance alongside your own creative judgment.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What's included in the free tier?</h3>
+            <p>Free users get 3 full video analyses (lifetime). Each analysis includes video scoring, hook analysis, title suggestions, hashtags, pacing feedback, platform optimization, and more. You also get 1 AI-generated thumbnail.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What does Premium include?</h3>
+            <p>Premium ($5.99/month) gives you 50 analyses per month, competitor video research, the niche trend detector, AI script writer, 3 AI thumbnails per month, and priority support.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>Can I cancel anytime?</h3>
+            <p>Yes! You can cancel your subscription at any time. You'll keep access until the end of your billing period.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>Do you offer refunds?</h3>
+            <p>Due to the nature of AI services (immediate value delivery), we don't offer refunds. We recommend trying the free tier first to make sure JSMGAX is right for you.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>How do I contact support?</h3>
+            <p>Email us at contact.jsmgax@gmail.com. We typically respond within 24-48 hours.</p>
+          </div>
+        </div>
+        
+        <div className="page-cta">
+          <p>Still have questions?</p>
+          <Link to="/contact" className="secondary-btn">Contact Us</Link>
+        </div>
+      </div>
+    </div>
+  );
+
   const PaywallContent = () => (
     <div className="paywall-card paywall-two-tier">
       <h2>Choose Your Plan</h2>
@@ -1459,6 +1826,192 @@ function App() {
   // MAIN RENDER
   // ============================================
 
+  // Route to standalone pages
+  if (location.pathname === '/features') {
+    return (
+      <div className="app">
+        <header className="header">
+          <Logo />
+          <nav className="header-nav">
+            <Link to="/features" className="nav-link">Features</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
+            <Link to="/faq" className="nav-link">FAQ</Link>
+          </nav>
+          <div className="auth-buttons">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="auth-btn sign-in-btn">Sign In</button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="auth-btn sign-up-btn">Sign Up Free</button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
+        </header>
+        <FeaturesPage />
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <Link to="/faq" className="footer-link">FAQ</Link>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (location.pathname === '/about') {
+    return (
+      <div className="app">
+        <header className="header">
+          <Logo />
+          <nav className="header-nav">
+            <Link to="/features" className="nav-link">Features</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
+            <Link to="/faq" className="nav-link">FAQ</Link>
+          </nav>
+          <div className="auth-buttons">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="auth-btn sign-in-btn">Sign In</button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="auth-btn sign-up-btn">Sign Up Free</button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
+        </header>
+        <AboutPage />
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <Link to="/faq" className="footer-link">FAQ</Link>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (location.pathname === '/pricing') {
+    return (
+      <div className="app">
+        <header className="header">
+          <Logo />
+          <nav className="header-nav">
+            <Link to="/features" className="nav-link">Features</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
+            <Link to="/faq" className="nav-link">FAQ</Link>
+          </nav>
+          <div className="auth-buttons">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="auth-btn sign-in-btn">Sign In</button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="auth-btn sign-up-btn">Sign Up Free</button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
+        </header>
+        <PricingPage />
+        {showPaywall && (
+          <div className="paywall-overlay" onClick={(e) => { if (e.target.className === 'paywall-overlay') setShowPaywall(false); }}>
+            <PaywallContent />
+          </div>
+        )}
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <Link to="/faq" className="footer-link">FAQ</Link>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  if (location.pathname === '/faq') {
+    return (
+      <div className="app">
+        <header className="header">
+          <Logo />
+          <nav className="header-nav">
+            <Link to="/features" className="nav-link">Features</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
+            <Link to="/faq" className="nav-link">FAQ</Link>
+          </nav>
+          <div className="auth-buttons">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="auth-btn sign-in-btn">Sign In</button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="auth-btn sign-up-btn">Sign Up Free</button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
+        </header>
+        <FAQPage />
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h4>Support</h4>
+              <Link to="/contact" className="footer-link">Contact Us</Link>
+              <Link to="/faq" className="footer-link">FAQ</Link>
+              <Link to="/terms" className="footer-link">Terms of Service</Link>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>JSMGAX © 2025</p>
+            <p className="footer-tagline">Built with ❤️ by a family, for creators everywhere</p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       <header className="header">
@@ -1466,8 +2019,8 @@ function App() {
         <nav className="header-nav">
           <Link to="/features" className="nav-link">Features</Link>
           <Link to="/about" className="nav-link">About</Link>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#faq" className="nav-link">FAQ</a>
+          <Link to="/pricing" className="nav-link">Pricing</Link>
+          <Link to="/faq" className="nav-link">FAQ</Link>
         </nav>
         <div className="auth-buttons">
           <SignedOut>
