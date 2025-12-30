@@ -2863,3 +2863,285 @@ body {
     font-size: 14px;
   }
 }
+
+/* ============================================
+   STANDALONE PAGES (Features, About, Pricing, FAQ)
+   ============================================ */
+
+.standalone-page {
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+}
+
+.page-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 48px;
+  color: var(--color-white);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.page-subtitle {
+  font-size: 20px;
+  color: var(--color-text-gray);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Features Page */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.feature-card {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-cyan);
+}
+
+.feature-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  color: var(--color-white);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: var(--color-text-gray);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* About Page */
+.about-story {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.about-story h2 {
+  color: var(--color-cyan);
+  font-size: 24px;
+  margin: 32px 0 16px;
+}
+
+.about-story h2:first-child {
+  margin-top: 0;
+}
+
+.about-story p {
+  color: var(--color-text-gray);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.value-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.value-item .value-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.value-item h3 {
+  color: var(--color-white);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.value-item p {
+  color: var(--color-text-gray);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Pricing Page */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.pricing-card {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+}
+
+.pricing-card.featured {
+  border-color: var(--color-cyan);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, transparent 100%);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-cyan);
+  color: var(--color-bg);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.pricing-header h3 {
+  color: var(--color-white);
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.pricing-price {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-cyan);
+}
+
+.pricing-period {
+  color: var(--color-text-gray);
+  font-size: 16px;
+}
+
+.pricing-yearly {
+  color: var(--color-text-dark);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.pricing-features li {
+  color: var(--color-text-gray);
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-card .primary-btn,
+.pricing-card .secondary-btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+/* FAQ Page */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.faq-item h3 {
+  color: var(--color-white);
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.faq-item p {
+  color: var(--color-text-gray);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Page CTA */
+.page-cta {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.page-cta p {
+  color: var(--color-text-gray);
+  margin-bottom: 16px;
+}
+
+.page-cta .primary-btn,
+.page-cta .secondary-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Responsive Standalone Pages */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 32px;
+  }
+  
+  .page-subtitle {
+    font-size: 16px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-story {
+    padding: 24px;
+  }
+}
